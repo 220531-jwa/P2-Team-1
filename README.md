@@ -1,57 +1,94 @@
 # P2-Team-1
 
-Web Store:
-item/$$$ Transactions
 
-Buyers/Sellers/Administrators
+# E-Commerce App:
+
+Slogan: A dollar saved is a dollar in your pocket. 
+
+# Description:
+
+Achieve, Inc. brings you Achieve, the latest and greatest online game purchasing store! We have all the hit titles from SoftCircle Enicks, Tinendo, MacroHard, Boniey, and RubySoft. Browse our catalog chock full of all the top games all your friends are raving about! And when you’re ready to purchase, sign up for an account with us to access exclusive deals and discounts! 
+
+# Features:
+
+Buyers can search through a catalog of products and checkout using credit card details.
+
+Sellers will be able to update product descriptions, prices, and inventory supply as well as create new products for submission to be sold.
+
+Administrators are capable of managing tickets from buyers/sellers and deleting inventory once it is no longer produced.
+
+For more information, contact the project team listed below:
+
+# Project Team
 
 
-User Stories:
+Nathan Cho
 
-Buyers:
+Katie Corbett
 
-To be able to see items for sale
+Andrea Lopez
 
-Possess cart
+Trevor Rowand
 
--Create accounts
 
--Add items to cart
 
--Remove items from cart
+# Web Store:
+- item/$$$ Transactions
 
--Checkout
+- Buyers/Sellers/Administrators
 
--Create ticket
 
--Credit Card / Debit Card information
+##User Stories:
 
-Sellers:
+# Buyers:
 
--Create accounts
+- To be able to see items for sale
 
--Create tickets
+- Possess cart
 
--Add items for sale
+- Create accounts
 
--Update items (new price, new description, etc.)
+- Add items to cart
 
--Remove items
+- Remove items from cart
 
-Administrators:
+- Checkout
 
-Check Inventory
+- Create ticket
 
-Adjust Stock
+- Credit Card / Debit Card information
+
+# Sellers:
+
+- Create accounts
+
+- Create tickets
+
+- Add items for sale
+
+- Update items (new price, new description, etc.)
+
+- Remove items
+
+- Administrators:
+
+- Check Inventory
+
+- Adjust Stock
 
 Respond to tickets
 
-**STRETCH GOALS:**
+# STRETCH GOALS:
 
--Search function 
+- Search function 
 
--Image upload for items (sellers)
+- Image upload for items (sellers)
 
--Set Discounts (Sellers)
+- Set Discounts (Sellers)
+
+- New account 5% off first purchase!!!
+
+- Earn points towards other rewards using purchase totals
+
 
 
