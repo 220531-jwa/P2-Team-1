@@ -23,6 +23,12 @@ public class BuyerPage {
 	@FindBy(xpath="//*[@id=\"addBalance\"]/button")
 	public WebElement addBalanceBtn;
 	
+	@FindBy(xpath="//*[@id=\"newBalanceAlert\"]")
+	public WebElement addBalanceSuccess;
 	
+	@FindBy(xpath="/html/body/container[3]/button[1]")
+	public WebElement browseProductsBtn;
 	
+	@FindBy(xpath="/html/body/container[3]/button[2]")
+	public WebElement submitSupportTicketBtn;
 }

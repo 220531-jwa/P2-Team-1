@@ -24,7 +24,7 @@ public class UserDAO {
 			ResultSet rs1 = getter.executeQuery();
 			
 			if(rs1.next()) {
-				bal = rs1.getDouble("cost") + amount; //adding to make bal = current + deposit
+				bal = rs1.getDouble("balance") + amount; //adding to make bal = current + deposit
 			}
 			else return -1;
 			
