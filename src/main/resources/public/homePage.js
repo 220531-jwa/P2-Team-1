@@ -1,18 +1,22 @@
 let baseUrl = 'http://localhost:8081/'
 
 function home(){
+
     if(sessionStorage.activeUser != null){
+        console.log(sessionStorage.activeUser);
         pullAccount();
+        document.getElementById('loginLink').setAttribute('hidden', 'hidden');
     }
 }
 
 function pullAccount(){
-        let activeUser = sessionStorage.getItem('activeUser');
+        let activeUser = JSON.parse(sessionStorage.activeUser);
         document.getElementById('userMessage').innerHTML = `Hello, ${activeUser.name} what would you like to do today?`
 }
 
 async function addBal(){
     let amount = document.getElementById('balanceInput').value;
+    let activeUser = JSON.parse(sessionStorage.activeUser);
 
     let res = await fetch(
         `${baseUrl}user/${activeUser.id}/balance`,
@@ -44,4 +48,12 @@ function  toggleError(id){
         x.removeAttribute('hidden');
     }
     else x.setAttribute('hidden', 'hidden');
+}
+
+function browseProducts(){
+    window.location = 'http://localhost:8081/productPage.html';
+}
+
+function supportTicket(){
+    window.location = 'http://localhost:8081/newTicket.html';
 }

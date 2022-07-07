@@ -15,5 +15,5 @@ Scenario: Buyer is able to add money to their account
 Scenario: Buyer is able to create an Admin request Ticket
 	Given test buyer account is loaded
 	And a buyer is on the home page
-	When the buyer adds to their balance
-	Then the new balance should be displayed
+	When the buyer presses submit support ticket
+	Then buyer is redirected to submit ticket page
