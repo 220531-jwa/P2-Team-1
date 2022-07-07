@@ -1,0 +1,32 @@
+package stepDefinitions;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.time.Duration;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import pages.CartListPage;
+import pages.ItemPage;
+import runner.CartAddRunner;
+import runner.CartDeleteRunner;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class BuyerSteps {
+private WebDriver driver = CartAddRunner.driver;
+private ItemPage itemPage = CartAddRunner.itemPage;
+
+@Given("a Buyer is on the Home")
+
+@When("")
+
+@Then("")
+
+
+}

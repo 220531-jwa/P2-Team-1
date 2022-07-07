@@ -1,0 +1,5 @@
+driver=org.postgresql.Driver
+url=dbc:postgresql://db-cho-rev.cifyvu2wfg5t.us-west-1.rds.amazonaws.com:5432/postgres?currentSchema=reimbursementapp
+
+username=admincho
+password=correcthorsebatterystaple
