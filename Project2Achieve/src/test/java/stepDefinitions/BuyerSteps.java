@@ -2,25 +2,42 @@ package stepDefinitions;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.io.File;
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import pages.CartListPage;
 import pages.ItemPage;
-import runner.CartAddRunner;
-import runner.CartDeleteRunner;
-
+import runner.CartRunner;
+import io.cucumber.java.AfterAll;
+import io.cucumber.java.BeforeAll;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class BuyerSteps {
-private WebDriver driver = CartAddRunner.driver;
-private ItemPage itemPage = CartAddRunner.itemPage;
+public static WebDriver driver = CartRunner.driver;
+public static CartListPage cartListPage = CartRunner.cartListPage;
+public static ItemPage itemPage = CartRunner.itemPage;
+
+@BeforeAll
+public static void setup() {
+	File chrome = new File("src/test/resources/chromedriver.exe");
+	System.setProperty("webdriver.chrome.driver", chrome.getAbsolutePath());
+	driver = new ChromeDriver();
+	cartListPage = new CartListPage(driver);
+	itemPage = new ItemPage(driver);
+}
+
+@AfterAll
+public static void teardown() {
+//	driver.quit();
+}
 
 @Given("a Buyer is on the ItemPage")
 public void a_buyer_is_on_the_item_page() {
@@ -37,8 +54,6 @@ public void the_element_should_be_added_to_the_cart() {
 	
 }
 
-private WebDriver driver1 = CartDeleteRunner.driver;
-private CartListPage cartListPage = CartDeleteRunner.cartListPage;
 
 @Given("a Buyer is on the CartListPage")
 public void a_buyer_is_on_the_cart_list_page() {
