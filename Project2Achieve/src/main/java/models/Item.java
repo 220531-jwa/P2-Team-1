@@ -1,0 +1,56 @@
+package models;
+
+public class Item {
+	
+	private String name;
+	private double cost;
+	private String desc;
+	private int id;
+	private int sellerId;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public double getCost() {
+		return cost;
+	}
+	public void setCost(double cost) {
+		this.cost = cost;
+	}
+	public String getDesc() {
+		return desc;
+	}
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public int getSellerId() {
+		return sellerId;
+	}
+	public void setSellerId(int sellerId) {
+		this.sellerId = sellerId;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	private int quantity;
+	
+	public Item(String name, double cost, String desc, int id, int sellerId) {
+		this.name = name;
+		this.cost = cost;
+		this.desc = desc;
+		this.id = id;
+		this.sellerId = sellerId;
+	}
+}
