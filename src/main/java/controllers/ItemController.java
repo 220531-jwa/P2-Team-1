@@ -1,5 +1,6 @@
 package controllers;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,4 +29,7 @@ public class ItemController {
 		}
 		
 	}
+=======
+public class ItemController {
+>>>>>>> origin/katie_corbett
 }

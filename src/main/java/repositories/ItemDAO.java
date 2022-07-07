@@ -1,5 +1,6 @@
 package repositories;
 
+<<<<<<< HEAD
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -43,4 +44,9 @@ public class ItemDAO {
 			return null;
 		}
 	}
+=======
+public class ItemDAO {
+
+
+>>>>>>> origin/katie_corbett
 }

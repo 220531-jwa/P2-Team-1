@@ -1,5 +1,6 @@
 package services;
 
+<<<<<<< HEAD
 import java.util.List;
 
 import models.Item;
@@ -15,4 +16,7 @@ public class ItemService {
 	public List<Item> getAllItems(){
 		return id.getAllItems();
 	}
+=======
+public class ItemService {
+>>>>>>> origin/katie_corbett
 }
