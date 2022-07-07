@@ -23,6 +23,9 @@ public class Main {
             path("/createAccount", () -> {
                 post(UserController::createUser);
             });
+            path("/login", () -> {
+
+            });
         });
 
 

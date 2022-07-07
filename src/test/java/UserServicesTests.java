@@ -61,4 +61,19 @@ public class UserServicesTests {
         assertEquals(false, mockUs.checkUniqueUsername("Josh"));
 
     }
+
+    @Test
+    public void should_loginUser(){
+
+    }
+
+    @Test
+    public void should_notLoginUserBadUName(){
+
+    }
+
+    @Test
+    public void should_notLoginUserBadPW(){
+
+    }
 }
