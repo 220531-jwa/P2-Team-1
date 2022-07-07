@@ -46,5 +46,11 @@ public class Item {
 	}
 	private int quantity;
 	
-	
+	public Item(String name, double cost, String desc, int id, int sellerId) {
+		this.name = name;
+		this.cost = cost;
+		this.desc = desc;
+		this.id = id;
+		this.sellerId = sellerId;
+	}
 }
