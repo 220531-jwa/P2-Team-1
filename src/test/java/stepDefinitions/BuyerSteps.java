@@ -34,7 +34,7 @@ public class BuyerSteps {
 	
 	@AfterAll
 	public static void teardown() {
-//		driver.quit();
+		driver.quit();
 	}
 	
 //----------GENERAL TEST ACCOUNT LOADING STEP ------------------------------------
@@ -95,4 +95,15 @@ public class BuyerSteps {
 		
 		assertEquals("New Ticket", driver.getTitle());
 	}
+	
+	@When("the buyer fills in all the required fields and submits")
+	public void the_buyer_fills_in_all_the_required_fields_and_submits() {
+		
+	}
+
+	@Then("buyer is redirected to view ticket")
+	public void buyer_is_redirected_to_view_ticket() {
+		
+	}
+
 }
