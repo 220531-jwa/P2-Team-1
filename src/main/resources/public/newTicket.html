@@ -5,20 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Ticket</title>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
-
-    <div class="input-group w-50">
-        Status:
-        <div class="w-100" style="width:200px;"> 
-            <select class = "form-select " id="status">
-                <option value="pass">In Stock</option>
-                <option value="fail">Out of Stock</option>
-            </select>
-        </div>
+    <div class="h5 p-2">
+        Enter your support request information below:
     </div>
-    <br/>
-  
+
+    <label class="input-group w-50 p-2">
+        Subject:
+        <input class="form-control p-2 w-100">
+    </label>
+
     <label class="input-group w-50">
         Decription:
         <textarea class="form-control w-100" id="desc" type="text" placeholder="Type description here (limit 1000 characters)"> 
@@ -26,14 +25,9 @@
     </label>
     <br/>
 
-    <br/>
-    <label class="input-group w-50">
-        Submission Date:
-        <input  class="form-control w-100" id="submitdate" type="date" placeholder="Event Date YYYY-MM-DD"> <!--need to code in a date selector here-->
-    </label>
-    <br/>
-
     <button type="button" class="w-30 btn btn-primary" onclick="newTicket()">New Ticket</button>
     
+    <script src="./newTicket.js"></script>
+    <script src="./js/bootstrap.js"></script>
 </body>
 </html>
