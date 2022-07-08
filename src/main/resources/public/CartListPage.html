@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart List Page</title>
     <link rel="stylesheet" href="css/bootstrap.css">
-    <script src="./CartScript.js"></script>
+    
 </head>
 <body>
     <div>
+
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -21,6 +22,7 @@
                 </tr>
             </thead>
             <tbody id="CartBody">
+                <button id="getTableData" type="button" onclick="populateCart()">Get Cart</button>
 
 
             </tbody>
@@ -32,7 +34,8 @@
 
 
     </div>
-
+    <script src="./CartScript.js"></script>
     <script src="./js/bootstrap.js"></script>
+    
 </body>
 </html>

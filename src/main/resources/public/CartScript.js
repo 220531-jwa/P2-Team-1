@@ -1,9 +1,9 @@
-let baseUrl = "http://localhost:8080";
+let baseUrl = "http://localhost:8081";
 let totalCost = 0.00;
 const Cartarr = [];
 
 async function getItemData(){
-    let res = await fetch(`${baseUrl}/items`);//the url where we're sending this request.
+    let res = await fetch(`${baseUrl}/item`);//the url where we're sending this request.
 
 if(res.status == 200){
     let data = await res.json()
@@ -33,8 +33,8 @@ function appendItemData(data){
         btn.className = "btn btn-primary";
         btn.onclick = addToCart(data[i]);
 
-        li.innerHTML = "Name: \n" + data[i].name + "\nCost: $" + data[i].cost + "\nDescription: \n" + data[i].description
-        + "\nStock: " + data[i].inventory + "\n" + btn + "\n";
+        li.innerHTML = "Name: \n" + data[i].name + "\nCost: $" + data[i].cost + "\nDescription: \n" + data[i].desc
+        + "\n" + btn + "\n";
 
         mainContainer.appendChild(li);
 
@@ -60,6 +60,8 @@ Cartarr.push(item);
 }
 
 function populateCart(){
+    var mainContainer = document.getElementById("CartBody")
+
     var tr = document.createElement("tr");
     for(x = 0; x < Cartarr.length; x++){
         var th = document.createElement("th");
@@ -69,22 +71,23 @@ function populateCart(){
         btn.onclick = removeFromCart(x);
         th.scope = "row";
         th.innerHTML = x+1;
-        tr.appendChild(tr);
+        tr.appendChild(th);
         var td = document.createElement("td");
         td.innerHTML = Cartarr[x].name;
         tr.appendChild("td");
         td.innerHTML = Cartarr[x].cost;
         tr.appendChild("td");
-        td.innerHTML = Cartarr[x].description;
-        tr.appendChild("td");
-        td.innerHTML = Cartarr[x].inventory;
+        td.innerHTML = Cartarr[x].desc;
         tr.appendChild("td");
         td.innerHTML = btn;
         tr.appendChild("td");
+
+        mainContainer.appendChild("tr");
     }
 }
 
 function removeFromCart(x){
     Cartarr.splice(x, 1);
+    totalCost = totalCost - Cartarr[x].cost;
     window.location.assign("CartListPage.html");
 }

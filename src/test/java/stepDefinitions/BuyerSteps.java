@@ -41,12 +41,13 @@ public static void teardown() {
 
 @Given("a Buyer is on the ItemPage")
 public void a_buyer_is_on_the_item_page() {
+	driver.get("http://localhost:8081/ItemPage.html");
 	
 }
 
 @When("the Buyer clicks the CartButton")
 public void the_buyer_clicks_the_cart_button() {
-	
+	itemPage.pageAddButton.click();
 }
 
 @Then("The Element should be added to the Cart")
@@ -57,12 +58,12 @@ public void the_element_should_be_added_to_the_cart() {
 
 @Given("a Buyer is on the CartListPage")
 public void a_buyer_is_on_the_cart_list_page() {
-	
+	driver.get("http://localhost:8081/CartListPage");
 }
 
 @When("the Buyer clicks the RemoveCartButton")
 public void the_buyer_clicks_the_remove_cart_button() {
-	
+	cartListPage.pageDeleteButton.click();
 }
 
 @Then("The Item should be removed from the Buyer Cart")
