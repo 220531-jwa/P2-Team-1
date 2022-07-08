@@ -1,4 +1,5 @@
 let baseUrl = "http://localhost:8081";
+let activeUser = sessionStorage.activeUser;
 let totalCost = 0.00;
 const Cartarr = [];
 

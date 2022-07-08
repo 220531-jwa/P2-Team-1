@@ -1,6 +1,5 @@
 Feature: Submit new ticket page works
 
-
 Scenario: Buyer can create new support ticket
 	Given test buyer account is loaded
 	And a buyer is on the submit new ticket page
