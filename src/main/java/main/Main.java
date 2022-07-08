@@ -1,9 +1,5 @@
 package main;
 
-import static io.javalin.apibuilder.ApiBuilder.get;
-import static io.javalin.apibuilder.ApiBuilder.patch;
-import static io.javalin.apibuilder.ApiBuilder.path;
-
 import controllers.ItemController;
 import controllers.UserController;
 import io.javalin.Javalin;
@@ -12,6 +8,8 @@ import repositories.ItemDAO;
 import repositories.UserDAO;
 import services.ItemService;
 import services.UserService;
+
+import static io.javalin.apibuilder.ApiBuilder.*;
 
 public class Main {
 	public static void main(String[] args) {
@@ -30,7 +28,12 @@ public class Main {
 			path("/item", () ->{
 				get(ic::getAllItems);
 			});
-			
+			path("/createAccount", () -> {
+				post(UserController::createUser);
+			});
+			path("/login", () -> {
+				post(UserController::loginUser);
+			});
 			path("/user", () ->{
 				path("/{id}", () ->{
 					path("/balance", () ->{
@@ -42,3 +45,4 @@ public class Main {
 	}
 
 }
+
