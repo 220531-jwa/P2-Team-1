@@ -1,5 +1,6 @@
 let baseUrl = "http://localhost:8081/";
-let activeUser = sessionStorage.activeUser;
+let activeUser = JSON.parse(sessionStorage.activeUser);
+
 
 async function newTicket(){
 
@@ -15,10 +16,11 @@ async function newTicket(){
     let ticketJSON= JSON.stringify(tickets);
     console.log(ticketJSON);
 
+   
 
     let res = await fetch(`${baseUrl}user/${activeUser.id}/tickets`, {
 
-            Method:'POST',
+            method:'post',
             header: {'Content-Type': 'application/json'},
             body: ticketJSON
             });

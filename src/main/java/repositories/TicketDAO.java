@@ -14,7 +14,7 @@ public class TicketDAO {
 	private static ConnectionUtil cu = ConnectionUtil.getConnectionUtil();
 	
 	public Ticket submitNewTicket(int id, Ticket readTicket) {
-		String sql = "Insert into achieveapp.tickets values(default, ?, ?, ?, ?, ?)";
+		String sql = "Insert into achieveapp.tickets values(default, ?, ?, ?, ?, ?) returning *";
 		
 		try(Connection conn = cu.getConnection()){
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -33,6 +33,7 @@ public class TicketDAO {
 				return new Ticket(
 						rs.getInt("id"),
 						rs.getString("status"),
+						rs.getString("subject"),
 						rs.getString("description"),
 						rs.getDate("submissiontime")
 						);	

@@ -11,7 +11,6 @@ if(res.status == 200){
 
     .then((resp) => {
         appendItemData(resp);
-         
     })
 
     .catch((error) =>{
