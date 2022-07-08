@@ -1,5 +1,12 @@
 package services;
 
-public class TicketService {
+import repositories.TicketDAO;
 
+public class TicketService {
+	
+	private static TicketDAO td;
+	
+	public TicketService(TicketDAO td) {
+		this.td = td;
+	}
 }

@@ -21,12 +21,11 @@ async function newTicket(){
                             Method:'POST',
                             header: {'Content-Type': 'application/json'},
                             body: ticketJSON
-
                                 });
 
     let resJon = await res.json()
-        .then((resp) =>{        
-        console.log(resp);  
+        .then((resp) =>{ 
+        console.log(resp);
         sessionStorage.setItem('ticket' ,resp)
         window.location.assign("viewTicket.html");  
          })  
