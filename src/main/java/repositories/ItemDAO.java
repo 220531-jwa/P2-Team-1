@@ -29,7 +29,8 @@ public class ItemDAO {
 						rs.getDouble("cost"),
 						rs.getString("desc"),
 						rs.getInt("id"),
-						rs.getInt("sellerid")
+						rs.getInt("sellerid"),
+						rs.getInt("inventory")
 						));
 			}
 			
