@@ -53,6 +53,4 @@ public class Main {
 			});
 		});
 	}
-	
-	//delete later this was for dan
 }
