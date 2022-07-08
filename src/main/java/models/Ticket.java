@@ -42,5 +42,11 @@ public class Ticket {
 		this.submissionTime = submissionTime;
 	}
 	
+	public Ticket(int id, String status, String description, Date submissionTime) {
+		this.id = id;
+		this.status = status;
+		this.description = description;
+		this.submissionTime = submissionTime;
+	}
 	
 }

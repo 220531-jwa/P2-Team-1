@@ -1,21 +1,28 @@
 package main;
 
+import static io.javalin.apibuilder.ApiBuilder.get;
+import static io.javalin.apibuilder.ApiBuilder.patch;
+import static io.javalin.apibuilder.ApiBuilder.path;
+import static io.javalin.apibuilder.ApiBuilder.post;
+
 import controllers.ItemController;
+import controllers.TicketController;
 import controllers.UserController;
 import io.javalin.Javalin;
 import io.javalin.http.staticfiles.Location;
 import repositories.ItemDAO;
+import repositories.TicketDAO;
 import repositories.UserDAO;
 import services.ItemService;
+import services.TicketService;
 import services.UserService;
-
-import static io.javalin.apibuilder.ApiBuilder.*;
 
 public class Main {
 	public static void main(String[] args) {
 		
 		ItemController ic = new ItemController(new ItemService(new ItemDAO()));
 		UserController uc = new UserController(new UserService(new UserDAO()));
+		TicketController tc = new TicketController(new TicketService(new TicketDAO()));
 		
 		Javalin app = Javalin.create(config -> {
 			config.enableCorsForAllOrigins(); //config.enableCors origin mapping needed
@@ -39,9 +46,9 @@ public class Main {
 					path("/balance", () ->{
 						patch(uc::addBalance);
 					});
-//					path("/newTicket", ()->{
-//						post(uc::submitNewTicket);
-//					});
+					path("/newTicket", ()->{
+						post(tc::submitNewTicket);
+					});
 				});
 			});
 		});
