@@ -5,6 +5,7 @@ Scenario: Buyer is able to see a list of items.
 	And a buyer is on the home page
 	When the buyer clicks the browse store button
 	Then The buyer is redirected and can see the item catalogue
+	And the products table is populated
 	
 Scenario: Buyer is able to add money to their account
 	Given test buyer account is loaded
@@ -24,3 +25,4 @@ Scenario: Buyer can create new support ticket
 	When the buyer presses submit support ticket
 	And the buyer fills in all the required fields and submits
 	Then buyer is redirected to view ticket
+	
