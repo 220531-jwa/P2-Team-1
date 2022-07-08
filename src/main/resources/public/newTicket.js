@@ -12,22 +12,22 @@ async function newTicket(){
         submissiontime:submitdate,
     }
 
-    let employeeJson = JSON.stringify(tickets);
-    console.log(employeeJson);
+    let ticketJSON= JSON.stringify(tickets);
+    console.log(ticketJSON);
 
 
     let res = await fetch(`${baseUrl}/tickets`, {
 
                             Method:'POST',
                             header: {'Content-Type': 'application/json'},
-                            body: employeeJson      
+                            body: ticketJSON
 
                                 });
 
     let resJon = await res.json()
-
         .then((resp) =>{        
-        console.log(resp);   
+        console.log(resp);  
+        sessionStorage.setItem('ticket' ,resp)
         window.location.assign("viewTicket.html");  
          })  
                                 

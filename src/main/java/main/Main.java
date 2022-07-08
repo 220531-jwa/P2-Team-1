@@ -39,6 +39,9 @@ public class Main {
 					path("/balance", () ->{
 						patch(uc::addBalance);
 					});
+					path("/newTicket", ()->{
+						post(uc::submitNewTicket);
+					});
 				});
 			});
 		});

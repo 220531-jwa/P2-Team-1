@@ -18,7 +18,7 @@ Scenario: Buyer is able to create an Admin request Ticket
 	And a buyer is on the home page
 	When the buyer presses submit support ticket
 	Then buyer is redirected to submit ticket page
-	
+
 Scenario: Buyer can create new support ticket
 	Given test buyer account is loaded
 	And a buyer is on the home page
