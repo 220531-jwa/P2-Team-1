@@ -4,11 +4,12 @@
         <!--
             Achieve Login Page placeholder
         -->
+        <link rel="stylesheet" href="css/bootstrap.css">
         <title>Achieve Login</title>
     </head>
     <body>
-        <div><strong>Login to Your Account:</strong></div>
-        <label>Username: 
+        <div class="h3 p-2"><strong>Login to Your Account:</strong></div>
+        <label class="p-2">Username: 
             <input class="form-control" id="un" type="text">
         </label>
         <label>Password: 
@@ -16,6 +17,8 @@
         </label>
         <br> 
         <button type="button" class="btn btn-primary" onclick="login()" id="login">Login</button>
+        <button type="button" class="btn btn-outline-primary" onclick="createAcc()">No Account? Create One</button>
     </body>
+    <script src="./js/bootstrap.js"></script>
     <script src="login.js"></script>
 </html>
