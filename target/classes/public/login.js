@@ -34,3 +34,7 @@ async function login(){
             console.log(error);
         });
 }
+
+function createAccount(){
+    window.location = 'http://localhost:8081/createAccount.html';
+}

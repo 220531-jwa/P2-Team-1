@@ -50,7 +50,7 @@ public class UserDAO {
 		return -1;
 	}
     public User createUser(String username, String password, String name){
-        String sql = "insert into users values (default, ?, ?, ?, default, default) returning *;";
+        String sql = "insert into achieveapp.users values (default, ?, ?, ?, default, default) returning *;";
 
         try(Connection connect = cu.getConnection()){
             PreparedStatement ps = connect.prepareStatement(sql);
@@ -76,7 +76,7 @@ public class UserDAO {
     }
 
     public List<String> getAllUsernames(){
-        String sql = "select username from users;";
+        String sql = "select username from achieveapp.users;";
 
         try(Connection connect = cu.getConnection()){
             PreparedStatement ps = connect.prepareStatement(sql);
@@ -95,7 +95,7 @@ public class UserDAO {
     }
 
     public User getUser(String username){
-        String sql = "select * from users where username = ?;";
+        String sql = "select * from achieveapp.users where username = ?;";
 
         try(Connection connect = cu.getConnection()){
             PreparedStatement ps = connect.prepareStatement(sql);
@@ -109,7 +109,7 @@ public class UserDAO {
                         rs.getString("password"),
                         rs.getInt("id"),
                         rs.getString("name"),
-                        rs.getInt("accounttype"),
+                        rs.getInt("accountType"),
                         rs.getDouble("balance")
                 );
             }

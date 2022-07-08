@@ -1,4 +1,4 @@
-Feature: User Stories Tests for Nathan Cho
+Feature: Home Page Features
 
 Scenario: Buyer is able to see a list of items.
 	Given test buyer account is loaded
@@ -12,8 +12,8 @@ Scenario: Buyer is able to add money to their account
 	And a buyer is on the home page
 	When the buyer adds to their balance
 	Then the new balance should be displayed
-	
-Scenario: Buyer is able to create an Admin request Ticket
+
+Scenario: Buyer is taken to supoprt ticket submission page
 	Given test buyer account is loaded
 	And a buyer is on the home page
 	When the buyer presses submit support ticket
@@ -25,4 +25,4 @@ Scenario: Buyer can create new support ticket
 	When the buyer presses submit support ticket
 	And the buyer fills in all the required fields and submits
 	Then buyer is redirected to view ticket
-	
+
