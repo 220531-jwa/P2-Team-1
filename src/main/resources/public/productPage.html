@@ -5,8 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Page</title>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
 </head>
-<body>
+<body onload="getItems()">
     
+    <p class="h3 p-2">Here is a list of our products!</p>
+
+    <table id="productsTable" class="table table-hover" style="width:75%">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Cost</th>
+            <th>Description</th>
+            <th>Inventory</th>
+        </tr>
+    </table>
+    
+
+    <br/>
+    <button class="btn btn-primary mt-2 mb-3" type="button" onclick="goHome()">Back to Home</button>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./productPage.js"></script>
 </body>
 </html>
