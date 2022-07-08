@@ -17,12 +17,17 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.BuyerPage;
+import pages.CartListPage;
+import pages.ItemPage;
 import runner.AchieveTestSuite;
 
 public class BuyerSteps {
 	
 	public static WebDriver driver = AchieveTestSuite.driver;
 	public static BuyerPage bp = AchieveTestSuite.bp;
+	public static CartListPage cartListPage = AchieveTestSuite.cartListPage;
+	public static ItemPage itemPage = AchieveTestSuite.itemPage;
+
 	
 	@BeforeAll
 	public static void setup() {
@@ -103,6 +108,37 @@ public class BuyerSteps {
 
 	@Then("buyer is redirected to view ticket")
 	public void buyer_is_redirected_to_view_ticket() {
+		
+	}
+	
+	@Given("a Buyer is on the ItemPage")
+	public void a_buyer_is_on_the_item_page() {
+		driver.get("http://localhost:8081/ItemPage.html");
+		
+	}
+
+	@When("the Buyer clicks the CartButton")
+	public void the_buyer_clicks_the_cart_button() {
+		itemPage.pageAddButton.click();
+	}
+
+	@Then("The Element should be added to the Cart")
+	public void the_element_should_be_added_to_the_cart() {
+		
+	}
+	
+	@Given("a Buyer is on the CartListPage")
+	public void a_buyer_is_on_the_cart_list_page() {
+		driver.get("http://localhost:8081/CartListPage");
+	}
+
+	@When("the Buyer clicks the RemoveCartButton")
+	public void the_buyer_clicks_the_remove_cart_button() {
+		cartListPage.pageDeleteButton.click();
+	}
+
+	@Then("The Item should be removed from the Buyer Cart")
+	public void the_item_should_be_removed_from_the_buyer_cart() {
 		
 	}
 
