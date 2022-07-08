@@ -25,27 +25,25 @@ public class Main {
 		
 		
 		app.routes(() -> {
-			path("/item", () ->{
-				get(ic::getAllItems);
-			});
 			path("/createAccount", () -> {
 				post(UserController::createUser);
 			});
 			path("/login", () -> {
 				post(UserController::loginUser);
 			});
+			path("/item", () ->{
+				get(ic::getAllItems);
+			});
 			path("/user", () ->{
 				path("/{id}", () ->{
 					path("/balance", () ->{
 						patch(uc::addBalance);
 					});
-					path("/newTicket", ()->{
-						post(uc::submitNewTicket);
-					});
+//					path("/newTicket", ()->{
+//						post(uc::submitNewTicket);
+//					});
 				});
 			});
 		});
 	}
-
 }
-
