@@ -57,4 +57,29 @@ public class UserDAO {
         }
         return null;
     }
+
+    public User getUser(String username){
+        String sql = "select * from users where username = ?;";
+
+        try(Connection connect = cu.getConnection()){
+            PreparedStatement ps = connect.prepareStatement(sql);
+            ps.setString(1, username);
+
+            ResultSet rs = ps.executeQuery();
+
+            if(rs.next()){
+                return new User(
+                  rs.getString("username"),
+                  rs.getString("password"),
+                  rs.getInt("id"),
+                  rs.getString("name"),
+                  rs.getInt("accounttype"),
+                  rs.getDouble("balance")
+                );
+            }
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

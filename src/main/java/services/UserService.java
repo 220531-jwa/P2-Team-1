@@ -28,5 +28,19 @@ public class UserService {
         }
     }
 
+    public User loginUser(String username, String password){
+        User u = ud.getUser(username);
+        if (u == null){
+            System.out.println("Username not found");
+            return null;
+        }
+        if(u.getPassword().equals(password)){
+            return u;
+        } else {
+            System.out.println("Wrong password");
+            return null;
+            }
+    }
+
 
 }

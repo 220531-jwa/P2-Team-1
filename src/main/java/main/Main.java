@@ -24,7 +24,7 @@ public class Main {
                 post(UserController::createUser);
             });
             path("/login", () -> {
-
+                post(UserController::loginUser);
             });
         });
 

@@ -4,3 +4,7 @@
 
 #ignore credentials
 connection.properties
+
+#ignore children
+target/
+.idea/

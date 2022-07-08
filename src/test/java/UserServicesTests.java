@@ -11,8 +11,7 @@ import services.UserService;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -58,22 +57,27 @@ public class UserServicesTests {
         //when
         when(mockUd.getAllUsernames()).thenReturn(mockUsernames);
         //then
-        assertEquals(false, mockUs.checkUniqueUsername("Josh"));
+        assertFalse(mockUs.checkUniqueUsername("Josh"));
 
     }
 
     @Test
     public void should_loginUser(){
-
+        //given
+        User mockUser = new User("josh", "josh", 1, "Josh", 1, 0.00);
+        //when
+        when(mockUd.getUser("josh")).thenReturn(mockUser);
+        //then
+        assertEquals(mockUser, mockUs.loginUser("josh", "josh"));
     }
 
     @Test
-    public void should_notLoginUserBadUName(){
-
-    }
-
-    @Test
-    public void should_notLoginUserBadPW(){
-
+    public void should_notLoginUser(){
+        //given
+        User mockUser = new User("josh", "josh", 1, "Josh", 1, 0.00);
+        //when
+        when(mockUd.getUser("josh")).thenReturn(mockUser);
+        //then
+        assertNotEquals(mockUser, mockUs.loginUser("josh", "john"));
     }
 }

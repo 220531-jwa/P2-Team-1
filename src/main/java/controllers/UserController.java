@@ -27,4 +27,21 @@ public class UserController {
             e.printStackTrace();
         }
     }
+
+    public static void loginUser(Context ctx){
+        User u = ctx.bodyAsClass(User.class);
+        String username = u.getUsername();
+        String password = u.getPassword();
+        try{
+            User s = us.loginUser(username, password);
+            if(s != null){
+                ctx.status(200);
+                ctx.json(s);
+            } else {
+                ctx.status(404);
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+    }
 }
