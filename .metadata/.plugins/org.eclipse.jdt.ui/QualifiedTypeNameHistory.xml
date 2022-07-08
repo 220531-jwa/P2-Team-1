@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="pages.HomePage"/>
+    <fullyQualifiedTypeName name="runner.CartDeleteRunner"/>
+    <fullyQualifiedTypeName name="runner.CartAddRunner"/>
+    <fullyQualifiedTypeName name="runner.CartRunner"/>
+    <fullyQualifiedTypeName name="pages.CartListPage"/>
+    <fullyQualifiedTypeName name="io.cucumber.java.BeforeAll"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.chrome.ChromeDriver"/>
+    <fullyQualifiedTypeName name="io.cucumber.java.AfterAll"/>
+</qualifiedTypeNameHistroy>
