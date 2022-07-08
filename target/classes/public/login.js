@@ -27,11 +27,9 @@ async function login(){
     let resJson = await res.json()
         .then((resp) => {
             console.log(resp);
-            if(resp.accounttype == 1){
-                sessionStorage.setItem("activeUser", JSON.stringify(resp));
+            console.log("User logged in successfully!");
+            sessionStorage.setItem("activeUser", JSON.stringify(resp));
                 // change below to window.location("homePage.html")
-                console.log("User logged in successfully!");
-            } 
         })
         .catch((error) => {
             console.log(error);
