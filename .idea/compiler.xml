@@ -8,8 +8,10 @@
         <outputRelativeToContentRoot value="true" />
         <module name="AchieveProject" />
         <module name="Project2Achieve" />
-        <module name="P2-Team-1" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="P2-Team-1" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

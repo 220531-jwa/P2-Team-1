@@ -27,9 +27,5 @@ public class Main {
                 post(UserController::loginUser);
             });
         });
-
-
     }
-
-
 }
