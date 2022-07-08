@@ -16,6 +16,8 @@ public class TicketController {
 		Ticket readTicket = ctx.bodyAsClass(Ticket.class);
 		
 		Ticket newTicket = ts.submitNewTicket(id, readTicket);
+		ctx.status(200);
+		ctx.json(newTicket);
 			
 	}
 }
