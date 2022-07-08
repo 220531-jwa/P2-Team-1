@@ -1,27 +1,27 @@
 let baseUrl = "http://localhost:8081/";
+let activeUser = sessionStorage.activeUser;
+
 async function newTicket(){
 
-    let status = document.getElementById('status').value;
+    let subject = document.getElementById('subj').value;
     let desc = document.getElementById('desc').value;
-    let submitdate = document.getElementById("submitdate").value;
 
     let tickets = {
 
-        status:status,
+        subject:subject,
         description:desc,
-        submissiontime:submitdate,
     }
 
     let ticketJSON= JSON.stringify(tickets);
     console.log(ticketJSON);
 
 
-    let res = await fetch(`${baseUrl}/tickets`, {
+    let res = await fetch(`${baseUrl}user/${activeUser.id}/tickets`, {
 
-                            Method:'POST',
-                            header: {'Content-Type': 'application/json'},
-                            body: ticketJSON
-                                });
+            Method:'POST',
+            header: {'Content-Type': 'application/json'},
+            body: ticketJSON
+            });
 
     let resJon = await res.json()
         .then((resp) =>{ 
