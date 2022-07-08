@@ -26,7 +26,7 @@ async function newTicket(){
     let resJon = await res.json()
         .then((resp) =>{ 
         console.log(resp);
-        sessionStorage.setItem('ticket' ,resp)
+        sessionStorage.setItem('ticket' ,JSON.stringify(resp));
         window.location.assign("viewTicket.html");  
          })  
                                 
@@ -35,7 +35,7 @@ async function newTicket(){
          .catch((error) => {
           console.log(error);
         });
-                            
+    
   }
 
 
