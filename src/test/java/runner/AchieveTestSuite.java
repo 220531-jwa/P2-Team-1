@@ -13,12 +13,17 @@ import pages.createAccountPage;
 
 import java.io.File;
 
+import pages.CartListPage;
+import pages.ItemPage;
+
+
 @Suite
 @Tag("CucumberTests")
 public class AchieveTestSuite {
 	
 	public static WebDriver driver;
 	public static BuyerPage bp;
+
 
 	public static createAccountPage cap;
 	public static LoginPage lp;
@@ -37,4 +42,6 @@ public class AchieveTestSuite {
 	public static void teardown(){
 		driver.quit();
 	}
+	public static CartListPage cartListPage;
+	public static ItemPage itemPage;
 }
