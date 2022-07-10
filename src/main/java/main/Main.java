@@ -46,7 +46,7 @@ public class Main {
 					path("/balance", () ->{
 						patch(uc::addBalance);
 					});
-					path("/newTicket", ()->{
+					path("/tickets", ()->{
 						post(tc::submitNewTicket);
 					});
 				});

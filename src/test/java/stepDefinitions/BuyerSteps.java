@@ -147,5 +147,27 @@ public class BuyerSteps {
 		WebElement ItemPresent = driver.findElement(By.xpath("")); //this will be the xpath for the body of an item in teh Cart
 		assertEquals(null, ItemPresent);
 	}
+	
+//------------------------------Submit new Ticket Steps -------------------------
+	
+	@Given("a buyer is on the submit new ticket page")
+	public void a_buyer_is_on_the_submit_new_ticket_page() {
+		driver.get("http://localhost:8081/newTicket.html");
+	}
+
+	@When("the buyer enters fields and presses submit")
+	public void the_buyer_enters_fields_and_presses_submit() {
+		bp.cNTSubj.sendKeys("Cucumber Test Subject");
+		bp.cNTDesc.sendKeys("Cucumber Test Ticket description.");
+		bp.cNTSubmitBtn.click();
+	}
+
+	@Then("the ticket in question is displayed")
+	public void the_ticket_in_question_is_displayed() {
+		new WebDriverWait(driver, Duration.ofSeconds(10))
+		.until(ExpectedConditions.titleContains("View Ticket"));
+		
+		assertEquals("ViewTicket", driver.getTitle());
+	}
 
 }

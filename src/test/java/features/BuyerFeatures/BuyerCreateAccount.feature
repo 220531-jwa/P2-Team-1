@@ -7,4 +7,4 @@ Feature: Creating buyer account
 
     Examples:
     |username|password|name        |
-    |dorothy |gale    |Dorothy Gale|
+    |hey     |hey     |hey man     |

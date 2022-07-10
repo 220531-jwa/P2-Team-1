@@ -51,7 +51,7 @@ function  toggleError(id){
 }
 
 function browseProducts(){
-    window.location = 'http://localhost:8081/productPage.html';
+    window.location = 'http://localhost:8081/ItemPage.html';
 }
 
 function supportTicket(){
