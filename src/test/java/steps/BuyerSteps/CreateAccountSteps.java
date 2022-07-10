@@ -7,15 +7,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.createAccountPage;
-import runner.Main;
+import runner.AchieveTestSuite;
 
 import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CreateAccountSteps {
-    private WebDriver driver = Main.driver;
-    private pages.createAccountPage createAccountPage = Main.createAccountPage;
+    private WebDriver driver = AchieveTestSuite.driver;
+    private createAccountPage createAccountPage = AchieveTestSuite.createAccountPage;
     @Given("a User is on the Create an Account page")
     public void a_user_is_on_the_create_an_account_page() {
         driver.get("http://localhost:8081/createAccount.html");

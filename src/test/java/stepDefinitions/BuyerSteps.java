@@ -1,12 +1,15 @@
 package stepDefinitions;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
 import java.time.Duration;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -111,7 +114,7 @@ public class BuyerSteps {
 		
 	}
 	
-	@Given("a Buyer is on the ItemPage")
+	@Given("a Buyer is on the ItemPage") //G W T block for adding an item to the cart --- TR
 	public void a_buyer_is_on_the_item_page() {
 		driver.get("http://localhost:8081/ItemPage.html");
 		
@@ -124,10 +127,12 @@ public class BuyerSteps {
 
 	@Then("The Element should be added to the Cart")
 	public void the_element_should_be_added_to_the_cart() {
-		
+		driver.get("http://localhost:8081/CartListPage");
+		WebElement ItemPresent = driver.findElement(By.xpath("")); //this will be the xpath for the body of an item in teh Cart
+		assertNotEquals(null, ItemPresent); //see if we get anything from it
 	}
 	
-	@Given("a Buyer is on the CartListPage")
+	@Given("a Buyer is on the CartListPage") //G W T block for deleting an item from the cart --- TR
 	public void a_buyer_is_on_the_cart_list_page() {
 		driver.get("http://localhost:8081/CartListPage");
 	}
@@ -139,7 +144,8 @@ public class BuyerSteps {
 
 	@Then("The Item should be removed from the Buyer Cart")
 	public void the_item_should_be_removed_from_the_buyer_cart() {
-		
+		WebElement ItemPresent = driver.findElement(By.xpath("")); //this will be the xpath for the body of an item in teh Cart
+		assertEquals(null, ItemPresent);
 	}
 
 }

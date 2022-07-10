@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import pages.BuyerPage;
 import pages.CartListPage;
 import pages.ItemPage;
+import pages.createAccountPage;
 
 @Suite
 @Tag("CucumberTests")
@@ -16,4 +17,5 @@ public class AchieveTestSuite {
 	public static BuyerPage bp;
 	public static CartListPage cartListPage;
 	public static ItemPage itemPage;
+	public static createAccountPage createAccountPage;
 }
