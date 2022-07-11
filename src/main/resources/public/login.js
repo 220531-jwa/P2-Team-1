@@ -35,6 +35,6 @@ async function login(){
         });
 }
 
-function createAccount(){
+function createAcc(){
     window.location = 'http://localhost:8081/createAccount.html';
 }
