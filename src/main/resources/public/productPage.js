@@ -1,9 +1,5 @@
 let baseUrl = "http://localhost:8081/";
 
-function goToHome(){
-    window.location = 'http://localhost:8081/homePage.html';
-}
-
 async function getItems(){
 
     let res = await fetch(

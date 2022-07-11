@@ -49,15 +49,3 @@ function  toggleError(id){
     }
     else x.setAttribute('hidden', 'hidden');
 }
-
-function browseProducts(){
-    window.location = 'http://localhost:8081/ItemPage.html';
-}
-
-function supportTicket(){
-    window.location = 'http://localhost:8081/newTicket.html';
-}
-
-function viewAllTicket(){
-    window.location ='http://localhost:8081/allTickets.html';
-}

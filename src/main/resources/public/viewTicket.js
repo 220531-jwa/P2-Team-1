@@ -17,11 +17,3 @@ function loadTicket(){
             <tr><th>Submission time</th><td>${sub}</td></tr>
             `;
 }
-
-function toHome(){
-    window.location ='http://localhost:8081/homePage.html'
-}
-
-function toAllTick(){
-    window.location ='http://localhost:8081/allTickets.html'
-}

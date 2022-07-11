@@ -13,9 +13,14 @@ function toCreateAccount(){
 }
 
 function toSubmitNew(){
-    window.location = 'http://localhost:8081/newTicket.html';
+    window.location = `${baseURL}newTicket.html`;
 }
 
 function toProductsPage(){
-    window.location ='http://ItemPage.html';
+    window.location =`${baseURL}ItemPage.html`
 }
+
+function toAllTickets(){
+    window.location =`${baseURL}allTickets.html`
+}
+
