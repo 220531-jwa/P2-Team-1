@@ -11,6 +11,7 @@ public class ItemPage {
 	private WebDriver driver;
 	
 	public ItemPage(WebDriver driver) {
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 	

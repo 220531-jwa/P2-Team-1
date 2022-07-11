@@ -1,5 +1,7 @@
 package services;
 
+import java.util.List;
+
 import models.Ticket;
 import repositories.TicketDAO;
 
@@ -14,5 +16,10 @@ public class TicketService {
 	public Ticket submitNewTicket(int id, Ticket readTicket) {
 		
 		return td.submitNewTicket(id, readTicket);
+	}
+	
+	public List<Ticket> getAllTickets(int id){
+		
+		return td.getAllTickets(id);
 	}
 }

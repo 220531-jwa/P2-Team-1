@@ -1,5 +1,8 @@
 package controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.javalin.http.Context;
 import models.Ticket;
 import services.TicketService;
@@ -19,5 +22,14 @@ public class TicketController {
 		ctx.status(200);
 		ctx.json(newTicket);
 			
+	}
+	
+	public void getAllTickets(Context ctx) {
+		int id = Integer.parseInt(ctx.pathParam("id"));
+		
+		List<Ticket> tickets = new ArrayList<>();
+		tickets = ts.getAllTickets(id);
+		ctx.status(200);
+		ctx.json(tickets);
 	}
 }

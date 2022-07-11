@@ -7,3 +7,4 @@ Scenario: Buyer can create new support ticket
 	Then buyer is redirected to view ticket
 	And the ticket in question is displayed
 
+

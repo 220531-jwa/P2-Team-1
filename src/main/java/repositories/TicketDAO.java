@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import models.Ticket;
 import utils.ConnectionUtil;
@@ -44,6 +46,38 @@ public class TicketDAO {
 			return null;
 		}
 		
+		return null;
+	}
+	
+	public List<Ticket> getAllTickets(int id){
+		List<Ticket> tickets = new ArrayList<>();
+		String sql = "select * from achieveapp.tickets where accountid = ?";
+		
+		try(Connection conn = cu.getConnection()){
+			PreparedStatement ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, id);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				tickets.add(new Ticket( 
+						rs.getInt("id"),
+						rs.getString("status"),
+						rs.getString("subject"),
+						rs.getString("description"),
+						rs.getDate("submissiontime")
+						));
+			}
+			
+			if(tickets.size() == 0) {
+				return null;
+			}
+			return tickets;
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 }

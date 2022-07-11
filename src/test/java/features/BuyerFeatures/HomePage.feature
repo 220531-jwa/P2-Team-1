@@ -19,3 +19,4 @@ Scenario: Buyer is taken to supoprt ticket submission page
 	When the buyer presses submit support ticket
 	Then buyer is redirected to submit ticket page
 
+

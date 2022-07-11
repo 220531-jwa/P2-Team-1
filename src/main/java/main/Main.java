@@ -47,6 +47,7 @@ public class Main {
 						patch(uc::addBalance);
 					});
 					path("/tickets", ()->{
+						get(tc::getAllTickets);
 						post(tc::submitNewTicket);
 					});
 				});
