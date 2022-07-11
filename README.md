@@ -4,6 +4,7 @@ Web Store:
 item/$$$ Transactions
 Buyers/Sellers/Administrators
 
+![WakuigiGod](/assets/images/wakuigi.png)
 
 User Stories:
 Buyers:
