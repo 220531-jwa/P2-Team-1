@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="css/bootstrap.css">
 </head>
-<body>
+<body class="p-2">
     <div class="h5 p-2">
         Enter your support request information below:
     </div>
@@ -25,7 +25,10 @@
     </label>
     <br/>
 
-    <button type="button" class="w-30 btn btn-primary" onclick="toSubmitNew()">New Ticket</button>
+    <button type="button" class="btn btn-primary" onclick="toSubmitNew()">Submit ticket</button>
+    <button type="button" class="btn btn-primary" onclick="toAllTickets()">View All Current Tickets</button>
+    <button type="button" class="btn btn-outline-primary" onclick="toHome()">Back to Home</button>
+    
     
     <script src="./newTicket.js"></script>
     <script src="./js/bootstrap.js"></script>
