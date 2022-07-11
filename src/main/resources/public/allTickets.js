@@ -43,3 +43,11 @@ async function loadUser(){
         })
         .catch((error) => {console.log(error)})
 }
+
+function toHome(){
+    window.location = 'http://localhost:8081/homePage.html';
+}
+
+function submitNew(){
+    window.location = 'http://localhost:8081/newTicket.html';
+}
