@@ -15,7 +15,7 @@ public class ItemDAO {
 	private static ConnectionUtil cu = ConnectionUtil.getConnectionUtil();
 	public List<Item> getAllItems() {
 		
-		String sql = "select * from achieveapp.items returning *";
+		String sql = "select * from achieveapp.items";
 		List<Item> items = new ArrayList<>();
 		
 		try(Connection conn = cu.getConnection()){
@@ -27,9 +27,10 @@ public class ItemDAO {
 				items.add(new Item(
 						rs.getString("name"),
 						rs.getDouble("cost"),
-						rs.getString("desc"),
+						rs.getString("description"),
 						rs.getInt("id"),
-						rs.getInt("sellerid")
+						rs.getInt("sellerid"),
+						rs.getInt("inventory")
 						));
 			}
 			

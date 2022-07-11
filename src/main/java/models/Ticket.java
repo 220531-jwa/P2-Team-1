@@ -42,5 +42,17 @@ public class Ticket {
 		this.submissionTime = submissionTime;
 	}
 	
+	public Ticket(int id, String status, String subject, String description, Date submissionTime) {
+		super();
+		this.id = id;
+		this.status = status;
+		this.subject = subject;
+		this.description = description;
+		this.submissionTime = submissionTime;
+	}
+	
+	public Ticket() {
+		super();
+	}
 	
 }

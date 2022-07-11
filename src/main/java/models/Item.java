@@ -7,7 +7,14 @@ public class Item {
 	private String desc;
 	private int id;
 	private int sellerId;
+	private int inventory;
 	
+	public int getInventory() {
+		return inventory;
+	}
+	public void setInventory(int inventory) {
+		this.inventory = inventory;
+	}
 	public String getName() {
 		return name;
 	}
@@ -46,11 +53,12 @@ public class Item {
 	}
 	private int quantity;
 	
-	public Item(String name, double cost, String desc, int id, int sellerId) {
+	public Item(String name, double cost, String desc, int id, int sellerId, int inventory) {
 		this.name = name;
 		this.cost = cost;
 		this.desc = desc;
 		this.id = id;
 		this.sellerId = sellerId;
+		this.inventory = inventory;
 	}
 }

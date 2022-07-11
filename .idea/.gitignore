@@ -1,0 +1,10 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+
+#ignore credentials
+connection.properties
+
+#ignore children
+target/
+.idea/

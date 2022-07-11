@@ -8,8 +8,19 @@ public class User {
 	private String name;
 	private int accountType;
 	private double balance;
-	
-	
+
+	public User() {
+	}
+
+	public User(String username, String password, int id, String name, int accountType, double balance) {
+		this.username = username;
+		this.password = password;
+		this.id = id;
+		this.name = name;
+		this.accountType = accountType;
+		this.balance = balance;
+	}
+
 	public String getUsername() {
 		return username;
 	}
