@@ -1,20 +1,20 @@
 package runner;
 
 import java.io.File;
-
-import org.junit.jupiter.api.Tag;
-import org.junit.platform.suite.api.IncludeTags;
-import org.junit.platform.suite.api.Suite;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.BeforeAll;
+import org.junit.platform.suite.api.IncludeTags;
+import org.junit.jupiter.api.Tag;
+import org.junit.platform.suite.api.Suite;
+import org.openqa.selenium.WebDriver;
+
+import org.openqa.selenium.chrome.ChromeDriver;
 import pages.BuyerPage;
+import pages.LoginPage;
+import pages.CreateAccountPage;
 import pages.CartListPage;
 import pages.ItemPage;
-import pages.LoginPage;
-import pages.createAccountPage;
+
 
 
 @Suite
@@ -26,7 +26,7 @@ public class AchieveTestSuite {
 	public static BuyerPage bp;
 	public static CartListPage cartListPage;
 	public static ItemPage itemPage;
-	public static createAccountPage cap;
+	public static CreateAccountPage cap;
 	public static LoginPage lp;
 
 	@BeforeAll
@@ -35,7 +35,7 @@ public class AchieveTestSuite {
 		System.setProperty("webdriver.chrome.driver", chrome.getAbsolutePath());
 		driver = new ChromeDriver();
 		bp = new BuyerPage(driver);
-		cap = new createAccountPage(driver);
+		cap = new CreateAccountPage(driver);
 		lp = new LoginPage(driver);
 		cartListPage = new CartListPage(driver);
 		itemPage = new ItemPage(driver);
