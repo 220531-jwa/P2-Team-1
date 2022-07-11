@@ -6,6 +6,7 @@ function home(){
         console.log(sessionStorage.activeUser);
         pullAccount();
         document.getElementById('loginLink').setAttribute('hidden', 'hidden');
+        document.getElementById('logoutButton').removeAttribute('hidden');
     }
 }
 
@@ -48,4 +49,9 @@ function  toggleError(id){
         x.removeAttribute('hidden');
     }
     else x.setAttribute('hidden', 'hidden');
+}
+
+function logout(){
+    sessionStorage.removeItem('activeUser');
+    toLogin();
 }

@@ -24,3 +24,7 @@ function toAllTickets(){
     window.location =`${baseURL}allTickets.html`
 }
 
+function toCart(){
+    window.location =`${baseURL}CartListPage.html`
+}
+

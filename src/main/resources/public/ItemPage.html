@@ -9,11 +9,12 @@
     
 </head>
 <body onload="getItemData()">
-
-    <a href="./CartListPage.html">Cart</a>
     
     <div class="item-container">
         <h2>What's In Stock?</h2>
+
+        <button type="button" class="btn btn-outline-success mb-2" onclick="toCart()">Cart</button>
+
         <ul class="list-group list-group-flush" id="itemData">   
             
         </ul>
@@ -23,6 +24,7 @@
 
 
 
+    <button type="button" class="btn btn-primary p-2 mt-2">Back to Home</button>
     <script src="./CartScript.js"></script>    
     <script src="./js/bootstrap.js"></script>
     <script src="./redirects.js"></script>
