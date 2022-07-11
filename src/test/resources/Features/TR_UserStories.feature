@@ -20,10 +20,10 @@
 Feature: User Story Tests by Trevor Rowand
 
 Scenario: Buyer can add an item to their cart
-     Given the test buyer account is loeaded
-     And the buyer is on the ItemPage
+     Given test buyer account is loaded
+     And a Buyer is on the ItemPage
      When the Buyer clicks the CartButton
-     Then the Element should be added to the Cart
+     Then The Element should be added to the Cart
 
 Scenario: A Buyer can remove an Item from their Cart
      Given the test buyer account is loeaded

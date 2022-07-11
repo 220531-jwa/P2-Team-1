@@ -138,6 +138,7 @@ public class BuyerSteps {
 		assertEquals(null, ItemPresent);
 	}
 	
+	
 //------------------------------Submit new Ticket Steps -------------------------
 	
 	@Given("a buyer is on the submit new ticket page")
@@ -159,5 +160,6 @@ public class BuyerSteps {
 		
 		assertEquals("View Ticket", driver.getTitle());
 	}
+	
 
 }

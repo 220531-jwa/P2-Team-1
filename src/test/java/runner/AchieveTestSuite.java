@@ -1,25 +1,25 @@
 package runner;
 
-import io.cucumber.java.AfterAll;
-import io.cucumber.java.BeforeAll;
-import org.junit.jupiter.api.Tag;
-import org.junit.platform.suite.api.Suite;
-import org.openqa.selenium.WebDriver;
-
-import org.openqa.selenium.chrome.ChromeDriver;
-import pages.BuyerPage;
-import pages.LoginPage;
-import pages.createAccountPage;
-
 import java.io.File;
 
+import org.junit.jupiter.api.Tag;
+import org.junit.platform.suite.api.IncludeTags;
+import org.junit.platform.suite.api.Suite;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.cucumber.java.AfterAll;
+import io.cucumber.java.BeforeAll;
+import pages.BuyerPage;
 import pages.CartListPage;
 import pages.ItemPage;
+import pages.LoginPage;
 import pages.createAccountPage;
 
 
 @Suite
 @Tag("CucumberTests")
+@IncludeTags("CucumberTests")
 public class AchieveTestSuite {
 	
 	public static WebDriver driver;
