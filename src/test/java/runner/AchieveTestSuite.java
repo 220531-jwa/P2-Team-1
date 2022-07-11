@@ -24,8 +24,8 @@ public class AchieveTestSuite {
 	
 	public static WebDriver driver;
 	public static BuyerPage bp;
-
-
+	public static CartListPage cartListPage;
+	public static ItemPage itemPage;
 	public static createAccountPage cap;
 	public static LoginPage lp;
 
@@ -37,13 +37,12 @@ public class AchieveTestSuite {
 		bp = new BuyerPage(driver);
 		cap = new createAccountPage(driver);
 		lp = new LoginPage(driver);
+		cartListPage = new CartListPage(driver);
+		itemPage = new ItemPage(driver);
 	}
 
 	@AfterAll
 	public static void teardown(){
 		driver.quit();
 	}
-	public static CartListPage cartListPage;
-	public static ItemPage itemPage;
-	public static createAccountPage createAccountPage;
 }

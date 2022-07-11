@@ -167,7 +167,7 @@ public class BuyerSteps {
 		new WebDriverWait(driver, Duration.ofSeconds(10))
 		.until(ExpectedConditions.titleContains("View Ticket"));
 		
-		assertEquals("ViewTicket", driver.getTitle());
+		assertEquals("View Ticket", driver.getTitle());
 	}
 
 }
