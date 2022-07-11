@@ -6,7 +6,7 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.createAccountPage;
+import pages.CreateAccountPage;
 import runner.AchieveTestSuite;
 
 import java.time.Duration;
@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CreateAccountSteps {
     private WebDriver driver = AchieveTestSuite.driver;
 
-    private createAccountPage cap = AchieveTestSuite.cap;
+    private CreateAccountPage cap = AchieveTestSuite.cap;
 
     @Given("a User is on the Create an Account page")
     public void a_user_is_on_the_create_an_account_page() {

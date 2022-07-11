@@ -127,3 +127,10 @@ function removeFromCart(x, Cartarr, TotalCost){
     TotalCost = TotalCost - Cartarr[x].cost;
     window.location.assign("CartListPage.html");
 }
+
+function returnTotal(){
+    return totalCost;
+}
+
+function checkOut(){
+}
