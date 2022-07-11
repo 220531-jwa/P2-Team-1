@@ -57,3 +57,7 @@ function browseProducts(){
 function supportTicket(){
     window.location = 'http://localhost:8081/newTicket.html';
 }
+
+function viewAllTicket(){
+    window.location ='http://localhost:8081/allTickets.html';
+}
