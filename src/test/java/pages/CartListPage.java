@@ -13,6 +13,6 @@ public class CartListPage {
 	}
 	
 	
-	@FindBy(xpath = "/html/body/div/button") //add in proper xpath for the button
+	@FindBy(id = "RemoveButt") //add in proper xpath for the button
 	public WebElement pageDeleteButton;
 }

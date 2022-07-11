@@ -16,7 +16,7 @@ public class ItemPage {
 	}
 	
 	
-	@FindBy(xpath = "//*[@id=\"itemData\"]/button[1]") //add in proper xpath for the button
+	@FindBy(id = "AddButt") //add in proper xpath for the button
 	public WebElement pageAddButton;
 	
 }

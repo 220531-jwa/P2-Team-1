@@ -1,6 +1,6 @@
 let baseUrl = "http://localhost:8081";
 let totalCost = 0.00;
-const Cartarr = [];
+let Cartarr = [];
 const Items = [];
 
 async function getItemData(){
@@ -31,6 +31,7 @@ function appendItemData(resp){
         btn.innerHTML = "Add to Cart";
         btn.type = "submit";
         btn.className = "btn btn-primary ";
+        btn.id = "AddButt";
         btn.setAttribute("onclick", "addToCart(" + i /*+ ", '" + resp[i].name + "', " + resp[i].cost */ +")");
         //btn.onclick = addToCart(i);
         btn.style = "width:130px";
@@ -46,7 +47,7 @@ function appendItemData(resp){
     
 }
 
-function addToCart(id, /*name, cost*/){
+function addToCart(id){
   //  var totalContainer = document.getElementById("item-container");
 totalCost = totalCost + Items[id].cost;
 //totalCost = totalCost + resp.cost;
@@ -67,6 +68,7 @@ var li = document.createElement("li");
 Cartarr.push(Items[id]);
 li.innerHTML = Items[id].name;
 mainContainer.appendChild(li);
+console.log(totalCost);
 
 sessionStorage.setItem('cart', JSON.stringify(Cartarr));
 sessionStorage.setItem('total', JSON.stringify(totalCost));
@@ -83,6 +85,7 @@ function populateCart(){
     console.log(Cartarr);
     let total = sessionStorage.getItem('total');
     let TotalCost = JSON.parse(total);
+    console.log(TotalCost);
 
 
     var tr = document.createElement("tr");
@@ -92,8 +95,9 @@ function populateCart(){
         var btn = document.createElement("button");
         btn.type = "submit";
         btn.className = "btn btn-primary";
-        btn.setAttribute("onclick", "removeFromCart(" + x + ", "+ Cartarr + ", "+ TotalCost + ")");
+        btn.setAttribute("onclick", "removeFromCart(" + x + /*", "+ Cartarr + */", "+ TotalCost + ")");
         btn.innerHTML = "Remove";
+        btn.id = "RemoveButt";
       //  btn.onclick = removeFromCart(x);
      //   th.scope = "row";
       //  th.innerHTML = x+1;
@@ -107,23 +111,30 @@ function populateCart(){
   //      tr.appendChild("td");
 
         mainContainer.innerHTML += 
-        `<tr>
+        `<tr id="cartData">
         <th scope="row">${x+1}</th> 
         <td> ${Cartarr[x].name}</td>
 
-        <td> ${Cartarr[x].cost}</td>
+        <td> $${Cartarr[x].cost}</td>
 
         <td> ${Cartarr[x].id}</td>
-        </tr>` 
+        </tr>`;
 
         //mainContainer.appendChild("tr");
         mainContainer.appendChild(btn);
     }
-    mainContainer.innerHTML += `<tr> <td> ${TotalCost}</td></tr>`
+    mainContainer.innerHTML += `<tr> <td> $${TotalCost}</td></tr>`;
 }
 
-function removeFromCart(x, Cartarr, TotalCost){
-    Cartarr.splice(x, 0);
+function removeFromCart(x, TotalCost){
+    let cart = sessionStorage.getItem('cart');
+    let Cartarr = JSON.parse(cart);
+    console.log(Cartarr);
+    console.log(x);
+    Cartarr.splice(x, 1);
     TotalCost = TotalCost - Cartarr[x].cost;
-    window.location.assign("CartListPage.html");
+    TotalCost = TotalCost.toFixed(2);
+    sessionStorage.setItem('cart', JSON.stringify(Cartarr));
+    sessionStorage.setItem('total', JSON.stringify(TotalCost));
+    window.location.assign("./CartListPage.html");
 }
