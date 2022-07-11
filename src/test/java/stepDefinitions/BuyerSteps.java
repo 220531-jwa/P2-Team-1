@@ -56,7 +56,7 @@ public class BuyerSteps {
 	
 //--------------------Home Page Functionality Steps ------------------------------
 	
-
+//Buyer view items
 	@Given("a buyer is on the home page")
 	public void a_buyer_is_on_the_home_page() {
 	    driver.navigate().to("http://localhost:8081/homePage.html");
@@ -75,7 +75,7 @@ public class BuyerSteps {
 		
 		assertEquals("Item Page", driver.getTitle());
 	}
-
+//Buyer update balance
 	@When("the buyer adds to their balance")
 	public void the_buyer_adds_to_their_balance() {
 		bp.balanceInput.sendKeys("100");
@@ -90,7 +90,7 @@ public class BuyerSteps {
 		
 	    assertTrue(bp.addBalanceSuccess.isDisplayed());
 	}
-	
+//Buyer goes to new ticket page
 	@When("the buyer presses submit support ticket")
 	public void the_buyer_presses_submit_support_ticket() {
 	    bp.submitSupportTicketBtn.click();
@@ -103,7 +103,7 @@ public class BuyerSteps {
 		
 		assertEquals("New Ticket", driver.getTitle());
 	}
-	
+//Buyer adds item to cart
 	@Given("a Buyer is on the ItemPage") //G W T block for adding an item to the cart --- TR
 	public void a_buyer_is_on_the_item_page() {
 		driver.get("http://localhost:8081/ItemPage.html");
@@ -121,7 +121,7 @@ public class BuyerSteps {
 		WebElement ItemPresent = driver.findElement(By.xpath("")); //this will be the xpath for the body of an item in teh Cart
 		assertNotEquals(null, ItemPresent); //see if we get anything from it
 	}
-	
+//Buyer removes item from cart
 	@Given("a Buyer is on the CartListPage") //G W T block for deleting an item from the cart --- TR
 	public void a_buyer_is_on_the_cart_list_page() {
 		driver.get("http://localhost:8081/CartListPage");
@@ -137,6 +137,7 @@ public class BuyerSteps {
 		WebElement ItemPresent = driver.findElement(By.xpath("")); //this will be the xpath for the body of an item in teh Cart
 		assertEquals(null, ItemPresent);
 	}
+	
 	
 //------------------------------Submit new Ticket Steps -------------------------
 	
@@ -159,5 +160,6 @@ public class BuyerSteps {
 		
 		assertEquals("View Ticket", driver.getTitle());
 	}
+	
 
 }
