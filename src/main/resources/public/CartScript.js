@@ -89,6 +89,10 @@ function populateCart(){
 
 
     var tr = document.createElement("tr");
+    if(Cartarr == null){
+        return;
+    }
+
     for(x = 0; x < Cartarr.length; x++){
         console.log(Cartarr[x]);
        // var th = document.createElement("th");
