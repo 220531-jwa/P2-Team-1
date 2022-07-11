@@ -1,5 +1,4 @@
 let baseUrl = "http://localhost:8081";
-let activeUser = sessionStorage.activeUser;
 let totalCost = 0.00;
 const Cartarr = [];
 const Items = [];
@@ -12,6 +11,7 @@ if(res.status == 200){
 
     .then((resp) => {
         appendItemData(resp);
+         
     })
 
     .catch((error) =>{
@@ -31,8 +31,8 @@ function appendItemData(resp){
         btn.innerHTML = "Add to Cart";
         btn.type = "submit";
         btn.className = "btn btn-primary ";
-      //  btn.setAttribute("onclick", "addToCart(data[i])");
-        btn.onclick = addToCart(i);
+        btn.setAttribute("onclick", "addToCart(" + i /*+ ", '" + resp[i].name + "', " + resp[i].cost */ +")");
+        //btn.onclick = addToCart(i);
         btn.style = "width:130px";
         Items.push(resp[i]);
 
@@ -43,65 +43,87 @@ function appendItemData(resp){
         mainContainer.appendChild(btn);
 
     }
+    
 }
 
-function addToCart(id, resp){
+function addToCart(id, /*name, cost*/){
   //  var totalContainer = document.getElementById("item-container");
-
-totalCost = totalCost + resp.cost;
+totalCost = totalCost + Items[id].cost;
+//totalCost = totalCost + resp.cost;
 //var item = [
-//data.name,
+//id,
 
-//data.cost,
+//name,
 
-//data.desc
+//cost
 
 //];
+
+
+console.log(Items[id]);
+var mainContainer = document.getElementById('itemData');
+var li = document.createElement("li");
+
 Cartarr.push(Items[id]);
+li.innerHTML = Items[id].name;
+mainContainer.appendChild(li);
+
+sessionStorage.setItem('cart', JSON.stringify(Cartarr));
+sessionStorage.setItem('total', JSON.stringify(totalCost));
 
 
 }
 
+
+
 function populateCart(){
-    var mainContainer = document.getElementById("CartBody")
+    let cart = sessionStorage.getItem('cart');
+    let Cartarr = JSON.parse(cart);
+    var mainContainer = document.getElementById("CartBody");
+    console.log(Cartarr);
+    let total = sessionStorage.getItem('total');
+    let TotalCost = JSON.parse(total);
+
 
     var tr = document.createElement("tr");
     for(x = 0; x < Cartarr.length; x++){
-        var th = document.createElement("th");
+        console.log(Cartarr[x]);
+       // var th = document.createElement("th");
         var btn = document.createElement("button");
         btn.type = "submit";
         btn.className = "btn btn-primary";
-        btn.onclick = removeFromCart(x);
-        th.scope = "row";
-        th.innerHTML = x+1;
-        tr.appendChild(th);
-        var td = document.createElement("td");
-        td.innerHTML = Cartarr[x].name;
-        tr.appendChild("td");
-        td.innerHTML = Cartarr[x].cost;
-        tr.appendChild("td");
-        td.innerHTML = Cartarr[x].desc;
-        tr.appendChild("td");
+        btn.setAttribute("onclick", "removeFromCart(" + x + ", "+ Cartarr + ", "+ TotalCost + ")");
+        btn.innerHTML = "Remove";
+      //  btn.onclick = removeFromCart(x);
+     //   th.scope = "row";
+      //  th.innerHTML = x+1;
+    //    tr.appendChild(th);
+    //    var td = document.createElement("td");
+ //       td.innerHTML = Cartarr[x].name;
+    //    tr.appendChild("td");
+ //       td.innerHTML = Cartarr[x].cost;
+  //      tr.appendChild("td");
+   //     td.innerHTML = Cartarr[x].id;
+  //      tr.appendChild("td");
 
-   /*     mainContainer.innerHTML += 
+        mainContainer.innerHTML += 
         `<tr>
         <th scope="row">${x+1}</th> 
         <td> ${Cartarr[x].name}</td>
 
         <td> ${Cartarr[x].cost}</td>
 
-        <td> ${Cartarr[x].desc}</td>
+        <td> ${Cartarr[x].id}</td>
+        </tr>` 
 
-        <td> ${btn}</td>
-        </tr>` */
-
-        mainContainer.appendChild("tr");
+        //mainContainer.appendChild("tr");
         mainContainer.appendChild(btn);
     }
+    mainContainer.innerHTML += `<tr> <td> ${TotalCost}</td></tr>`
 }
 
-function removeFromCart(x){
+function removeFromCart(x, Cartarr, TotalCost){
     Cartarr.splice(x, 0);
-    totalCost = totalCost - Cartarr[x].cost;
+    TotalCost = TotalCost - Cartarr[x].cost;
     window.location.assign("CartListPage.html");
 }
