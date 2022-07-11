@@ -71,9 +71,9 @@ public class BuyerSteps {
 	public void the_buyer_is_redirected_and_can_see_the_item_catalogue() {
 	    
 		new WebDriverWait(driver, Duration.ofSeconds(10))
-		.until(ExpectedConditions.titleContains("Product Page"));
+		.until(ExpectedConditions.titleContains("Item Page"));
 		
-		assertEquals("Product Page", driver.getTitle());
+		assertEquals("Item Page", driver.getTitle());
 	}
 
 	@When("the buyer adds to their balance")
@@ -102,16 +102,6 @@ public class BuyerSteps {
 		.until(ExpectedConditions.titleContains("New Ticket"));
 		
 		assertEquals("New Ticket", driver.getTitle());
-	}
-	
-	@When("the buyer fills in all the required fields and submits")
-	public void the_buyer_fills_in_all_the_required_fields_and_submits() {
-		
-	}
-
-	@Then("buyer is redirected to view ticket")
-	public void buyer_is_redirected_to_view_ticket() {
-		
 	}
 	
 	@Given("a Buyer is on the ItemPage") //G W T block for adding an item to the cart --- TR
