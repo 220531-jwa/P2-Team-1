@@ -11,6 +11,7 @@ import runner.AchieveTestSuite;
 public class BuyerCheckout {
     public static WebDriver driver = AchieveTestSuite.driver;
     public static CartListPage clp = AchieveTestSuite.cartListPage;
+    
     @Given("a Buyer is on their Cart page with at least one item in the Cart")
     public void a_buyer_is_on_their_cart_page_with_at_least_item_in_the_cart() {
         driver.get("http://localhost:8081/CartListPage.html");

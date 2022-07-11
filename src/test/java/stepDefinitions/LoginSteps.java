@@ -16,6 +16,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class LoginSteps {
     private WebDriver driver = AchieveTestSuite.driver;
     private LoginPage lp = AchieveTestSuite.lp;
+    
+    
     @Given("a Buyer is on the Login screen and has a valid account")
     public void a_buyer_is_on_the_login_screen_and_has_a_valid_account() {
         driver.get("http://localhost:8081/login.html");
