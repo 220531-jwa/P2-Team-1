@@ -24,7 +24,7 @@ async function loadUser(){
                 <th>Description</th>
                 <th>Submission Time</th>
             </tr>`
-
+            
             for(var i = 0; i <resp.length; i++){
                 var subTime = new Date(parseInt(resp[i].submissionTime));
                 var sub = (subTime.getMonth() + 1)+'/'+ subTime.getDate() + '/' + subTime.getFullYear();
@@ -42,12 +42,4 @@ async function loadUser(){
             }
         })
         .catch((error) => {console.log(error)})
-}
-
-function toHome(){
-    window.location = 'http://localhost:8081/homePage.html';
-}
-
-function submitNew(){
-    window.location = 'http://localhost:8081/newTicket.html';
 }

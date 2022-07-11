@@ -5,22 +5,31 @@
             Achieve Create Account Page
         -->
         <title>Create Achieve Account</title>
+        <link rel="stylesheet" href="css/bootstrap.css">
     </head>
     <body>
-        <div><strong>Create Account:</strong></div>
-        <div id="inputFields">
+        <div class="h4 p-2"><strong>Create Account:</strong></div>
+        <div class="h6 p-2">Complete all fields:</div>
+        <div id="inputFields" class="p-2">
             <label>Username: 
                 <input class="form-control" id="un" type="text">
             </label>
+            <br>
             <label>Password: 
                 <input class="form-control" id="pw" type="password">
             </label>
+            <br>
             <label>Name: 
                 <input class="form-control" id="name" type="text">
             </label>
             <br>
             <button type="button" class="btn btn-primary" onclick="createAccount()" id="create">Create Account</button>
         </div>
+
+        <div class="p-2">
+            <button class="btn btn-primary">Back To Login</button>
+        </div>
         <script src="createAccount.js"></script>
+        <script src="./js/bootstrap.js"></script>
     </body>
 </html>
