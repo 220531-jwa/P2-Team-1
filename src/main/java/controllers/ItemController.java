@@ -51,4 +51,13 @@ public class ItemController {
 			ctx.status(404);
 		}
 	}
+	
+	public void updateItem(Context ctx) {
+		int sellerId = Integer.parseInt(ctx.pathParam("sellerID"));
+		int itemId = Integer.parseInt(ctx.pathParam("itemId"));
+		Item update = ctx.bodyAsClass(Item.class);
+		
+		is.updateItem(sellerId, itemId, update);
+		ctx.status(200);
+	}
 }

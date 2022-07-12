@@ -24,4 +24,8 @@ public class ItemService {
 	public List<Item> getAllSellerItems(int sellerId) {
 		return id.getAllSellerItems(sellerId);
 	}
+	
+	public void updateItem(int sellerId, int itemId, Item update) {
+		id.updateItem(sellerId, itemId, update);
+	}
 }

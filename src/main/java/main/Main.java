@@ -71,6 +71,9 @@ public class Main {
 			path("/seller/{sellerID}", ()-> {
 				path("/items", ()->{
 					get(ic::getAllSellerItems);
+					path("/{itemId}", ()-> {
+						put(ic::updateItem);
+					});
 				});
 			});
 		});

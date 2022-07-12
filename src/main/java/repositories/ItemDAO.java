@@ -89,4 +89,24 @@ public class ItemDAO {
 			return null;
 		}
 	}
+	
+	public void updateItem(int sellerId, int itemId, Item update) {
+		String sql = "Update achieveapp.items set name = ?, cost = ?, description = ?, inventory = ? where id = ? and sellerId = ?";
+		
+		try(Connection conn = cu.getConnection()){
+			PreparedStatement ps = conn.prepareStatement(sql);
+			
+			ps.setString(1, update.getName());
+			ps.setDouble(2, update.getCost());
+			ps.setString(3, update.getDesc());
+			ps.setInt(4, update.getInventory());
+			ps.setInt(5, itemId);
+			ps.setInt(6, sellerId);
+			
+			ps.execute();
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }
