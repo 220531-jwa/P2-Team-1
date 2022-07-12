@@ -29,4 +29,7 @@ public class NewTicketPage {
 		
 		@FindBy(xpath="/html/body/p")
 		public WebElement ticketText;
+		
+		@FindBy(id="errormsg")
+		public WebElement errormsg;
 }

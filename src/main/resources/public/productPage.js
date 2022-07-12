@@ -1,5 +1,3 @@
-let baseUrl = "http://localhost:8081/";
-
 async function getItems(){
 
     let res = await fetch(
