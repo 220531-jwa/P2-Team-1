@@ -29,5 +29,9 @@ function toCart(){
 }
 
 function viewAllAdminTicket(){
-    window.location =`${baseURL}allTickets.html`;
+    window.location =`${baseURL}adminAllTickets.html`;
+}
+
+function toAdminSingleTicket(){
+    window.location =`${baseURL}adminTicketResponse.html`
 }

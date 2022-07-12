@@ -44,3 +44,8 @@ async function loadTicketsAdmin(){
         )
         .catch((error) => {console.log(error)});
 }
+
+function setReq(object){
+    sessionStorage.setItem('activeAdminTicket', object);
+    toAdminSingleTicket();
+}
