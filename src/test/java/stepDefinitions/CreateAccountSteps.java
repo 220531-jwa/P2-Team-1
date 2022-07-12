@@ -1,23 +1,46 @@
 package stepDefinitions;
 
+import io.cucumber.java.BeforeAll;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import pages.BuyerPage;
+import pages.CartListPage;
 import pages.CreateAccountPage;
+import pages.ItemPage;
+import pages.LoginPage;
 import runner.AchieveTestSuite;
 
+import java.io.File;
 import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CreateAccountSteps {
-    private WebDriver driver = AchieveTestSuite.driver;
+	public static WebDriver driver;
+	public static BuyerPage bp;
+	public static CartListPage cartListPage;
+	public static ItemPage itemPage;
+	public static CreateAccountPage cap;
+	public static LoginPage lp;
 
-    private CreateAccountPage cap = AchieveTestSuite.cap;
-
+	@BeforeAll
+	public static void setup(){
+		File chrome = new File("src/test/resources/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", chrome.getAbsolutePath());
+		driver = new ChromeDriver();
+		bp = new BuyerPage(driver);
+		cap = new CreateAccountPage(driver);
+		lp = new LoginPage(driver);
+		cartListPage = new CartListPage(driver);
+		itemPage = new ItemPage(driver);
+	}
+    
     @Given("a User is on the Create an Account page")
     public void a_user_is_on_the_create_an_account_page() {
         driver.get("http://localhost:8081/createAccount.html");

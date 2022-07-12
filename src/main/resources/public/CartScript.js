@@ -138,13 +138,12 @@ function removeFromCart(x, TotalCost){
     console.log(Cartarr);
     console.log(x);
     Cartarr.splice(x, 1);
-    TotalCost = TotalCost - Cartarr[x].cost;
-    window.location.assign("CartListPage.html");
+    TotalCost = TotalCost.toFixed(2);
+    sessionStorage.setItem('cart', JSON.stringify(Cartarr));
+    sessionStorage.setItem('total', JSON.stringify(TotalCost));
+    window.location.assign("./CartListPage.html");
 }
 
-function returnTotal(){
-    return totalCost;
-}
 
 async function checkOut(){
     console.log(activeUser);
@@ -184,8 +183,5 @@ async function checkOut(){
 
 
 
-    TotalCost = TotalCost.toFixed(2);
-    sessionStorage.setItem('cart', JSON.stringify(Cartarr));
-    sessionStorage.setItem('total', JSON.stringify(TotalCost));
-    window.location.assign("./CartListPage.html");
-}
+    
+

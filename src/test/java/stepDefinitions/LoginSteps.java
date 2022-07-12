@@ -1,22 +1,46 @@
 package stepDefinitions;
 
+import io.cucumber.java.BeforeAll;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import pages.BuyerPage;
+import pages.CartListPage;
+import pages.CreateAccountPage;
+import pages.ItemPage;
 import pages.LoginPage;
 import runner.AchieveTestSuite;
 
+import java.io.File;
 import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LoginSteps {
-    private WebDriver driver = AchieveTestSuite.driver;
-    private LoginPage lp = AchieveTestSuite.lp;
     
+    public static WebDriver driver;
+	public static BuyerPage bp;
+	public static CartListPage cartListPage;
+	public static ItemPage itemPage;
+	public static CreateAccountPage cap;
+	public static LoginPage lp;
+
+	@BeforeAll
+	public static void setup(){
+		File chrome = new File("src/test/resources/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", chrome.getAbsolutePath());
+		driver = new ChromeDriver();
+		bp = new BuyerPage(driver);
+		cap = new CreateAccountPage(driver);
+		lp = new LoginPage(driver);
+		cartListPage = new CartListPage(driver);
+		itemPage = new ItemPage(driver);
+	}
     
     @Given("a Buyer is on the Login screen and has a valid account")
     public void a_buyer_is_on_the_login_screen_and_has_a_valid_account() {

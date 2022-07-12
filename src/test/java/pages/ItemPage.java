@@ -19,4 +19,7 @@ public class ItemPage {
 	@FindBy(id = "AddButt") //add in proper xpath for the button
 	public WebElement pageAddButton;
 	
+	@FindBy(id = "itemData")
+	public WebElement itemData;
+	
 }
