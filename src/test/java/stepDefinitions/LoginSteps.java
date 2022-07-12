@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import io.cucumber.java.AfterAll;
 import io.cucumber.java.BeforeAll;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -40,6 +41,11 @@ public class LoginSteps {
 		lp = new LoginPage(driver);
 		cartListPage = new CartListPage(driver);
 		itemPage = new ItemPage(driver);
+	}
+	
+	@AfterAll
+	public static void teardown(){
+		driver.quit();
 	}
     
     @Given("a Buyer is on the Login screen and has a valid account")

@@ -1,25 +1,26 @@
 package stepDefinitions;
 
-import io.cucumber.java.BeforeAll;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.io.File;
+import java.time.Duration;
+import java.util.Random;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.cucumber.java.AfterAll;
+import io.cucumber.java.BeforeAll;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import pages.BuyerPage;
 import pages.CartListPage;
 import pages.CreateAccountPage;
 import pages.ItemPage;
 import pages.LoginPage;
-import runner.AchieveTestSuite;
-
-import java.io.File;
-import java.time.Duration;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CreateAccountSteps {
 	public static WebDriver driver;
@@ -40,16 +41,27 @@ public class CreateAccountSteps {
 		cartListPage = new CartListPage(driver);
 		itemPage = new ItemPage(driver);
 	}
+	
+	@AfterAll
+	public static void teardown(){
+		driver.quit();
+	}
     
     @Given("a User is on the Create an Account page")
     public void a_user_is_on_the_create_an_account_page() {
         driver.get("http://localhost:8081/createAccount.html");
     }
-    @When("the User enters their {string}, {string}, and {string} and clicks the Create Account button")
-    public void the_user_enters_their_and_and_clicks_the_create_account_button(String username, String password, String name) {
-        cap.createUsername.sendKeys(username);
-        cap.createPassword.sendKeys(password);
-        cap.createName.sendKeys(name);
+    @When("the User enters a random username and password and name and presses create account")
+    public void the_use_enters_a_random_username_and_password_and_name_and_presses_create_account() {
+    	
+    	Random rand = new Random();
+    	int upperbound = 100000;
+    	int random = rand.nextInt(upperbound);
+    	String testchars = String.valueOf(random);
+    	
+        cap.createUsername.sendKeys(testchars);
+        cap.createPassword.sendKeys(testchars);
+        cap.createName.sendKeys(testchars);
         cap.createAccountButton.click();
     }
     @Then("the User will be redirected to the Login screen")
