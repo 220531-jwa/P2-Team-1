@@ -32,14 +32,5 @@ public class BuyerPage {
 	@FindBy(xpath="/html/body/container[3]/button[2]")
 	public WebElement submitSupportTicketBtn;
 	
-//------------Create Ticket Page FindBys ----------------------------
-	
-	@FindBy(id="subj")
-	public WebElement cNTSubj;
-	
-	@FindBy(id="desc")
-	public WebElement cNTDesc;
-	
-	@FindBy(xpath="/html/body/button")
-	public WebElement cNTSubmitBtn;
+
 }
