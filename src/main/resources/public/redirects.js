@@ -28,3 +28,11 @@ function toCart(){
     window.location =`${baseURL}CartListPage.html`
 }
 
+function browseInventory(){
+    window.location = 'http://localhost:8081/adminInventory.html';
+}
+
+
+function viewAllAdminTicket(){
+    window.location ='http://localhost:8081/allTickets.html';
+}

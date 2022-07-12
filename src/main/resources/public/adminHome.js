@@ -24,12 +24,3 @@ function  toggleError(id){
     }
     else x.setAttribute('hidden', 'hidden');
 }
-
-function browseInventory(){
-    window.location = 'http://localhost:8081/adminInventory.html';
-}
-
-
-function viewAllTicket(){
-    window.location ='http://localhost:8081/allTickets.html';
-}
