@@ -30,7 +30,7 @@ function appendAdminData(resp){
         btn.setAttribute("onclick", "deleteItem(" + i +")");
         //btn.onclick = addToCart(i);
         btn.style = "width:130px";
-        Items.push(resp[i]);
+       // Items.push(resp[i]);
 
         li.innerHTML = "<br>Name: <br>"  + resp[i].name + "<br>Cost: $" + resp[i].cost + "<br>Description: <br>" + resp[i].desc
         + "<br>";
@@ -49,7 +49,15 @@ function deleteItem(id){
         {
             method: 'DELETE',
             header: {'Content-Type': 'application/json'},
-            body: userJson
         }
     );
+    let data = await res.json()
+
+    .then((resp) => {
+        window.location.assign("./adminInventory.html");
+    })
+    .catch((error) =>{
+        console.log(error);
+    });
+
 }
