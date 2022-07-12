@@ -1,15 +1,24 @@
 package stepDefinitions;
 
+import io.cucumber.java.AfterAll;
+import io.cucumber.java.BeforeAll;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import pages.BuyerPage;
 import pages.CartListPage;
+import pages.CreateAccountPage;
+import pages.ItemPage;
+import pages.LoginPage;
 import runner.AchieveTestSuite;
 
+import java.io.File;
 import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -18,6 +27,18 @@ public class BuyerCheckout {
     public static WebDriver driver = AchieveTestSuite.driver;
     public static CartListPage clp = AchieveTestSuite.cartListPage;
 
+    @BeforeAll
+	public static void setup(){
+		File chrome = new File("src/test/resources/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", chrome.getAbsolutePath());
+		driver = new ChromeDriver();
+		clp = new CartListPage(driver);
+	}
+
+	@AfterAll
+	public static void teardown(){
+		driver.quit();
+	}
     
 
     @Given("a Buyer is on their Cart page")

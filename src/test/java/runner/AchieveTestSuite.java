@@ -22,8 +22,8 @@ import pages.ItemPage;
 
 
 @Suite
-//@Tag("CucumberTests")
-//@IncludeTags("CucumberTests")
+@Tag("CucumberTests")
+@IncludeTags("CucumberTests")
 public class AchieveTestSuite {
 	
 	public static WebDriver driver;
