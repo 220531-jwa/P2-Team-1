@@ -40,6 +40,9 @@ public class Main {
 			});
 			path("/item", () ->{
 				get(ic::getAllItems);
+				path("/{Itemid}", () ->{
+					patch(ic::deleteItem);
+				});
 			});
 			path("/user", () ->{
 				path("/{id}", () ->{

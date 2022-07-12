@@ -28,4 +28,15 @@ public class ItemController {
 		}
 		
 	}
+	public void deleteItem(Context ctx) {
+		int id = Integer.parseInt(ctx.pathParam("Itemid"));
+		
+		try {
+			is.deleteItem(id);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+
+	}
 }
