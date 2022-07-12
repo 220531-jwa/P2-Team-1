@@ -32,4 +32,11 @@ public class TicketController {
 		ctx.status(200);
 		ctx.json(tickets);
 	}
+	
+	public void getAllTicketsAdmin(Context ctx) {
+		List<Ticket> tickets = new ArrayList<>();
+		tickets = ts.getAllTicketsAdmin();
+		ctx.status(200);
+		ctx.json(tickets);
+	}
 }

@@ -22,4 +22,8 @@ public class TicketService {
 		
 		return td.getAllTickets(id);
 	}
+	
+	public List<Ticket> getAllTicketsAdmin(){
+		return td.getAllTicketsAdmin();
+	}
 }

@@ -55,6 +55,11 @@ public class Main {
 					});
 				});
 			});
+			path("/admin", ()-> {
+				path("/ticket", ()-> {
+					get(tc::getAllTicketsAdmin);
+				});
+			});
 		});
 	}
 }

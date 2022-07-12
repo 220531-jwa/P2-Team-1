@@ -80,4 +80,34 @@ public class TicketDAO {
 		}
 		return null;
 	}
+	
+	public List<Ticket> getAllTicketsAdmin(){
+		List<Ticket> tickets = new ArrayList<>();
+		String sql = "select * from achieveapp.tickets";
+		
+		try(Connection conn = cu.getConnection()){
+			PreparedStatement ps = conn.prepareStatement(sql);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				tickets.add(new Ticket( 
+						rs.getInt("id"),
+						rs.getString("status"),
+						rs.getString("subject"),
+						rs.getString("description"),
+						rs.getDate("submissiontime")
+						));
+			}
+			
+			if(tickets.size() == 0) {
+				return null;
+			}
+			return tickets;
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }
