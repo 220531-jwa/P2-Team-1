@@ -39,9 +39,6 @@ public class UserDAO {
 			if(rs.next()) {
 				return rs.getDouble("balance");
 			}
-			
-			
-			
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
@@ -117,6 +114,25 @@ public class UserDAO {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public double updateBalance(int id, double total){
+        String sql = "update achieveapp.users set balance = balance - ? where id = ? returning *;";
+
+        try(Connection connect = cu.getConnection()){
+            PreparedStatement ps = connect.prepareStatement(sql);
+            ps.setDouble(1, total);
+            ps.setInt(2, id);
+
+            ResultSet rs = ps.executeQuery();
+
+            if(rs.next()){
+                return rs.getDouble("balance");
+            }
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+        return 0.00;
     }
 }
 

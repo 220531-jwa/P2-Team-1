@@ -1,6 +1,7 @@
 package controllers;
 
 import io.javalin.http.Context;
+import models.Cart;
 import models.User;
 import services.UserService;
 
@@ -53,6 +54,23 @@ public class UserController {
 				ctx.json(s);
 			} else {
 				ctx.status(404);
+			}
+		} catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+
+	public static void checkout(Context ctx){
+		int id = Integer.parseInt(ctx.pathParam("id"));
+		Cart cart = ctx.bodyAsClass(Cart.class);
+		double total = cart.getTotal();
+		try{
+			double balance = us.updateBalance(id, total);
+			if(balance <= 0.00){
+				ctx.status(404);
+			} else {
+				ctx.status(200);
+				ctx.json(balance);
 			}
 		} catch(Exception e){
 			e.printStackTrace();

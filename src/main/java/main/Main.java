@@ -49,6 +49,9 @@ public class Main {
 					path("/balance", () ->{
 						patch(uc::addBalance);
 					});
+					path("/checkout", () -> {
+						patch(UserController::checkout);
+					});
 					path("/tickets", ()->{
 						get(tc::getAllTickets);
 						post(tc::submitNewTicket);
