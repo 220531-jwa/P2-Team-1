@@ -1,8 +1,8 @@
 const Items = [];
-
+let activeUser = JSON.parse(sessionStorage.activeUser);
 
 async function getItemData(){
-    let res = await fetch(`${baseUrl}/item`);//the url where we're sending this request.
+    let res = await fetch(`${baseURL}seller/${activeUser.id}/items`);//the url where we're sending this request.
 
 if(res.status == 200){
     let data = await res.json()

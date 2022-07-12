@@ -39,7 +39,7 @@ public class Main {
 			path("/login", () -> {
 				post(UserController::loginUser);
 			});
-			path("/item", () ->{
+			path("/item", () -> {
 				get(ic::getAllItems);
 				path("/{Itemid}", () ->{
 					patch(ic::deleteItem);
@@ -66,6 +66,11 @@ public class Main {
 						get(tc::getSingleTicketAdmin);
 						put(tc::updateTicketAdmin);
 					});
+				});
+			});
+			path("/seller/{sellerID}", ()-> {
+				path("/items", ()->{
+					get(ic::getAllSellerItems);
 				});
 			});
 		});

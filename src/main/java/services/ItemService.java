@@ -20,4 +20,8 @@ public class ItemService {
 		// TODO Auto-generated method stub
 	id.deleteItem(id2);
 	}
+	
+	public List<Item> getAllSellerItems(int sellerId) {
+		return id.getAllSellerItems(sellerId);
+	}
 }

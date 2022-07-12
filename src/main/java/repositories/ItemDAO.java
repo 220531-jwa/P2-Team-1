@@ -56,4 +56,37 @@ public class ItemDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public List<Item> getAllSellerItems(int sellerId){
+			
+		String sql = "select * from achieveapp.items where sellerId = ?";
+		List<Item> items = new ArrayList<>();
+			
+		try(Connection conn = cu.getConnection()){
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, sellerId);
+				
+			ResultSet rs = ps.executeQuery();
+				
+			while(rs.next()) {
+				items.add(new Item(
+						rs.getString("name"),
+						rs.getDouble("cost"),
+						rs.getString("description"),
+						rs.getInt("id"),
+						rs.getInt("sellerid"),
+						rs.getInt("inventory")
+						));
+			}
+				
+			if(items.size() == 0) {
+				return null;
+			}
+			return items;
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 }

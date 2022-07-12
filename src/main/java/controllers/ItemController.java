@@ -26,17 +26,29 @@ public class ItemController {
 		else if(items.size() == 0 ) {
 			ctx.status(404);
 		}
-		
 	}
 	public void deleteItem(Context ctx) {
 		int id = Integer.parseInt(ctx.pathParam("Itemid"));
-		
 		try {
 			is.deleteItem(id);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void getAllSellerItems(Context ctx) {
+		int sellerId = Integer.parseInt(ctx.pathParam("sellerID"));
 		
-
+		List<Item> items = new ArrayList<>();
+		
+		items = is.getAllSellerItems(sellerId);
+		
+		if(items.size() != 0) {
+			ctx.status(200);
+			ctx.json(items);
+		}
+		else if(items.size() == 0) {
+			ctx.status(404);
+		}
 	}
 }
