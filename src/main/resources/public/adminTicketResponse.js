@@ -1,5 +1,3 @@
-let baseUrl = "http://localhost:8081/";
-
 async function setAdminTicket(){
     var ticketId = sessionStorage.activeAdminTicket;
     console.log(ticketId);

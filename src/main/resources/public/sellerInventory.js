@@ -34,8 +34,8 @@ function appendItemData(resp){
         //btn.onclick = addToCart(i);
         btn.style = "width:130px";
         Items.push(resp[i]);
-
-        li.innerHTML = "<br>Name: "  + resp[i].name + "  Cost: $" + resp[i].cost 
+        
+        li.innerHTML = "<br>Name: "  + resp[i].name + "  Cost: $" + resp[i].cost
         + "  Stock: " + resp[i].inventory;
 
         mainContainer.appendChild(li);

@@ -1,5 +1,3 @@
-let baseUrl = "http://localhost:8081/";
-
 async function loadTicketsAdmin(){
     let res = await fetch(
         `${baseURL}admin/ticket`,

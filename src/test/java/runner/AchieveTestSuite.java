@@ -20,7 +20,6 @@ import pages.LoginPage;
 
 
 @Suite
-@Tag("CucumberTests")
 @IncludeTags("CucumberTests")
 public class AchieveTestSuite {
 	
