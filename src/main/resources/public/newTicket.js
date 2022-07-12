@@ -7,6 +7,11 @@ async function newTicket(){
     let subject = document.getElementById('subj').value;
     let desc = document.getElementById('desc').value;
 
+    if(subject === "" || desc === ""){
+        document.getElementById('errormsg').removeAttribute('hidden');
+        return;
+    }
+
     let tickets = {
 
         subject:subject,
@@ -39,6 +44,7 @@ async function newTicket(){
         });
     
   }
+
 
 
     
