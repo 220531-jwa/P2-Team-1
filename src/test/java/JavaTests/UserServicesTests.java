@@ -82,4 +82,16 @@ public class UserServicesTests {
         //then
         assertNotEquals(mockUser, mockUs.loginUser("josh", "john"));
     }
+
+    @Test
+    public void should_updateBalance(){
+        //given
+        User mockUser = new User("josh", "josh", 1, "Josh", 1, 100.00);
+        double currentBal = 40.02;
+        double total = 59.98;
+        //when
+        when(mockUd.updateBalance(1, total)).thenReturn(currentBal);
+        //then
+        assertEquals(currentBal, mockUs.updateBalance(1, total));
+    }
 }

@@ -45,5 +45,15 @@ public class UserService {
 			return null;
 		}
 	}
+
+	public double updateBalance(int id, double total){
+		double newBalance = ud.updateBalance(id, total);
+		if(newBalance <= 0.00){
+			System.out.println("Insufficient balance");
+			return 0.00;
+		} else {
+			return newBalance;
+		}
+	}
 }
 

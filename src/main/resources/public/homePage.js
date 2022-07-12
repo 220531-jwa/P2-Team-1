@@ -1,5 +1,6 @@
 let baseUrl = 'http://localhost:8081/'
 
+
 function home(){
 
     if(sessionStorage.activeUser != null){

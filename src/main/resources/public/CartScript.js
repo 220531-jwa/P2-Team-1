@@ -3,6 +3,10 @@ let totalCost = 0.00;
 const Cartarr = [];
 const Items = [];
 
+function pullAccount(){
+    let activeUser = JSON.parse(sessionStorage.activeUser);
+    document.getElementById('userMessage').innerHTML = `Hello, ${activeUser.name}!`
+}
 async function getItemData(){
     let res = await fetch(`${baseUrl}/item`);//the url where we're sending this request.
 
@@ -132,5 +136,39 @@ function returnTotal(){
     return totalCost;
 }
 
-function checkOut(){
+let activeUser = JSON.parse(sessionStorage.activeUser);
+
+
+async function checkOut(){
+    console.log(activeUser);
+    console.log("checkout button pressed");
+    let total = totalCost; 
+    console.log(total);
+    let uid = activeUser.id;
+    console.log(uid);
+    let request = {
+        balance: total
+    }
+
+    let requestJson = JSON.stringify(request);
+    console.log(requestJson);
+
+    let res = await fetch(
+        `${baseUrl}/user/${uid}/checkout`,
+        {
+            method : 'PATCH',
+            header : {'Content-Type': 'application/json'},
+            body : requestJson
+        }
+    );
+    
+    let resJson = await res.json()
+    .then((resp) =>{
+        console.log(resp);
+        Cartarr = []; //empty cart 
+        window.alert("You have successfully checked out!");
+    })
+    .catch((error) =>{
+        console.log(error);
+    });
 }
