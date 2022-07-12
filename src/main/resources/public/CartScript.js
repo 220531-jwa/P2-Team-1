@@ -2,6 +2,8 @@ let baseUrl = "http://localhost:8081";
 let totalCost = 0.00;
 let Cartarr = [];
 const Items = [];
+let activeUser = JSON.parse(sessionStorage.activeUser);
+
 
 async function getItemData(){
     let res = await fetch(`${baseUrl}/item`);//the url where we're sending this request.
@@ -137,6 +139,51 @@ function removeFromCart(x, TotalCost){
     console.log(x);
     Cartarr.splice(x, 1);
     TotalCost = TotalCost - Cartarr[x].cost;
+    window.location.assign("CartListPage.html");
+}
+
+function returnTotal(){
+    return totalCost;
+}
+
+async function checkOut(){
+    console.log(activeUser);
+    console.log("checkout button pressed");
+    let totalCost = sessionStorage.getItem('total');
+    console.log(totalCost);
+    let uid = activeUser.id;
+    console.log(uid);
+    let request = {
+        total: totalCost
+    }
+
+    let requestJson = JSON.stringify(request);
+    console.log(requestJson);
+
+    let res = await fetch(
+        `${baseUrl}/user/${uid}/checkout`,
+        {
+            method : 'PATCH',
+            header : {'Content-Type': 'application/json'},
+            body : requestJson
+        }
+    );
+    
+    let resJson = await res.json()
+    .then((resp) =>{
+        console.log(resp);
+        Cartarr.length = 0; //empty cart 
+        window.alert("You have successfully checked out!");
+    })
+    .catch((error) =>{
+        console.log(error);
+        window.alert("You have not checked out. Make sure your account balance is sufficient and you have at least one item in your cart!")
+    });
+}
+
+
+
+
     TotalCost = TotalCost.toFixed(2);
     sessionStorage.setItem('cart', JSON.stringify(Cartarr));
     sessionStorage.setItem('total', JSON.stringify(TotalCost));

@@ -12,14 +12,18 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pages.BuyerPage;
 import pages.LoginPage;
 import pages.CreateAccountPage;
+
+
+
+
 import pages.CartListPage;
 import pages.ItemPage;
 
 
 
 @Suite
-@Tag("CucumberTests")
-@IncludeTags("CucumberTests")
+//@Tag("CucumberTests")
+//@IncludeTags("CucumberTests")
 public class AchieveTestSuite {
 	
 	public static WebDriver driver;
