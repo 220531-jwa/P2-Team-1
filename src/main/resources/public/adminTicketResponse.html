@@ -7,10 +7,25 @@
     <title>Admin Ticket Response</title>
     <link rel="stylesheet" href="css/bootstrap.css">
 </head>
-<body onload="setAdminTicket()">
+<body class="p-2" onload="setAdminTicket()">
 
-    <p>Displaying Ticket Information:</p>
+    <p class="h4">Displaying Ticket Information:</p>
     
+    <table class="table table-hover mb-4" id="ticketTable" style="width:75%">
+    </table>
+
+    <div class = "h6 mb-3 p-2" style="width:200px;">
+        <p class="mb-2">Status to be Updated:</p>
+        <select class="mb-2" id="newStatus">
+            <option value="open">Open</option>
+            <option value="answered">Answered</option>
+            <option value="resolved">Resolved</option>
+            <option value="declined">Declined</option>
+        </select>
+
+        <button class="btn btn-outline-primary" type="button" onclick="statusUpdate()">Status Update</button>
+    </div>
+
     <script src="./adminTicketResponse.js"></script>
     <script src="./js/bootstrap.js"></script>
     <script src="./redirects.js"></script>

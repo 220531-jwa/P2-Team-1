@@ -4,6 +4,7 @@ import static io.javalin.apibuilder.ApiBuilder.get;
 import static io.javalin.apibuilder.ApiBuilder.patch;
 import static io.javalin.apibuilder.ApiBuilder.path;
 import static io.javalin.apibuilder.ApiBuilder.post;
+import static io.javalin.apibuilder.ApiBuilder.put;
 
 import controllers.ItemController;
 import controllers.TicketController;
@@ -58,6 +59,10 @@ public class Main {
 			path("/admin", ()-> {
 				path("/ticket", ()-> {
 					get(tc::getAllTicketsAdmin);
+					path("/{ticketId}", () ->{
+						get(tc::getSingleTicketAdmin);
+						put(tc::updateTicketAdmin);
+					});
 				});
 			});
 		});

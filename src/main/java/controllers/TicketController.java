@@ -39,4 +39,23 @@ public class TicketController {
 		ctx.status(200);
 		ctx.json(tickets);
 	}
+	
+	public void getSingleTicketAdmin(Context ctx) {
+		int id = Integer.parseInt(ctx.pathParam("ticketId"));
+		
+		Ticket ticket = ts.getSingleTicketAdmin(id);
+		
+		ctx.status(200);
+		ctx.json(ticket);
+	}
+	
+	public void updateTicketAdmin(Context ctx) {
+		int id = Integer.parseInt(ctx.pathParam("ticketId"));
+		String newStatus = ctx.body();
+		
+		Ticket ticket = ts.updateTicketAdmin(id, newStatus);
+		
+		ctx.status(200);
+		ctx.json(ticket);
+	}
 }

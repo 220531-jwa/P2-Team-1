@@ -26,4 +26,12 @@ public class TicketService {
 	public List<Ticket> getAllTicketsAdmin(){
 		return td.getAllTicketsAdmin();
 	}
+	
+	public Ticket getSingleTicketAdmin(int id) {
+		return td.getSingleTicketAdmin(id);
+	}
+	
+	public Ticket updateTicketAdmin(int id, String newStatus) {
+		return td.updateTicketAdmin(id, newStatus);
+	}
 }
