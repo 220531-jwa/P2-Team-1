@@ -2,11 +2,9 @@ let baseUrl = "http://localhost:8081";
 let totalCost = 0.00;
 const Cartarr = [];
 const Items = [];
+let activeUser = JSON.parse(sessionStorage.activeUser);
 
-function pullAccount(){
-    let activeUser = JSON.parse(sessionStorage.activeUser);
-    document.getElementById('userMessage').innerHTML = `Hello, ${activeUser.name}!`
-}
+
 async function getItemData(){
     let res = await fetch(`${baseUrl}/item`);//the url where we're sending this request.
 
@@ -136,18 +134,15 @@ function returnTotal(){
     return totalCost;
 }
 
-let activeUser = JSON.parse(sessionStorage.activeUser);
-
-
 async function checkOut(){
     console.log(activeUser);
     console.log("checkout button pressed");
-    let total = totalCost; 
-    console.log(total);
+    let totalCost = sessionStorage.getItem('total');
+    console.log(totalCost);
     let uid = activeUser.id;
     console.log(uid);
     let request = {
-        balance: total
+        total: totalCost
     }
 
     let requestJson = JSON.stringify(request);
@@ -165,10 +160,15 @@ async function checkOut(){
     let resJson = await res.json()
     .then((resp) =>{
         console.log(resp);
-        Cartarr = []; //empty cart 
+        Cartarr.length = 0; //empty cart 
         window.alert("You have successfully checked out!");
     })
     .catch((error) =>{
         console.log(error);
+        window.alert("You have not checked out. Make sure your account balance is sufficient and you have at least one item in your cart!")
     });
 }
+
+
+
+
