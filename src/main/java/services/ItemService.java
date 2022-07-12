@@ -15,4 +15,9 @@ public class ItemService {
 	public List<Item> getAllItems(){
 		return id.getAllItems();
 	}
+
+	public void deleteItem(int id2) {
+		// TODO Auto-generated method stub
+	id.deleteItem(id2);
+	}
 }

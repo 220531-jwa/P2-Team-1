@@ -44,4 +44,16 @@ public class ItemDAO {
 			return null;
 		}
 	}
+	public void deleteItem(int id2) {
+		// TODO Auto-generated method stub
+		String sql = "delete from accounts where id = ?";
+		try(Connection conn = cu.getConnection()){
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, id2);
+			ps.execute();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }
