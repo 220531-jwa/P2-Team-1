@@ -26,7 +26,7 @@ public class AchieveTestSuite {
 	
 	public static WebDriver driver;
 	public static BuyerPage bp;
-	public static CartListPage cartListPage;
+	public static CartListPage clp;
 	public static ItemPage ip;
 	public static CreateAccountPage cap;
 	public static LoginPage lp;
@@ -40,7 +40,7 @@ public class AchieveTestSuite {
 		bp = new BuyerPage(driver);
 		cap = new CreateAccountPage(driver);
 		lp = new LoginPage(driver);
-		cartListPage = new CartListPage(driver);
+		clp = new CartListPage(driver);
 		ip = new ItemPage(driver);
 	}
 

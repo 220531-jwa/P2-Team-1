@@ -5,6 +5,7 @@ import io.cucumber.java.BeforeAll;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -25,7 +26,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BuyerCheckout {
     public static WebDriver driver = AchieveTestSuite.driver;
-    public static CartListPage clp = AchieveTestSuite.cartListPage;
+    public static CartListPage clp = AchieveTestSuite.clp;
+    public static LoginPage lp = AchieveTestSuite.lp;
+    public static BuyerPage bp = AchieveTestSuite.bp;
+    public static ItemPage ip = AchieveTestSuite.ip;
 
     @BeforeAll
 	public static void setup(){
@@ -33,6 +37,9 @@ public class BuyerCheckout {
 		System.setProperty("webdriver.chrome.driver", chrome.getAbsolutePath());
 		driver = new ChromeDriver();
 		clp = new CartListPage(driver);
+        lp = new LoginPage(driver);
+        bp = new BuyerPage(driver);
+        ip = new ItemPage(driver);
 	}
 
 	@AfterAll
@@ -41,12 +48,21 @@ public class BuyerCheckout {
 	}
     
 
-    @Given("a Buyer is on their Cart page")
-    public void a_buyer_is_on_their_cart_page() {
-        driver.get("http://localhost:8081/CartListPage.html");
+    @Given("a Buyer is logged in and has items in their cart and is on the cart page")
+    public void a_buyer_is_logged_in_and_has_items_in_their_cart_and_is_on_their_cart_page() {
+        driver.get("http://localhost:8081/login.html");
+        lp.loginUser.sendKeys("apple");
+        lp.loginPass.sendKeys("bottom");
+        lp.loginButton.click();
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.titleIs("Achieve Home Page"));
+        bp.browseProductsBtn.click();
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(By.id("AddButt")));
+        ip.pageAddButton.click();
+        ip.toCartButton.click();
     }
     @When("the Buyer clicks the Checkout button")
     public void the_buyer_clicks_the_checkout_button() {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.titleIs("Cart List Page"));
         clp.checkoutButton.click();
     }
     @Then("the Cart Total will be removed from the Buyer's balance and they will see the Checkout message")
