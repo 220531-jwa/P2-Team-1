@@ -144,9 +144,6 @@ function removeFromCart(x, TotalCost){
     window.location.assign("./CartListPage.html");
 }
 
-function returnTotal(){
-    return totalCost;
-}
 
 async function checkOut(){
     console.log(activeUser);
