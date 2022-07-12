@@ -16,10 +16,13 @@ public class ItemPage {
 	}
 	
 	
-	@FindBy(id = "AddButt") //add in proper xpath for the button
+	@FindBy(xpath = "/html/body/div/ul/button[1]") //add in proper xpath for the button
 	public WebElement pageAddButton;
 	
 	@FindBy(id = "itemData")
 	public WebElement itemData;
+
+	@FindBy(id = "toCart")
+	public WebElement toCartButton;
 	
 }

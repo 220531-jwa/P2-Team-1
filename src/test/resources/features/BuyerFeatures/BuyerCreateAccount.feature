@@ -6,5 +6,5 @@ Feature: Creating buyer account
     Then the User will be redirected to the Login screen
 
     Examples:
-    |username|password|name        |
-    |hey     |hey     |hey man     |
+    |username|password|name          |
+    |maxh    |zoom    |max hargrove  |
