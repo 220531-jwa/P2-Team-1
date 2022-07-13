@@ -29,7 +29,7 @@ async function newItem(){
             body: requestJson
         }
     ); 
-    
+
     let resJson = await res.json()
         .then((resp) => {
             console.log(resp);
