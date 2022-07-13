@@ -1,8 +1,6 @@
 let activeUser = JSON.parse(sessionStorage.activeUser);
 let itemData = JSON.parse(sessionStorage.currentItem);
 
-console.log(sessionStorage.currentItem);
-console.log(JSON.parse(sessionStorage.currentItem));
 console.log(itemData);
 
 async function editItem(){
@@ -12,18 +10,12 @@ async function editItem(){
     let newCost = document.getElementById('newCost');
     let newInven = document.getElementById('newInven');
 
-    if(!newName.value === ""){
-        itemData.name = newName.value;
-    }
-    if(!newDesc.value === ""){
-        itemData.description = newDesc.value;
-    }
-    if(!newCost.value === ""){
-        itemData.cost = newCost.value;
-    }
-    if(!newInven.value === ""){
-        itemData.inventory = newInven.value;
-    }
+
+    itemData.name = newName.value;
+    itemData.desc = newDesc.value;
+    itemData.cost = newCost.value;
+    itemData.inventory = newInven.value;
+    
 
     console.log(`The altered item values are now: ${itemData}`);
 
@@ -40,7 +32,7 @@ async function editItem(){
         let resJson = await res.json()
             .then((resp) => {
                 console.log(resp);
-                sessionStorage.setItem('currentItem', resp)
+                sessionStorage.setItem('currentItem', JSON.stringify(resp));
                 pullItem();
             })
             .catch((error) =>  {console.log(error)})
@@ -51,6 +43,10 @@ function openTable(){
     let tbl = document.getElementById('editsTable');
     if(tbl.hasAttribute('hidden')){
         tbl.removeAttribute('hidden');
+        newName.value = itemData.name;
+        newDesc.value = itemData.desc;
+        newCost.value = itemData.cost;
+        newInven.value = itemData.inventory;
     }
     else{
         tbl.setAttribute('hidden', 'hidden');
