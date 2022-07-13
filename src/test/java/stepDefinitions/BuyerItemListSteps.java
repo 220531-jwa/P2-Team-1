@@ -24,7 +24,7 @@ import pages.ItemPage;
 import pages.LoginPage;
 
 public class BuyerItemListSteps {
-	
+
 	public static WebDriver driver;
 	public static BuyerPage bp;
 	public static CartListPage cartListPage;
@@ -49,19 +49,19 @@ public class BuyerItemListSteps {
 	public static void teardown(){
 		driver.quit();
 	}
-	
+
 	@Given("test buyer account is loaded")
 	public void test_buyer_account_is_loaded() {
 		//test buyer account is directly put into the session storage
 	    
 	}
-	
+
 	@Given("a buyer is on the home page")
 	public void a_buyer_is_on_the_home_page() {
 		//driver gets home page
 	    driver.get("http://localhost:8081/homePage.html");
 	}
-	
+
 	@When("the buyer clicks the browse store button")
 	public void the_buyer_clicks_the_browse_store_button() {
 		bp.browseProductsBtn.click();
@@ -70,7 +70,7 @@ public class BuyerItemListSteps {
 	public void the_buyer_is_redirected_and_can_see_the_item_catalogue() {
 		new WebDriverWait(driver, Duration.ofSeconds(5))
 		.until(ExpectedConditions.titleContains("Item Page"));
-		
+
 		assertEquals("Item Page", driver.getTitle());
 	}
 	@Then("the products table is populated")

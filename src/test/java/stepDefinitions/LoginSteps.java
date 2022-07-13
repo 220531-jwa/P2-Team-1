@@ -23,7 +23,7 @@ import java.time.Duration;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LoginSteps {
-    
+
     public static WebDriver driver;
 	public static BuyerPage bp;
 	public static CartListPage cartListPage;
@@ -42,12 +42,12 @@ public class LoginSteps {
 		cartListPage = new CartListPage(driver);
 		itemPage = new ItemPage(driver);
 	}
-	
+
 	@AfterAll
 	public static void teardown(){
 		driver.quit();
 	}
-    
+
     @Given("a Buyer is on the Login screen and has a valid account")
     public void a_buyer_is_on_the_login_screen_and_has_a_valid_account() {
         driver.get("http://localhost:8081/login.html");

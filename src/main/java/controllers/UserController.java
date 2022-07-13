@@ -30,8 +30,9 @@ public class UserController {
 		String username = u.getUsername();
 		String password = u.getPassword();
 		String name = u.getName();
+		int accountType = u.getAccountType();
 		try{
-			User s = us.createUser(username, password, name);
+			User s = us.createUser(username, password, name, accountType);
 			if(s != null){
 				ctx.status(200);
 				ctx.json(s);

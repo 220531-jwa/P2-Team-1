@@ -24,9 +24,9 @@ public class UserService {
 		}
 		return true;
 	}
-	public User createUser(String username, String password, String name){
+	public User createUser(String username, String password, String name, int accounttype){
 		if(checkUniqueUsername(username)){
-			return ud.createUser(username, password, name);
+			return ud.createUser(username, password, name, accounttype);
 		} else {
 			return null;
 		}
