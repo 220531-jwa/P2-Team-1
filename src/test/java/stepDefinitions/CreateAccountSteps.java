@@ -9,6 +9,7 @@ import java.util.Random;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.cucumber.java.AfterAll;
@@ -53,7 +54,6 @@ public class CreateAccountSteps {
 	}
 	@When("the User enters a random username and password and name and chooses the Buyer option and clicks the Create Account button")
 	public void theUserEntersARandomUsernameAndPasswordAndNameAndChoosesTheBuyerOptionAndClicksTheCreateAccountButton() {
-
 		Random rand = new Random();
 		int upperbound = 100000;
 		int random = rand.nextInt(upperbound);
@@ -62,7 +62,8 @@ public class CreateAccountSteps {
 		cap.createUsername.sendKeys(testchars);
 		cap.createPassword.sendKeys(testchars);
 		cap.createName.sendKeys(testchars);
-		cap.createAccType.sendKeys("Buyer");
+		Select stat = new Select(cap.createAccType);
+		stat.selectByVisibleText("Buyer");
 		cap.createAccountButton.click();
 	}
 	@Then("the Buyer will be redirected to the Login screen")
