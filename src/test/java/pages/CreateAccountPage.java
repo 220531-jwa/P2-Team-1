@@ -21,4 +21,7 @@ public class CreateAccountPage {
     public WebElement createName;
     @FindBy(id = "create")
     public WebElement createAccountButton;
+    @FindBy(id = "accType")
+    public WebElement createAccType;
+
 }

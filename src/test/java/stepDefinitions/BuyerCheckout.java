@@ -46,7 +46,7 @@ public class BuyerCheckout {
 	public static void teardown(){
 		driver.quit();
 	}
-    
+
 
     @Given("a Buyer is logged in and has items in their cart and is on the cart page")
     public void a_buyer_is_logged_in_and_has_items_in_their_cart_and_is_on_their_cart_page() {

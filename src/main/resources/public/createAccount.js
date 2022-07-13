@@ -6,11 +6,13 @@ async function createAccount(){
     let un = document.getElementById("un").value;
     let pw = document.getElementById("pw").value;
     let name = document.getElementById("name").value;
+    let type = document.getElementById("accType").value;
 
     let request = {
         username: un,
         password: pw,
-        name: name
+        name: name, 
+        accountType: type
     }
 
     console.log(request);

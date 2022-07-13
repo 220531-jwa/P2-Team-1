@@ -20,9 +20,10 @@ import pages.LoginPage;
 
 
 @Suite
+@Tag("CucumberTests")
 @IncludeTags("CucumberTests")
 public class AchieveTestSuite {
-	
+
 	public static WebDriver driver;
 	public static BuyerPage bp;
 	public static CartListPage clp;

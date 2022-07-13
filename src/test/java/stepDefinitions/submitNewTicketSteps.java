@@ -45,15 +45,15 @@ public class submitNewTicketSteps {
 		cartListPage = new CartListPage(driver);
 		ip = new ItemPage(driver);
 		ntp = new NewTicketPage(driver);
-		
+
 	}
 
 	@AfterAll
 	public static void teardown(){
 		driver.quit();
 	}
-	
-	
+
+
 	@Given("a buyer is on the submit new ticket page")
 	public void a_buyer_is_on_the_submit_new_ticket_page() {
 	    driver.get("http://localhost:8081/newTicket.html");
@@ -68,7 +68,7 @@ public class submitNewTicketSteps {
 	public void buyer_is_redirected_to_view_ticket() {
 		new WebDriverWait(driver, Duration.ofSeconds(10))
 		.until(ExpectedConditions.titleContains("View Ticket"));
-		
+
 		assertEquals("View Ticket", driver.getTitle());
 	}
 	@Then("the ticket in question is displayed")
