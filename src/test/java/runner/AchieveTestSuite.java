@@ -14,7 +14,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.BeforeAll;
-import pages.BuyerPage;
+import pages.HomePage;
 import pages.CartListPage;
 import pages.CreateAccountPage;
 import pages.ItemPage;
@@ -26,9 +26,9 @@ import pages.LoginPage;
 @Tag("CucumberTests")
 @IncludeTags("CucumberTests")
 public class AchieveTestSuite {
-	
+
 	public static WebDriver driver;
-	public static BuyerPage bp;
+	public static HomePage bp;
 	public static CartListPage clp;
 	public static ItemPage ip;
 	public static CreateAccountPage cap;
@@ -40,7 +40,7 @@ public class AchieveTestSuite {
 		File chrome = new File("src/test/resources/chromedriver.exe");
 		System.setProperty("webdriver.chrome.driver", chrome.getAbsolutePath());
 		driver = new ChromeDriver();
-		bp = new BuyerPage(driver);
+		bp = new HomePage(driver);
 		cap = new CreateAccountPage(driver);
 		lp = new LoginPage(driver);
 		clp = new CartListPage(driver);

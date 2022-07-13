@@ -46,14 +46,15 @@ public class UserDAO {
 		}
 		return -1;
 	}
-    public User createUser(String username, String password, String name){
-        String sql = "insert into achieveapp.users values (default, ?, ?, ?, default, default) returning *;";
+    public User createUser(String username, String password, String name, int accounttype){
+        String sql = "insert into achieveapp.users values (default, ?, ?, ?, ?, default) returning *;";
 
         try(Connection connect = cu.getConnection()){
             PreparedStatement ps = connect.prepareStatement(sql);
             ps.setString(1, username);
             ps.setString(2, password);
             ps.setString(3, name);
+            ps.setInt(4, accounttype);
 
             ResultSet rs = ps.executeQuery();
             if(rs.next()){

@@ -29,15 +29,24 @@ public class UserServicesTests {
     }
 
     @Test
-    public void should_createNewUser(){
+    public void should_createNewUserBuyer(){
         //given
         User mockUser = new User("josh", "josh", 1, "Josh", 1, 0.00);
         //when
-        when(mockUd.createUser("josh", "josh", "Josh")).thenReturn(mockUser);
+        when(mockUd.createUser("josh", "josh", "Josh", 1)).thenReturn(mockUser);
         //then
-        assertEquals(mockUser, mockUs.createUser("josh", "josh", "Josh"));
+        assertEquals(mockUser, mockUs.createUser("josh", "josh", "Josh", 1));
     }
 
+    @Test
+    public void should_createNewUserSeller(){
+        //given
+        User mockUser = new User("circlexine", "circle", 1, "Circle Xine", 2, 0.00);
+        //when
+        when(mockUd.createUser("circlexine", "circle", "Circle Xine", 2)).thenReturn(mockUser);
+        //then
+        assertEquals(mockUser, mockUs.createUser("circlexine", "circle", "Circle Xine", 2));
+    }
     @Test
     public void should_checkForUniqueUsername(){
         //given

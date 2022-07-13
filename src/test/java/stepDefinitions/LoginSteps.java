@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import pages.BuyerPage;
+import pages.HomePage;
 import pages.CartListPage;
 import pages.CreateAccountPage;
 import pages.ItemPage;
@@ -23,9 +23,9 @@ import java.time.Duration;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LoginSteps {
-    
+
     public static WebDriver driver;
-	public static BuyerPage bp;
+	public static HomePage bp;
 	public static CartListPage cartListPage;
 	public static ItemPage itemPage;
 	public static CreateAccountPage cap;
@@ -36,18 +36,18 @@ public class LoginSteps {
 		File chrome = new File("src/test/resources/chromedriver.exe");
 		System.setProperty("webdriver.chrome.driver", chrome.getAbsolutePath());
 		driver = new ChromeDriver();
-		bp = new BuyerPage(driver);
+		bp = new HomePage(driver);
 		cap = new CreateAccountPage(driver);
 		lp = new LoginPage(driver);
 		cartListPage = new CartListPage(driver);
 		itemPage = new ItemPage(driver);
 	}
-	
+
 	@AfterAll
 	public static void teardown(){
 		driver.quit();
 	}
-    
+
     @Given("a Buyer is on the Login screen and has a valid account")
     public void a_buyer_is_on_the_login_screen_and_has_a_valid_account() {
         driver.get("http://localhost:8081/login.html");

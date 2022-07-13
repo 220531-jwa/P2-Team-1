@@ -25,7 +25,7 @@ public class ItemService {
 		return id.getAllSellerItems(sellerId);
 	}
 	
-	public void updateItem(int sellerId, int itemId, Item update) {
-		id.updateItem(sellerId, itemId, update);
+	public Item updateItem(int sellerId, int itemId, Item update) {
+		return id.updateItem(sellerId, itemId, update);
 	}
 }
