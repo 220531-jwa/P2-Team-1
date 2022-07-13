@@ -32,6 +32,7 @@ async function newTicket(){
         .then((resp) =>{ 
         console.log(resp);
         sessionStorage.setItem('ticket' ,JSON.stringify(resp));
+        sessionStorage.setItem('ticketId', resp.id);
         window.location = `${baseURL}viewTicket.html`;  
          })  
                                 

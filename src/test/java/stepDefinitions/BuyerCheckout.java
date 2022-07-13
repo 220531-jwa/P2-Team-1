@@ -12,7 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import pages.BuyerPage;
+import pages.HomePage;
 import pages.CartListPage;
 import pages.CreateAccountPage;
 import pages.ItemPage;
@@ -28,7 +28,7 @@ public class BuyerCheckout {
     public static WebDriver driver = AchieveTestSuite.driver;
     public static CartListPage clp = AchieveTestSuite.clp;
     public static LoginPage lp = AchieveTestSuite.lp;
-    public static BuyerPage bp = AchieveTestSuite.bp;
+    public static HomePage bp = AchieveTestSuite.bp;
     public static ItemPage ip = AchieveTestSuite.ip;
 
     @BeforeAll
@@ -38,7 +38,7 @@ public class BuyerCheckout {
 		driver = new ChromeDriver();
 		clp = new CartListPage(driver);
         lp = new LoginPage(driver);
-        bp = new BuyerPage(driver);
+        bp = new HomePage(driver);
         ip = new ItemPage(driver);
 	}
 
