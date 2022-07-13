@@ -1,5 +1,5 @@
 function loadTicket(){
-    let ticket = JSON.parse(sessionStorage.ticket)
+    let ticket = JSON.parse(sessionStorage.ticket);
     console.log(ticket);
     var tbody = document.getElementById("ticketTable");
 
@@ -35,4 +35,28 @@ async function getTicketByNum(){
         })
 
     loadTicket();
+}
+
+function tryDelete(){
+    document.getElementById('deleteConfirm').removeAttribute('hidden');
+}
+
+async function trueDelete(){
+    let ticket = JSON.parse(sessionStorage.ticket);
+    let ticketId = ticket.id;
+    let activeUser = JSON.parse(sessionStorage.activeUser);
+
+    console.log(ticketId);
+
+    let res = fetch(
+        `${baseURL}user/${activeUser.id}/tickets/${ticketId}`,
+        {
+            method: 'DELETE'
+        }
+    )
+    window.location = `${baseURL}allTickets.html`
+}
+
+function hideBox(){
+    document.getElementById('deleteConfirm').setAttribute('hidden', 'hidden');
 }

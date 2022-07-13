@@ -68,4 +68,12 @@ public class TicketController {
 		ctx.status(200);
 		ctx.json(ticket);
 	}
+	
+	public void deleteTicketById(Context ctx) {
+		int id = Integer.parseInt(ctx.pathParam("id"));
+		int ticketId = Integer.parseInt(ctx.pathParam("ticketId"));
+		
+		ts.deleteTicketById(id, ticketId);
+		ctx.status(200);
+	}
 }

@@ -195,4 +195,22 @@ public class TicketDAO {
 		
 		return null;
 	}
+	
+	public void deleteTicketById(int id, int ticketId) {
+		
+		String sql = "delete from achieveapp.tickets where id = ? and accountId = ?";
+		
+		try(Connection conn = cu.getConnection()){
+			PreparedStatement ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, ticketId);
+			ps.setInt(2, id);
+			
+			ps.execute();
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+	}
 }

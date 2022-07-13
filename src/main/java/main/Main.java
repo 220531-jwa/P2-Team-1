@@ -5,6 +5,7 @@ import static io.javalin.apibuilder.ApiBuilder.patch;
 import static io.javalin.apibuilder.ApiBuilder.path;
 import static io.javalin.apibuilder.ApiBuilder.post;
 import static io.javalin.apibuilder.ApiBuilder.put;
+import static io.javalin.apibuilder.ApiBuilder.delete;
 
 import controllers.ItemController;
 import controllers.TicketController;
@@ -58,6 +59,7 @@ public class Main {
 						post(tc::submitNewTicket);
 						path("/{ticketId}", ()->{
 							get(tc::getTicketById);
+							delete(tc::deleteTicketById);
 						});
 					});
 				});

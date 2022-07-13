@@ -38,4 +38,8 @@ public class TicketService {
 	public Ticket getTicketById(int id, int ticketId) {
 		return td.getTicketById(id, ticketId);
 	}
+	
+	public void deleteTicketById(int id, int ticketId) {
+		td.deleteTicketById(id, ticketId);
+	}
 }
