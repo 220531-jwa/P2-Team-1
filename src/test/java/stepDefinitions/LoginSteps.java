@@ -42,10 +42,11 @@ public class LoginSteps {
 		cartListPage = new CartListPage(driver);
 		itemPage = new ItemPage(driver);
 	}
-    @AfterAll
-    public static void teardown(){
-        driver.quit();
-    }
+
+	@AfterAll
+	public static void teardown(){
+		driver.quit();
+	}
 
     @Given("a Buyer is on the Login screen and has a valid account")
     public void a_buyer_is_on_the_login_screen_and_has_a_valid_account() {

@@ -1,8 +1,11 @@
 package runner;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.io.File;
 
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.junit.platform.suite.api.IncludeTags;
 import org.junit.platform.suite.api.Suite;
 import org.openqa.selenium.JavascriptExecutor;
@@ -48,4 +51,5 @@ public class AchieveTestSuite {
 	public static void teardown(){
 		driver.quit();
 	}
+	
 }

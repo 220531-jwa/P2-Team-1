@@ -62,6 +62,7 @@ public class CreateAccountSteps {
 		cap.createUsername.sendKeys(testchars);
 		cap.createPassword.sendKeys(testchars);
 		cap.createName.sendKeys(testchars);
+		cap.createAccType.sendKeys("Buyer");
 		cap.createAccountButton.click();
 	}
 	@Then("the Buyer will be redirected to the Login screen")

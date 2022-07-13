@@ -56,6 +56,8 @@ public class submitNewTicketSteps {
 
 	@Given("a buyer is on the submit new ticket page")
 	public void a_buyer_is_on_the_submit_new_ticket_page() {
+	    driver.get("http://localhost:8081/homePage.html");
+	    js.executeScript("sessionStorage.setItem('activeUser', '{\"username\":\"josh\",\"password\":\"josh\",\"id\":1,\"name\":\"josh\",\"accountType\":1,\"balance\":3457}');\r\n");
 	    driver.get("http://localhost:8081/newTicket.html");
 	}
 	@When("the buyer enters fields and presses submit")
@@ -75,5 +77,14 @@ public class submitNewTicketSteps {
 	public void the_ticket_in_question_is_displayed() {
 	    // Write code here that turns the phrase above into concrete actions
 	    assertTrue(ntp.ticketText.isDisplayed());
+	}
+	
+	@When("the buyer enters nothing and presses submit")
+	public void the_buyer_enters_nothing_and_presses_submit() {
+	    ntp.cNTSubmitBtn.click();
+	}
+	@Then("an error message should appear")
+	public void an_error_message_should_appear() {
+	    assertTrue(ntp.errormsg.isDisplayed());
 	}
 }

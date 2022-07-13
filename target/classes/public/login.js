@@ -14,7 +14,7 @@ async function login(){
     console.log(userJson);
 
     let res = await fetch(
-        `${baseURL}/login`, 
+        `${baseURL}login`, 
         {
             method : 'POST',
             header : {'Content-Type': 'application/json'},

@@ -53,7 +53,7 @@ public class BuyerItemListSteps {
 	@Given("test buyer account is loaded")
 	public void test_buyer_account_is_loaded() {
 		//test buyer account is directly put into the session storage
-	    js.executeScript("sessionStorage.setItem('activeUser', '{\"username\":\"josh\",\"password\":\"josh\",\"id\":1,\"name\":\"josh\",\"accountType\":1,\"balance\":3457}');\r\n");
+	    
 	}
 
 	@Given("a buyer is on the home page")
