@@ -58,7 +58,7 @@ public class BuyerStepsNC {
 		//driver gets home page
 	    driver.get("http://localhost:8081/homePage.html");
 	}
-	
+
 	@Given("test buyer account is loaded")
 	public void test_buyer_account_is_loaded() {
 		//test buyer account is directly put into the session storage (josh)
@@ -89,7 +89,7 @@ public class BuyerStepsNC {
 	    // Write code here that turns the phrase above into concrete actions
 	    assertTrue(ntp.ticketText.isDisplayed());
 	}
-	
+
 	@When("the buyer enters nothing and presses submit")
 	public void the_buyer_enters_nothing_and_presses_submit() {
 	    ntp.cNTSubmitBtn.click();
@@ -107,12 +107,12 @@ public class BuyerStepsNC {
 	public void they_are_redirected_and_can_see_their_tickets() {
 		new WebDriverWait(driver, Duration.ofSeconds(5))
 		.until(ExpectedConditions.visibilityOf(hp.ticketTable));
-		
+
 		assertTrue(hp.ticketTable.isDisplayed());
 	}
-	
+
 // ------------------------------ Browse Items Feature ------------------------------------
-	
+
 
 	@When("the buyer clicks the browse store button")
 	public void the_buyer_clicks_the_browse_store_button() {
@@ -129,9 +129,9 @@ public class BuyerStepsNC {
 	public void the_products_table_is_populated() {
 	    assertTrue(ip.itemData.isDisplayed());
 	}
-	
+
 // ------------------------------ Add Balance Feature --------------------------------------
-	
+
 	@When("the buyer enters number and adds balance")
 	public void the_buyer_enters_number_and_adds_balance() {
 	    hp.balanceInput.sendKeys("500");
@@ -141,12 +141,12 @@ public class BuyerStepsNC {
 	public void balance_added_message_appears() {
 		new WebDriverWait(driver, Duration.ofSeconds(5))
 		.until(ExpectedConditions.visibilityOf(hp.balAlert));
-		
+
 		assertTrue(hp.balAlert.isDisplayed());
 	}
-	
+
 // ------------------------------ Logout Feature --------------------------------------------
-	
+
 	@When("the buyer presses logout")
 	public void the_buyer_presses_logout() {
 		hp.logoutBtn.click();
@@ -155,7 +155,7 @@ public class BuyerStepsNC {
 	public void the_user_is_logged_out() {
 		new WebDriverWait(driver, Duration.ofSeconds(5))
 		.until(ExpectedConditions.titleContains("Achieve Login"));
-		
+
 		assertEquals("Achieve Login", driver.getTitle());
 	}
 }

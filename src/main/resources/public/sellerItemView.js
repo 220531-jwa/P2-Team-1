@@ -34,6 +34,7 @@ async function editItem(){
                 console.log(resp);
                 sessionStorage.setItem('currentItem', JSON.stringify(resp));
                 pullItem();
+                alert("Update Success!");
             })
             .catch((error) =>  {console.log(error)})
 
@@ -60,7 +61,7 @@ function pullItem(){
     `
         <tr><th>Name:</th><td>${itemData.name}</td></tr>
         <tr><th>Description:</th><td>${itemData.desc}</td></tr>
-        <tr><th>Cost:</th><td>${itemData.cost}</td></tr>
+        <tr><th>Cost:</th><td id="currentCost">${itemData.cost}</td></tr>
         <tr><th>In Stock:</th><td>${itemData.inventory}</td></tr>
     `
 }

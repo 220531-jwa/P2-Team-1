@@ -31,9 +31,9 @@ function appendItemData(resp){
         li.className = "list-group-item";
         let btn = document.createElement("button");
         btn.innerHTML = "View Item";
-        btn.type = "submit";
+        btn.type = "button";
         btn.className = "btn btn-primary ";
-        btn.id = "viewButt";
+        btn.id = `viewButt${i}`;
         let x = itemResp[i];
         btn.setAttribute("onclick", `ViewItem(${JSON.stringify(x)})`);
         //btn.onclick = addToCart(i);

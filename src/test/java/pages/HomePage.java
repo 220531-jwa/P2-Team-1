@@ -31,16 +31,16 @@ public class HomePage {
 
 	@FindBy(xpath="/html/body/container[3]/button[2]")
 	public WebElement submitSupportTicketBtn;
-	
+
 	@FindBy(xpath="//*[@id=\"newBalanceAlert\"]/p[1]")
 	public WebElement balAlert;
-	
+
 	@FindBy(id="allTickets")
 	public WebElement allTickBtn;
-	
+
 	@FindBy(id="supportTicketTable")
 	public WebElement ticketTable;
-	
+
 	@FindBy(id="logoutButton")
 	public WebElement logoutBtn;
 
