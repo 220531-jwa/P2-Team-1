@@ -47,7 +47,7 @@ public class LoginSteps {
 	public static void teardown(){
 		driver.quit();
 	}
-
+//Buyer Login
     @Given("a Buyer is on the Login screen and has a valid account")
     public void a_buyer_is_on_the_login_screen_and_has_a_valid_account() {
         driver.get("http://localhost:8081/login.html");
@@ -63,4 +63,37 @@ public class LoginSteps {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.urlToBe("http://localhost:8081/homePage.html"));
         assertEquals("http://localhost:8081/homePage.html", driver.getCurrentUrl());
     }
+
+//Seller Login
+	@Given("a Seller is on the Login screen and has a valid account")
+	public void a_seller_is_on_the_login_screen_and_has_a_valid_account() {
+		driver.get("http://localhost:8081/login.html");
+	}
+	@When("the Seller enters their {string} and {string} and clicks the Login button")
+	public void the_seller_enters_their_and_and_clicks_the_login_button(String username, String password) {
+		lp.loginUser.sendKeys(username);
+		lp.loginPass.sendKeys(password);
+		lp.loginButton.click();
+	}
+	@Then("the Seller reaches the Seller homepage")
+	public void the_seller_reaches_the_seller_homepage() {
+		new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.urlToBe("http://localhost:8081/sellerHomePage.html"));
+		assertEquals("http://localhost:8081/sellerHomePage.html", driver.getCurrentUrl());
+	}
+//Admin Login
+	@Given("an Admin is on the Login screen and has a valid account")
+	public void an_admin_is_on_the_login_screen_and_has_a_valid_account() {
+		driver.get("http://localhost:8081/login.html");
+ 	}
+	@When("the Admin enters their {string} and {string} and clicks the Login button")
+	public void the_admin_enters_their_and_and_clicks_the_login_button(String username, String password) {
+		lp.loginUser.sendKeys(username);
+		lp.loginPass.sendKeys(password);
+		lp.loginButton.click();
+	}
+	@Then("the Admin reaches the Admin homepage")
+	public void the_admin_reaches_the_admin_homepage() {
+		new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.urlToBe("http://localhost:8081/adminHome.html"));
+		assertEquals("http://localhost:8081/adminHome.html", driver.getCurrentUrl());
+	}
 }
