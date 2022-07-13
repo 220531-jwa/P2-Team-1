@@ -8,6 +8,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.BeforeAll;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import pages.AdminTicketPage;
 
 public class AdminStepsNC {
@@ -28,4 +31,28 @@ public class AdminStepsNC {
 	public static void teardown(){
 		driver.quit();
 	}
+	
+//-----------------------------Admin Ticket Steps -------------------------------------
+	
+	@Given("Admin account is loaded")
+	public void admin_account_is_loaded() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	@Given("Admin is on view tickets page")
+	public void admin_is_on_view_tickets_page() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	@When("Admin selects single ticket")
+	public void admin_selects_single_ticket() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	@Then("they are taken to that ticket page")
+	public void they_are_taken_to_that_ticket_page() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	
 }
