@@ -23,12 +23,24 @@
                 <input class="form-control" id="name" type="text">
             </label>
             <br>
+
+            <label class="mb-2 p-2">Account Type:
+                <select class="form-control form-control mt-2" id="accType">
+                    <option value="1">Buyer</option>
+                    <option value="2">Seller</option>
+                </select>
+            </label>
+
+            <br>
+
             <button type="button" class="btn btn-primary" onclick="createAccount()" id="create">Create Account</button>
         </div>
 
         <div class="p-2">
             <button class="btn btn-primary" onclick="toLogin()">Back To Login</button>
         </div>
+
+        <script src="./redirects.js"></script>
         <script src="createAccount.js"></script>
         <script src="./js/bootstrap.js"></script>
     </body>

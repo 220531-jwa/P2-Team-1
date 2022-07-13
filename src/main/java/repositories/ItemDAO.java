@@ -90,8 +90,8 @@ public class ItemDAO {
 		}
 	}
 	
-	public void updateItem(int sellerId, int itemId, Item update) {
-		String sql = "Update achieveapp.items set name = ?, cost = ?, description = ?, inventory = ? where id = ? and sellerId = ?";
+	public Item updateItem(int sellerId, int itemId, Item update) {
+		String sql = "Update achieveapp.items set name = ?, cost = ?, description = ?, inventory = ? where id = ? and sellerId = ? returning *";
 		
 		try(Connection conn = cu.getConnection()){
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -103,10 +103,22 @@ public class ItemDAO {
 			ps.setInt(5, itemId);
 			ps.setInt(6, sellerId);
 			
-			ps.execute();
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				return new Item(
+						rs.getString("name"),
+						rs.getDouble("cost"),
+						rs.getString("description"),
+						rs.getInt("id"),
+						rs.getInt("sellerid"),
+						rs.getInt("inventory")
+						);
+			}
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
 		}
+		return null;
 	}
 }

@@ -56,6 +56,9 @@ public class Main {
 					path("/tickets", ()->{
 						get(tc::getAllTickets);
 						post(tc::submitNewTicket);
+						path("/{ticketId}", ()->{
+							get(tc::getTicketById);
+						});
 					});
 				});
 			});

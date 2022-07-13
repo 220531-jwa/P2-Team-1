@@ -3,7 +3,7 @@ let activeUser = JSON.parse(sessionStorage.activeUser);
 async function loadUser(){
     
     let res = await fetch(
-        `${baseUrl}user/${activeUser.id}/tickets`,
+        `${baseURL}user/${activeUser.id}/tickets`,
         {
             method: 'GET'
         }
@@ -31,7 +31,7 @@ async function loadUser(){
                 tbody.innerHTML +=
                 `
                     <tr>
-                        <td>${resp[i].id}</td>
+                        <td><button class="btn btn-outline-info" onclick="viewSingleTicket('${resp[i].id}')">${resp[i].id}</button></td>
                         <td>${resp[i].status}</td>
                         <td>${resp[i].subject}</td>
                         <td>${resp[i].description}</td>
@@ -41,4 +41,9 @@ async function loadUser(){
             }
         })
         .catch((error) => {console.log(error)})
+}
+
+function viewSingleTicket(val){
+    sessionStorage.setItem('ticketId', val);
+    window.location = `${baseURL}viewTicket.html`
 }

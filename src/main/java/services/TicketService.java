@@ -34,4 +34,8 @@ public class TicketService {
 	public Ticket updateTicketAdmin(int id, String newStatus) {
 		return td.updateTicketAdmin(id, newStatus);
 	}
+	
+	public Ticket getTicketById(int id, int ticketId) {
+		return td.getTicketById(id, ticketId);
+	}
 }

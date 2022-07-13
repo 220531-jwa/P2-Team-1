@@ -57,7 +57,8 @@ public class ItemController {
 		int itemId = Integer.parseInt(ctx.pathParam("itemId"));
 		Item update = ctx.bodyAsClass(Item.class);
 		
-		is.updateItem(sellerId, itemId, update);
+		Item updated = is.updateItem(sellerId, itemId, update);
+		ctx.json(updated);
 		ctx.status(200);
 	}
 }

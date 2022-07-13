@@ -10,7 +10,7 @@ if(res.status == 200){
 
     .then((resp) => {
         appendItemData(resp);
-         
+        console.log(resp);
     })
 
     .catch((error) =>{
@@ -23,6 +23,8 @@ if(res.status == 200){
 
 function appendItemData(resp){
     console.log(resp + " this is the resp");
+    var itemResp = (resp);
+    console.log(itemResp);
     var mainContainer = document.getElementById('sellerData');
     for(var i = 0; i < resp.length; i++){
         var li = document.createElement("li"); //maybe add the class for bootstrap?
@@ -32,10 +34,12 @@ function appendItemData(resp){
         btn.type = "submit";
         btn.className = "btn btn-primary ";
         btn.id = "viewButt";
-        btn.setAttribute("onclick", "ViewItem(" + i +")");
+        let x = itemResp[i];
+        btn.setAttribute("onclick", `ViewItem(${JSON.stringify(x)})`);
         //btn.onclick = addToCart(i);
         btn.style = "width:130px";
-        Items.push(resp[i]);
+        Items.push(itemResp[i]);
+        console.log(itemResp[i]);
         
         li.innerHTML = "<br>Name: "  + resp[i].name + "  Cost: $" + resp[i].cost
         + "  Stock: " + resp[i].inventory;
@@ -48,21 +52,8 @@ function appendItemData(resp){
 }
 
 function ViewItem(i){
-   // sessionStorage.setItem('currentItem', Items[i]);
-    
-    window.location.assign("./sellerItemView.html");
-    console.log(Items[i]);
-    var mainContainer = document.getElementById('viewData');
-    var li = document.createElement("li");
-    li.className = "list-group-item";
-        //btn.onclick = addToCart(i);
-
-        li.innerHTML = "<br>Name: <br>"  + Items[i].name + "<br>Cost: $" + Items[i].cost + "<br>Description: <br>" + Items[i].desc
-        + "<br>Stock: " + Items[i].inventory + "<br>";
-
-        mainContainer.appendChild(li);
-        mainContainer.appendChild(btn);
-
+    sessionStorage.setItem('currentItem', JSON.stringify(i));
+    window.location = `${baseURL}sellerItemView.html`;
 }
 
 //function ChangeStock(){

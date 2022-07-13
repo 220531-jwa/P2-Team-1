@@ -167,4 +167,32 @@ public class TicketDAO {
 		
 		return null;
 	}
+	
+	public Ticket getTicketById(int id, int ticketId) {
+		String sql = "select * from achieveapp.tickets where id = ? and accountId = ?";
+		
+		try(Connection conn = cu.getConnection()){
+			PreparedStatement ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, ticketId);
+			ps.setInt(2, id);
+			
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				return new Ticket(
+						rs.getInt("id"),
+						rs.getString("status"),
+						rs.getString("subject"),
+						rs.getString("description"),
+						rs.getDate("submissiontime")
+						);	
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+		return null;
+	}
 }

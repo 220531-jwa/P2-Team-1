@@ -9,7 +9,7 @@ function toLogin(){
 }
 
 function toCreateAccount(){
-    window.location = `${baseURL}`
+    window.location = `${baseURL}createAccount.html`;
 }
 
 function toSubmitNew(){
@@ -17,15 +17,15 @@ function toSubmitNew(){
 }
 
 function toProductsPage(){
-    window.location =`${baseURL}ItemPage.html`
+    window.location =`${baseURL}ItemPage.html`;
 }
 
 function toAllTickets(){
-    window.location =`${baseURL}allTickets.html`
+    window.location =`${baseURL}allTickets.html`;
 }
 
 function toCart(){
-    window.location =`${baseURL}CartListPage.html`
+    window.location =`${baseURL}CartListPage.html`;
 }
 
 function viewAllAdminTicket(){
@@ -33,5 +33,5 @@ function viewAllAdminTicket(){
 }
 
 function toAdminSingleTicket(){
-    window.location =`${baseURL}adminTicketResponse.html`
+    window.location =`${baseURL}adminTicketResponse.html`;
 }
