@@ -28,4 +28,14 @@ public class ItemService {
 	public Item updateItem(int sellerId, int itemId, Item update) {
 		return id.updateItem(sellerId, itemId, update);
 	}
+
+	public Item createNewItem(String name, double cost, String description, int sellerId, int inventory){
+		Item i = id.createNewItem(name, cost, description, sellerId, inventory);
+		if(i == null){
+			System.out.println("Item not created");
+			return null;
+		} else {
+			return i;
+		}
+	}
 }

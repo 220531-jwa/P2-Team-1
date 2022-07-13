@@ -76,6 +76,7 @@ public class Main {
 			path("/seller/{sellerID}", ()-> {
 				path("/items", ()->{
 					get(ic::getAllSellerItems);
+					post(ic::createNewItem);
 					path("/{itemId}", ()-> {
 						put(ic::updateItem);
 					});
