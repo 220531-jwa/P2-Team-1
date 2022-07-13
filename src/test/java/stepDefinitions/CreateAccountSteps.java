@@ -43,14 +43,14 @@ public class CreateAccountSteps {
 	public void a_user_is_on_the_create_an_account_page() {
 		driver.get("http://localhost:8081/createAccount.html");
 	}
-	
+
 	@When("the User enters a random username and password and name and chooses the Buyer option and clicks the Create Account button")
 	public void theUserEntersARandomUsernameAndPasswordAndNameAndChoosesTheBuyerOptionAndClicksTheCreateAccountButton() {
 		Random rand = new Random();
 		int upperbound = 100000;
 		int random = rand.nextInt(upperbound);
 		String testchars = String.valueOf(random);
-		
+
 		cap.createUsername.sendKeys(testchars);
 		cap.createPassword.sendKeys(testchars);
 		cap.createName.sendKeys(testchars);

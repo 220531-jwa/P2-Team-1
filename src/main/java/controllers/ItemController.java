@@ -61,4 +61,21 @@ public class ItemController {
 		ctx.json(updated);
 		ctx.status(200);
 	}
+
+	public void createNewItem(Context ctx){
+		int sellerId = Integer.parseInt(ctx.pathParam("sellerID"));
+		Item i = ctx.bodyAsClass(Item.class);
+		String name = i.getName();
+		String description = i.getDesc();
+		double cost = i.getCost();
+		int inventory = i.getInventory();
+
+		Item created = is.createNewItem(name, cost, description, sellerId, inventory);
+		if(created != null){
+			ctx.status(200);
+			ctx.json(created);
+		} else {
+			ctx.status(404);
+		}
+	}
 }

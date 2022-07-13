@@ -45,13 +45,7 @@ public class Item {
 	public void setSellerId(int sellerId) {
 		this.sellerId = sellerId;
 	}
-	public int getQuantity() {
-		return quantity;
-	}
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-	private int quantity;
+
 	
 	public Item(String name, double cost, String desc, int id, int sellerId, int inventory) {
 		super();
