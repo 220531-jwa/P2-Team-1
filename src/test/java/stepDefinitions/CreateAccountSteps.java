@@ -6,7 +6,10 @@ import java.io.File;
 import java.time.Duration;
 import java.util.Random;
 
+import org.junit.jupiter.api.Tag;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -17,30 +20,18 @@ import io.cucumber.java.BeforeAll;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pages.BuyerPage;
-import pages.CartListPage;
 import pages.CreateAccountPage;
-import pages.ItemPage;
-import pages.LoginPage;
 
 public class CreateAccountSteps {
 	public static WebDriver driver;
-	public static BuyerPage bp;
-	public static CartListPage cartListPage;
-	public static ItemPage itemPage;
 	public static CreateAccountPage cap;
-	public static LoginPage lp;
 
 	@BeforeAll
 	public static void setup(){
 		File chrome = new File("src/test/resources/chromedriver.exe");
 		System.setProperty("webdriver.chrome.driver", chrome.getAbsolutePath());
 		driver = new ChromeDriver();
-		bp = new BuyerPage(driver);
 		cap = new CreateAccountPage(driver);
-		lp = new LoginPage(driver);
-		cartListPage = new CartListPage(driver);
-		itemPage = new ItemPage(driver);
 	}
 
 	@AfterAll
@@ -52,13 +43,14 @@ public class CreateAccountSteps {
 	public void a_user_is_on_the_create_an_account_page() {
 		driver.get("http://localhost:8081/createAccount.html");
 	}
+	
 	@When("the User enters a random username and password and name and chooses the Buyer option and clicks the Create Account button")
 	public void theUserEntersARandomUsernameAndPasswordAndNameAndChoosesTheBuyerOptionAndClicksTheCreateAccountButton() {
 		Random rand = new Random();
 		int upperbound = 100000;
 		int random = rand.nextInt(upperbound);
 		String testchars = String.valueOf(random);
-
+		
 		cap.createUsername.sendKeys(testchars);
 		cap.createPassword.sendKeys(testchars);
 		cap.createName.sendKeys(testchars);

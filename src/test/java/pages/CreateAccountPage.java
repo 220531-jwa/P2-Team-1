@@ -15,12 +15,16 @@ public class CreateAccountPage {
 
     @FindBy(id = "un")
     public WebElement createUsername;
+    
     @FindBy(id = "pw")
     public WebElement createPassword;
+    
     @FindBy(id = "name")
     public WebElement createName;
+    
     @FindBy(id = "create")
     public WebElement createAccountButton;
+    
     @FindBy(id = "accType")
     public WebElement createAccType;
 
