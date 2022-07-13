@@ -26,10 +26,10 @@ async function newItem(){
         {
             method: 'POST', 
             header: {'Content-Type': 'application/json'},
-            content: requestJson
+            body: requestJson
         }
     ); 
-    
+
     let resJson = await res.json()
         .then((resp) => {
             console.log(resp);

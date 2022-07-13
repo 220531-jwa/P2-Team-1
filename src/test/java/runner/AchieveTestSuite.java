@@ -14,12 +14,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.BeforeAll;
-import pages.HomePage;
-import pages.CartListPage;
-import pages.CreateAccountPage;
-import pages.ItemPage;
-import pages.LoginPage;
-
+import pages.*;
 
 
 @Suite
@@ -33,6 +28,7 @@ public class AchieveTestSuite {
 	public static ItemPage ip;
 	public static CreateAccountPage cap;
 	public static LoginPage lp;
+	public static CreateItemPage cip;
 	JavascriptExecutor js = (JavascriptExecutor) driver;
 
 	@BeforeAll
@@ -45,6 +41,7 @@ public class AchieveTestSuite {
 		lp = new LoginPage(driver);
 		clp = new CartListPage(driver);
 		ip = new ItemPage(driver);
+		cip = new CreateItemPage(driver);
 	}
 
 	@AfterAll
