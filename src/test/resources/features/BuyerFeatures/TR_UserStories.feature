@@ -16,11 +16,10 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-@tag
 Feature: User Story Tests by Trevor Rowand
 
 Scenario: Buyer can add an item to their cart
-     Given test buyer account is loaded
+     Given the test buyer account is loaded
      And a Buyer is on the ItemPage
      When the Buyer clicks the CartButton
      Then The Element should be added to the Cart

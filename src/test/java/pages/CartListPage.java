@@ -17,4 +17,6 @@ public class CartListPage {
 	public WebElement pageDeleteButton;
 	@FindBy(id = "checkout")
 	public WebElement checkoutButton;
+	@FindBy(id="CartBody")
+	public WebElement cartBody;
 }
