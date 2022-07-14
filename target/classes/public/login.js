@@ -1,5 +1,3 @@
-let baseURL = "http://localhost:8081";
-
 async function login(){
     console.log("login button pressed");
 
@@ -16,7 +14,7 @@ async function login(){
     console.log(userJson);
 
     let res = await fetch(
-        `${baseURL}/login`, 
+        `${baseURL}login`, 
         {
             method : 'POST',
             header : {'Content-Type': 'application/json'},
@@ -28,13 +26,17 @@ async function login(){
         .then((resp) => {
             console.log(resp);
             sessionStorage.setItem("activeUser", JSON.stringify(resp));
-            window.location.assign("homePage.html");
+            if(resp.accountType == 1){
+                window.location.assign("homePage.html");
+            } else if(resp.accountType == 2){
+                window.location.assign("sellerHomePage.html");
+            } else if(resp.accountType == 3){
+                window.location.assign("adminHome.html");
+            }
+                
         })
         .catch((error) => {
             console.log(error);
         });
 }
 
-function createAccount(){
-    window.location = 'http://localhost:8081/createAccount.html';
-}

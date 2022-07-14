@@ -22,4 +22,24 @@ public class TicketService {
 		
 		return td.getAllTickets(id);
 	}
+	
+	public List<Ticket> getAllTicketsAdmin(){
+		return td.getAllTicketsAdmin();
+	}
+	
+	public Ticket getSingleTicketAdmin(int id) {
+		return td.getSingleTicketAdmin(id);
+	}
+	
+	public Ticket updateTicketAdmin(int id, String newStatus) {
+		return td.updateTicketAdmin(id, newStatus);
+	}
+	
+	public Ticket getTicketById(int id, int ticketId) {
+		return td.getTicketById(id, ticketId);
+	}
+	
+	public void deleteTicketById(int id, int ticketId) {
+		td.deleteTicketById(id, ticketId);
+	}
 }

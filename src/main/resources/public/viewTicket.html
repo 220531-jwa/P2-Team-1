@@ -7,7 +7,7 @@
     <title>View Ticket</title>
     <link rel="stylesheet" href="css/bootstrap.css">
 </head>
-<body onload="loadTicket()">
+<body onload="getTicketByNum()">
 
     <p class="h4 p-2">Information Regarding Ticket:</p>
 
@@ -15,8 +15,16 @@
     </table>
     
     <button type="button" class="btn btn-outline-primary" id="homeButton" onclick="toHome()">To Home Page</button>
-    <button type="button" class="btn btn-outline-primary" id="toAllTickButton" onclick="toAllTick()">View All Tickets</button>
+    <button type="button" class="btn btn-outline-primary" id="toAllTickButton" onclick="toAllTickets()">View All Tickets</button>
+    <button type="button" class="btn btn-danger" onclick="tryDelete()">Delete Ticket</button>
+    <div hidden id="deleteConfirm" class="alert alert-danger mt-2 mb-2">
+        <p>Warning! Are you sure you would like to delete this ticket?</p>
+        <button class="btn btn-outline-danger" id="realDelete" onclick="trueDelete()">Delete this ticket</button>
+        <button class="btn btn-warning" onclick="hideBox()">Cancel</button>
+    </div>
+
     <script src="./js/bootstrap.js"></script>
     <script src="./viewTicket.js"></script>
+    <script src="./redirects.js"></script>
 </body>
 </html>

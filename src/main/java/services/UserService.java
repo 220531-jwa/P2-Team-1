@@ -24,10 +24,12 @@ public class UserService {
 		}
 		return true;
 	}
-	public User createUser(String username, String password, String name){
+	public User createUser(String username, String password, String name, int accounttype){
 		if(checkUniqueUsername(username)){
-			return ud.createUser(username, password, name);
+			System.out.println(checkUniqueUsername(username));
+			return ud.createUser(username, password, name, accounttype);
 		} else {
+			System.out.println("the issues is in the service layer");
 			return null;
 		}
 	}
@@ -44,6 +46,25 @@ public class UserService {
 			System.out.println("Wrong password");
 			return null;
 		}
+	}
+
+	public double updateBalance(int id, double total){
+		double newBalance = ud.updateBalance(id, total);
+		if(newBalance <= 0.00){
+			System.out.println("Insufficient balance");
+			return 0.00;
+		} else {
+			return newBalance;
+		}
+	}
+
+	public int addRewardPoints(int id, double balance){
+		int rewardPoints = (int) (balance / 10);
+		return ud.addRewardPoints(id, rewardPoints);
+	}
+
+	public int showRewardPoints(int id){
+		return ud.showRewardPoints(id);
 	}
 }
 

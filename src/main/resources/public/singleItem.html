@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Information</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body class="p-2" onload="getItemInformation()">
+    
+    <h4>Item Information:</h4>
+    <div class="d-flex justify-content-start">
+        <div id="imgcolumn" class="col-2.5">
+            <img id="coverImage" class="img-fluid">
+        </div>
+        <div id="infocolumn" class="col-5">
+            <table id="itemInfoTable" class="table table-hover">
+                
+            </table>
+        </div>
+    </div>
+
+    <div class="">
+        <button type="button" class="btn btn-primary">Add to Cart</button>
+        <button id="cartButton" type="button" class="btn btn-outline-primary" onclick="toCart()">Cart</button>
+    </div>
+
+    <div class="mt-2">
+        <button type="button" class="btn btn-success" onclick="toHome()">To Home Page</button>
+        <button type="button" class="btn btn-success" onclick="toProductsPage()">Products List</button>
+    </div>
+
+
+    <script src="./CartScript.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./redirects.js"></script>
+</body>
+</html>

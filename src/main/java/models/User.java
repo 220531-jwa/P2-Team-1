@@ -8,17 +8,20 @@ public class User {
 	private String name;
 	private int accountType;
 	private double balance;
+	private int rewardPoints;
 
 	public User() {
+		super();
 	}
 
-	public User(String username, String password, int id, String name, int accountType, double balance) {
+	public User(String username, String password, int id, String name, int accountType, double balance, int rewardPoints) {
 		this.username = username;
 		this.password = password;
 		this.id = id;
 		this.name = name;
 		this.accountType = accountType;
 		this.balance = balance;
+		this.rewardPoints = rewardPoints;
 	}
 
 	public String getUsername() {
@@ -57,6 +60,11 @@ public class User {
 	public void setBalance(double balance) {
 		this.balance = balance;
 	}
-	
-	
+
+	public int getRewardPoints() {
+		return rewardPoints;
+	}
+	public void setRewardPoints(int rewardPoints) {
+		this.rewardPoints = rewardPoints;
+	}
 }

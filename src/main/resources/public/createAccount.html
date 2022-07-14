@@ -4,23 +4,45 @@
         <!--
             Achieve Create Account Page
         -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Create Achieve Account</title>
+        <link rel="stylesheet" href="css/bootstrap.css">
     </head>
     <body>
-        <div><strong>Create Account:</strong></div>
-        <div id="inputFields">
+        <div class="h4 p-2"><strong>Create Account:</strong></div>
+        <div class="h6 p-2">Complete all fields:</div>
+        <div class="p-2">
             <label>Username: 
-                <input class="form-control" id="un" type="text">
+                <input class="form-control" id="un" type="text" placeholder="ex: JohnSmith123">
             </label>
+            <br>
             <label>Password: 
                 <input class="form-control" id="pw" type="password">
             </label>
+            <br>
             <label>Name: 
                 <input class="form-control" id="name" type="text">
             </label>
             <br>
+
+            <label class="mb-2 p-2">Account Type:
+                <select class="form-control form-control mt-2" id="accType">
+                    <option value="1">Buyer</option>
+                    <option value="2">Seller</option>
+                </select>
+            </label>
+            <br>
             <button type="button" class="btn btn-primary" onclick="createAccount()" id="create">Create Account</button>
         </div>
+
+        <div class="p-2">
+            <button class="btn btn-primary" onclick="toLogin()">Back To Login</button>
+        </div>
+
+        <script src="./redirects.js"></script>
         <script src="createAccount.js"></script>
+        <script src="./js/bootstrap.js"></script>
     </body>
 </html>

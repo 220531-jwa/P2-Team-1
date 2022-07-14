@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Item</title>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body class="p-2">
+    <div class="h5 p-2">
+        Enter your game's information below:
+    </div>
+
+    <p id="errormsg" class="p-2" style="color:red" hidden>* Please Complete All Fields *</p>
+
+    <label class="input-group w-50 p-2">
+        Name:
+        <input class="form-control p-2 w-100" type="text" id="gameName" placeholder="Name">
+    </label>
+
+    <label class="input-group w-50 p-2">
+        Decription:
+        <textarea class="form-control w-100" id="desc" type="text" placeholder="Description"> 
+        </textarea> 
+    </label>
+    <label class="input-group w-50 p-2">
+        Cost: 
+        <input class="form-control p-2 w-100" type="number" id="cost">
+    </label>
+    <label class="input-group w-50 p-2">
+        Inventory: 
+        <input class="form-control p-2 w-100" type="number" id="inventory">
+    </label>
+    <br/>
+    <button type="button" class="btn btn-primary" onclick="newItem()" id="submit">Submit Item</button>
+    <br/>
+    <div id="message"></div>
+    
+    <!-- y'all can add redirects here as needed -->
+    
+    
+    <script src="./sellerAddItem.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./redirects.js"></script>
+</body>
+</html>

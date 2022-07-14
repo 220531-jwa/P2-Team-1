@@ -29,15 +29,24 @@ public class UserServicesTests {
     }
 
     @Test
-    public void should_createNewUser(){
+    public void should_createNewUserBuyer(){
         //given
-        User mockUser = new User("josh", "josh", 1, "Josh", 1, 0.00);
+        User mockUser = new User("josh", "josh", 1, "Josh", 1, 0.00, 1);
         //when
-        when(mockUd.createUser("josh", "josh", "Josh")).thenReturn(mockUser);
+        when(mockUd.createUser("josh", "josh", "Josh", 1)).thenReturn(mockUser);
         //then
-        assertEquals(mockUser, mockUs.createUser("josh", "josh", "Josh"));
+        assertEquals(mockUser, mockUs.createUser("josh", "josh", "Josh", 1));
     }
 
+    @Test
+    public void should_createNewUserSeller(){
+        //given
+        User mockUser = new User("circlexine", "circle", 1, "Circle Xine", 2, 0.00, 0);
+        //when
+        when(mockUd.createUser("circlexine", "circle", "Circle Xine", 2)).thenReturn(mockUser);
+        //then
+        assertEquals(mockUser, mockUs.createUser("circlexine", "circle", "Circle Xine", 2));
+    }
     @Test
     public void should_checkForUniqueUsername(){
         //given
@@ -66,7 +75,7 @@ public class UserServicesTests {
     @Test
     public void should_loginUser(){
         //given
-        User mockUser = new User("josh", "josh", 1, "Josh", 1, 0.00);
+        User mockUser = new User("josh", "josh", 1, "Josh", 1, 0.00, 1);
         //when
         when(mockUd.getUser("josh")).thenReturn(mockUser);
         //then
@@ -76,10 +85,42 @@ public class UserServicesTests {
     @Test
     public void should_notLoginUser(){
         //given
-        User mockUser = new User("josh", "josh", 1, "Josh", 1, 0.00);
+        User mockUser = new User("josh", "josh", 1, "Josh", 1, 0.00, 1);
         //when
         when(mockUd.getUser("josh")).thenReturn(mockUser);
         //then
         assertNotEquals(mockUser, mockUs.loginUser("josh", "john"));
+    }
+
+    @Test
+    public void should_updateBalance(){
+        //given
+        User mockUser = new User("josh", "josh", 1, "Josh", 1, 100.00, 1);
+        double currentBal = 40.02;
+        double total = 59.98;
+        //when
+        when(mockUd.updateBalance(1, total)).thenReturn(currentBal);
+        //then
+        assertEquals(currentBal, mockUs.updateBalance(1, total));
+    }
+
+    @Test
+    public void should_addRewardPoints(){
+        //given
+        int points = 1;
+        //when
+        when(mockUd.addRewardPoints(1, 1)).thenReturn(points);
+        //then
+        assertEquals(points, mockUs.addRewardPoints(1, 10.00));
+    }
+
+    @Test
+    public void should_showRewardPoints(){
+        //given
+        User mockUser = new User("josh", "josh", 1, "Josh", 1, 100.00, 1);
+        //when
+        when(mockUd.showRewardPoints(1)).thenReturn(1);
+        //then
+        assertEquals(1, mockUs.showRewardPoints(1));
     }
 }

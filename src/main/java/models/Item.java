@@ -8,7 +8,14 @@ public class Item {
 	private int id;
 	private int sellerId;
 	private int inventory;
+	private String imglink;
 	
+	public String getImglink() {
+		return imglink;
+	}
+	public void setImglink(String imglink) {
+		this.imglink = imglink;
+	}
 	public int getInventory() {
 		return inventory;
 	}
@@ -45,20 +52,20 @@ public class Item {
 	public void setSellerId(int sellerId) {
 		this.sellerId = sellerId;
 	}
-	public int getQuantity() {
-		return quantity;
-	}
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-	private int quantity;
+
 	
-	public Item(String name, double cost, String desc, int id, int sellerId, int inventory) {
+	public Item(String name, double cost, String desc, int id, int sellerId, int inventory, String imglink) {
+		super();
 		this.name = name;
 		this.cost = cost;
 		this.desc = desc;
 		this.id = id;
 		this.sellerId = sellerId;
 		this.inventory = inventory;
+		this.imglink = imglink;
+	}
+	
+	public Item() {
+		super();
 	}
 }

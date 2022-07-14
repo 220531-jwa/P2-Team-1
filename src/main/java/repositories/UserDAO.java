@@ -39,9 +39,6 @@ public class UserDAO {
 			if(rs.next()) {
 				return rs.getDouble("balance");
 			}
-			
-			
-			
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
@@ -49,14 +46,15 @@ public class UserDAO {
 		}
 		return -1;
 	}
-    public User createUser(String username, String password, String name){
-        String sql = "insert into achieveapp.users values (default, ?, ?, ?, default, default) returning *;";
+    public User createUser(String username, String password, String name, int accounttype){
+        String sql = "insert into achieveapp.users values (default, ?, ?, ?, ?, default, default) returning *;";
 
         try(Connection connect = cu.getConnection()){
             PreparedStatement ps = connect.prepareStatement(sql);
             ps.setString(1, username);
             ps.setString(2, password);
             ps.setString(3, name);
+            ps.setInt(4, accounttype);
 
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
@@ -66,12 +64,14 @@ public class UserDAO {
                         rs.getInt("id"),
                         rs.getString("name"),
                         rs.getInt("accounttype"),
-                        rs.getDouble("balance")
+                        rs.getDouble("balance"),
+                        rs.getInt("rewardPoints")
                 );
             }
         } catch(SQLException e){
             e.printStackTrace();
         }
+        System.out.println("the issues is in the DAO Layer");
         return null;
     }
 
@@ -110,13 +110,69 @@ public class UserDAO {
                         rs.getInt("id"),
                         rs.getString("name"),
                         rs.getInt("accountType"),
-                        rs.getDouble("balance")
+                        rs.getDouble("balance"),
+                        rs.getInt("rewardPoints")
                 );
             }
         } catch(SQLException e){
             e.printStackTrace();
         }
         return null;
+    }
+
+    public double updateBalance(int id, double total){
+        String sql = "update achieveapp.users set balance = balance - ? where id = ? returning *;";
+
+        try(Connection connect = cu.getConnection()){
+            PreparedStatement ps = connect.prepareStatement(sql);
+            ps.setDouble(1, total);
+            ps.setInt(2, id);
+
+            ResultSet rs = ps.executeQuery();
+
+            if(rs.next()){
+                return rs.getDouble("balance");
+            }
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+        return 0.00;
+    }
+    public int addRewardPoints(int id, int rewardPoints){
+        String sql = "update achieveapp.users set rewardPoints = rewardPoints + ? where id = ? returning *;";
+
+        try(Connection connect = cu.getConnection()){
+            PreparedStatement ps = connect.prepareStatement(sql);
+            ps.setInt(1, rewardPoints);
+            ps.setInt(2, id);
+
+            ResultSet rs = ps.executeQuery();
+
+            if(rs.next()){
+                return rs.getInt("rewardPoints");
+            }
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public int showRewardPoints(int id){
+        String sql = "select rewardPoints from achieveapp.users where id = ?;";
+
+        try(Connection connect = cu.getConnection()){
+            PreparedStatement ps = connect.prepareStatement(sql);
+            ps.setInt(1, id);
+
+            ResultSet rs = ps.executeQuery();
+
+            if(rs.next()){
+                return rs.getInt("rewardPoints");
+            }
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+        return 0;
     }
 }
 

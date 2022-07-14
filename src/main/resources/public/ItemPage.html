@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Item Page</title>
     <link rel="stylesheet" href="css/bootstrap.css">
-    
 </head>
 <body onload="getItemData()">
-
-    <a href="./CartListPage.html">Cart</a>
     
     <div class="item-container">
         <h2>What's In Stock?</h2>
-        <ul class="list-group list-group-flush" id="itemData">   
 
+        <button id="cartButton" type="button" class="btn btn-outline-success mb-2 p-2" onclick="toCart()" id="toCart">Cart</button>
+        <button type="button" class="btn btn-primary p-2" onclick="toHome()">Back to Home</button>
+
+        <ul class="list-group list-group-flush" id="itemData">   
         </ul>
 
         
@@ -23,8 +23,10 @@
 
 
 
+    
     <script src="./CartScript.js"></script>    
     <script src="./js/bootstrap.js"></script>
+    <script src="./redirects.js"></script>
     
 </body>
 </html>

@@ -1,10 +1,9 @@
-let baseUrl ="http://localhost:8081/";
 let activeUser = JSON.parse(sessionStorage.activeUser);
 
 async function loadUser(){
     
     let res = await fetch(
-        `${baseUrl}user/${activeUser.id}/tickets`,
+        `${baseURL}user/${activeUser.id}/tickets`,
         {
             method: 'GET'
         }
@@ -24,7 +23,7 @@ async function loadUser(){
                 <th>Description</th>
                 <th>Submission Time</th>
             </tr>`
-
+            
             for(var i = 0; i <resp.length; i++){
                 var subTime = new Date(parseInt(resp[i].submissionTime));
                 var sub = (subTime.getMonth() + 1)+'/'+ subTime.getDate() + '/' + subTime.getFullYear();
@@ -32,7 +31,7 @@ async function loadUser(){
                 tbody.innerHTML +=
                 `
                     <tr>
-                        <td>${resp[i].id}</td>
+                        <td><button class="btn btn-outline-info" onclick="viewSingleTicket('${resp[i].id}')">${resp[i].id}</button></td>
                         <td>${resp[i].status}</td>
                         <td>${resp[i].subject}</td>
                         <td>${resp[i].description}</td>
@@ -44,10 +43,7 @@ async function loadUser(){
         .catch((error) => {console.log(error)})
 }
 
-function toHome(){
-    window.location = 'http://localhost:8081/homePage.html';
-}
-
-function submitNew(){
-    window.location = 'http://localhost:8081/newTicket.html';
+function viewSingleTicket(val){
+    sessionStorage.setItem('ticketId', val);
+    window.location = `${baseURL}viewTicket.html`
 }

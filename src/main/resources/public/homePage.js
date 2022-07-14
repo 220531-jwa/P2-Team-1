@@ -6,12 +6,42 @@ function home(){
         console.log(sessionStorage.activeUser);
         pullAccount();
         document.getElementById('loginLink').setAttribute('hidden', 'hidden');
+        document.getElementById('logoutButton').removeAttribute('hidden');
+    }
+
+    let activeUser = JSON.parse(sessionStorage.activeUser);
+    console.log(activeUser.accountType);
+
+    if(activeUser.accountType == 2){
+        document.getElementById("sellerHomeBtn").removeAttribute('hidden');
+    }
+    if(activeUser.accountType == 3){
+        document.getElementById("adminHomeBtn").removeAttribute('hidden');
     }
 }
 
 function pullAccount(){
         let activeUser = JSON.parse(sessionStorage.activeUser);
-        document.getElementById('userMessage').innerHTML = `Hello, ${activeUser.name} what would you like to do today?`
+        document.getElementById('userMessage').innerHTML = `Hello, ${activeUser.name}. What would you like to do today?`
+}
+
+async function displayRewardPoints(){
+    let activeUser = JSON.parse(sessionStorage.activeUser); 
+    let res = await fetch(
+        `${baseUrl}user/${activeUser.id}`, 
+        {
+            method: 'GET', 
+            header: {'Content-Type': 'application/json'}
+        }
+    ); 
+    let resJson = await res.json()
+    .then((resp) => {
+        document.getElementById('RewardPoints').removeAttribute('hidden');
+        document.getElementById('RewardPoints').innerHTML = `You have ${resp} AchievePoints!`;
+    })
+    .catch((error) => {
+        console.log(error);
+    });
 }
 
 async function addBal(){
@@ -50,14 +80,10 @@ function  toggleError(id){
     else x.setAttribute('hidden', 'hidden');
 }
 
-function browseProducts(){
-    window.location = 'http://localhost:8081/ItemPage.html';
-}
-
-function supportTicket(){
-    window.location = 'http://localhost:8081/newTicket.html';
-}
-
-function viewAllTicket(){
-    window.location ='http://localhost:8081/allTickets.html';
+function logout(){
+    sessionStorage.removeItem('cart');
+    sessionStorage.removeItem('total');
+    sessionStorage.clear;
+    
+    toLogin();
 }

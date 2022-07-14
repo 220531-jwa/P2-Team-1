@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achieve Home Page</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body onload="home()">
+    
+    <h1 class = h1> Welcome to the Achieve! </h1>
+    <div id="loginDiv" class="d-flex p-2" id="preLoginThings">
+        <a id="loginLink" href="http://localhost:8081/login.html">Login</a>
+    </div>
+
+
+    <container class="d-flex p-2">
+        <div id="login things">
+            <p id="userMessage"></p>
+        </div>
+    </container>
+
+    <container>
+        <button type="button" class="btn btn-outline-success" onclick="toHome()">To Home Page</button>
+        <button type="button" class="btn btn-success" onclick="toProductsPage()">Browse Inventory</button>
+        <button type="button" class="btn btn-primary" onclick="toAddItemPage()">Add a New Product</button>
+        <br>
+        <button type="button" class="btn btn-warning mt-2" onclick="toSellerInventory()" >View Your Inventory</button>
+    </container>
+
+    <script src="./js/bootstrap.js"></script>
+    <script src="./sellerHome.js"></script>
+    <script src="./redirects.js"></script>
+</body>
+</html>
