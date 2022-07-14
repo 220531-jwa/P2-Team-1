@@ -37,22 +37,26 @@ function toAdminSingleTicket(){
 }
 
 function toSellerHome(){
-    window.location = `${baseURL}sellerHomePage.html`
+    window.location = `${baseURL}sellerHomePage.html`;
 }
 
 function toAdminHome(){
-    window.location = `${baseURL}adminHome.html`
+    window.location = `${baseURL}adminHome.html`;
 }
 
 function toSellerInventory(){
-    window.location = `${baseURL}sellerInventory.html`
+    window.location = `${baseURL}sellerInventory.html`;
 }
 
 function toAdminTickets(){
-    window.location = `${baseURL}adminAllTickets.html`
+    window.location = `${baseURL}adminAllTickets.html`;
 }
 
 
 function toSingleItem(){
-    window.location = `${baseURL}singleItem.html`
+    window.location = `${baseURL}singleItem.html`;
+}
+
+function toAddItemPage(){
+    window.location = `${baseURL}sellerAddItem.html`;
 }
