@@ -83,6 +83,8 @@ public class SellerAddItemSteps {
     	deletebtn.click();
     	
     	new WebDriverWait(driver, Duration.ofSeconds(10))
+    	.until(ExpectedConditions.visibilityOfElementLocated(By.id("realDelete")));
+    	new WebDriverWait(driver, Duration.ofSeconds(10))
     	.until(ExpectedConditions.elementToBeClickable(By.id("realDelete")));
     	
     	WebElement realdeletebtn = driver.findElement(By.id("realDelete"));

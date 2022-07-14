@@ -68,7 +68,7 @@ public class SellerStepsNC {
 		new WebDriverWait(driver, Duration.ofSeconds(4))
 		.until(ExpectedConditions.visibilityOfElementLocated(By.id("viewButt0")));
 
-		WebElement viewItemBtn = driver.findElement(By.id("viewButt0"));
+		WebElement viewItemBtn = driver.findElement(By.id("viewButt2"));
 		viewItemBtn.click();
 
 	}
