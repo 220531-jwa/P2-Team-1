@@ -109,7 +109,7 @@ function populateCart(){
 
 
         mainContainer.innerHTML += 
-        `<tr id="cartData">
+        `<tr id="cartData${x}">
         <th scope="row">${x+1}</th> 
         <td> ${Cartarr[x].name}</td>
 

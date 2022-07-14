@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.File;
@@ -98,12 +99,11 @@ public void the_buyer_clicks_on_the_remove_cart_button_by_an_item() {
 	clp.pageDeleteButton.click();
 }
 
-@Then("The Item should be removed from the Buyer Cart")
+@Then("the Item should be removed from the Buyer Cart")
 public void the_item_should_be_removed_from_the_buyer_cart() throws InterruptedException {
-	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-	wait.wait(5000);
-	WebElement cartBody = driver.findElement(By.id("CartBody"));
-	assertEquals(cartBody, null);
+	//WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+	//WebElement cartBody = driver.findElement(By.id("CartBody"));
+	assertEquals(clp.cartBody.getAttribute("innerHTML"), "<tr> <td> $0.00</td></tr>");
 }
 
 }
