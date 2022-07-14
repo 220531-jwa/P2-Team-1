@@ -31,7 +31,8 @@ public class ItemDAO {
 						rs.getString("description"),
 						rs.getInt("id"),
 						rs.getInt("sellerid"),
-						rs.getInt("inventory")
+						rs.getInt("inventory"),
+						rs.getString("imglink")
 				));
 			}
 
@@ -76,7 +77,8 @@ public class ItemDAO {
 						rs.getString("description"),
 						rs.getInt("id"),
 						rs.getInt("sellerid"),
-						rs.getInt("inventory")
+						rs.getInt("inventory"),
+						rs.getString("imglink")
 				));
 			}
 
@@ -112,7 +114,8 @@ public class ItemDAO {
 						rs.getString("description"),
 						rs.getInt("id"),
 						rs.getInt("sellerid"),
-						rs.getInt("inventory")
+						rs.getInt("inventory"),
+						rs.getString("imglink")
 				);
 			}
 		} catch (SQLException e) {
@@ -141,7 +144,8 @@ public class ItemDAO {
 						rs.getString("description"),
 						rs.getInt("id"),
 						rs.getInt("sellerid"),
-						rs.getInt("inventory")
+						rs.getInt("inventory"),
+						rs.getString("imglink")
 				);
 			}
 		} catch(SQLException e){
