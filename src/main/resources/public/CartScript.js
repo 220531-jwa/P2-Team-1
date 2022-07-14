@@ -33,7 +33,7 @@ function appendItemData(resp){
         btn.innerHTML = "Add to Cart";
         btn.type = "submit";
         btn.className = "btn btn-primary ";
-        btn.id = "AddButt";
+        btn.id = `AddButt${i}`;
         btn.setAttribute("onclick", "addToCart(" + i /*+ ", '" + resp[i].name + "', " + resp[i].cost */ +")");
 
         let sibtn = document.createElement("button");

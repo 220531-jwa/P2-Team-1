@@ -33,7 +33,7 @@ function appendItemData(resp){
         btn.innerHTML = "View Item";
         btn.type = "button";
         btn.className = "btn btn-primary ";
-        btn.id = `viewButt${i}`;
+        btn.id =  `viewButt${i}`;
         let x = itemResp[i];
         btn.setAttribute("onclick", `ViewItem(${JSON.stringify(x)})`);
         //btn.onclick = addToCart(i);
