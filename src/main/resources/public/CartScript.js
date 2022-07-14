@@ -27,35 +27,36 @@ updateCartButton();
 
 function appendItemData(resp){
     var mainContainer = document.getElementById('itemData');
+
     for(var i = 0; i < resp.length; i++){
-        var li = document.createElement("li"); //maybe add the class for bootstrap?
-        li.className = "list-group-item";
-        let btn = document.createElement("button");
-        btn.innerHTML = "Add to Cart";
-        btn.type = "submit";
-        btn.className = "btn btn-primary ";
-        btn.id = `AddButt${i}`;
-        btn.setAttribute("onclick", "addToCart(" + i /*+ ", '" + resp[i].name + "', " + resp[i].cost */ +")");
+        mainContainer.innerHTML += 
+        `
+        <div class="card">
+                <div class="row g-0">
+                    <div class="col-2">
+                        <img src="./img/${resp[i].imglink}" class="bd-placeholder-image" 
+                        width="130"
+                        height="240">
+                    </div>
+                    <div class="col-3">
+                        <div>
+                            <table id="infoTable${resp[i].id}" class="table table-hover">
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
 
-        let sibtn = document.createElement("button");
-        sibtn.innerHTML = "View More";
-        sibtn.type = "button";
-        sibtn.className = "btn btn-success";
-        sibtn.id = `viewMore${i}`;
-        sibtn.setAttribute("onclick", "viewMore(" + resp[i].id  +")");
-        sibtn.style = "width:130px";
-
-
-        btn.style = "width:130px";
-        Items.push(resp[i]);
-
-        li.innerHTML = "<br>Name: <br>"  + resp[i].name + "<br>Cost: $" + resp[i].cost + "<br>Description: <br>" + resp[i].desc
-        + "<br>";
-
-        mainContainer.appendChild(li);
-        mainContainer.appendChild(btn);
-        mainContainer.appendChild(sibtn);
-
+        document.getElementById(`infoTable${resp[i].id}`).innerHTML +=
+        `
+        <tr><th>Name:</th><td>${resp[i].name}</td></tr>
+        <tr><th>Description:</th><td>${resp[i].desc}</td></tr>
+        <tr><th>Cost:</th><td id="currentCost">${resp[i].cost}</td></tr>
+        <tr><th>In Stock:</th><td>${resp[i].inventory}</td></tr>
+        <tr><td><button class="btn btn-info" onclick="addToCart(${resp[i].id})">Add to Cart</button></td>
+        <td><button class="btn btn-primary" onclick="viewMore(${resp[i].id})">View More Info</button></td></tr>
+        `;
     }
     
 }
