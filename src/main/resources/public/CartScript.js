@@ -35,6 +35,15 @@ function appendItemData(resp){
         btn.className = "btn btn-primary ";
         btn.id = "AddButt";
         btn.setAttribute("onclick", "addToCart(" + i /*+ ", '" + resp[i].name + "', " + resp[i].cost */ +")");
+
+        let sibtn = document.createElement("button");
+        sibtn.innerHTML = "View More";
+        sibtn.type = "button";
+        sibtn.className = "btn btn-success";
+        sibtn.id = `viewMore${i}`;
+        sibtn.setAttribute("onclick", "viewMore(" + i  +")");
+        sibtn.style = "width:130px";
+
         //btn.onclick = addToCart(i);
         btn.style = "width:130px";
         Items.push(resp[i]);
@@ -44,36 +53,27 @@ function appendItemData(resp){
 
         mainContainer.appendChild(li);
         mainContainer.appendChild(btn);
+        mainContainer.appendChild(sibtn);
 
     }
     
 }
 
 function addToCart(id){
-  //  var totalContainer = document.getElementById("item-container");
-totalCost = totalCost + Items[id].cost;
-//totalCost = totalCost + resp.cost;
-//var item = [
-//id,
-
-//name,
-
-//cost
-
-//];
+    totalCost = totalCost + Items[id].cost;
 
 
-console.log(Items[id]);
-var mainContainer = document.getElementById('itemData');
-var li = document.createElement("li");
+    console.log(Items[id]);
+    var mainContainer = document.getElementById('itemData');
+    var li = document.createElement("li");
 
-Cartarr.push(Items[id]);
-li.innerHTML = Items[id].name;
-mainContainer.appendChild(li);
-console.log(totalCost);
+    Cartarr.push(Items[id]);
+    li.innerHTML = Items[id].name;
+    mainContainer.appendChild(li);
+    console.log(totalCost);
 
-sessionStorage.setItem('cart', JSON.stringify(Cartarr));
-sessionStorage.setItem('total', JSON.stringify(totalCost));
+    sessionStorage.setItem('cart', JSON.stringify(Cartarr));
+    sessionStorage.setItem('total', JSON.stringify(totalCost));
 
 
 }
@@ -180,8 +180,63 @@ async function checkOut(){
     });
 }
 
+function viewMore(i){
+    
+    sessionStorage.setItem('activeItemId', i);
+    toSingleItem();
+}
 
+async function getItemInformation(){
 
+    let activeItemId = sessionStorage.activeItemId;
+    console.log(activeItemId);
+
+    let res = await fetch(
+        `${baseURL}item/${activeItemId}`,
+        {
+            method: 'GET'
+        }
+    );
+
+    let resJson = await res.json()
+        .then((resp) => {
+            console.log(resp);
+            sessionStorage.addItem('activeItem', JSON.stringify(resp));
+            var tbody = document.getElementById('itemInfoTable');
+            tbody.innerHTML =
+            `
+            <tr>
+                <th>Name:</th>
+                <td>${resp.name}</td>
+            </tr>
+            <tr>
+                <th>ID:</th>
+                <td>${resp.id}</td>
+            </tr>
+            <tr>
+                <th>Description:</th>
+                <td>${resp.desc}</td>
+            </tr>
+            <tr>
+                <th>Price:</th>
+                <td>${resp.cost}</td>
+            </tr>
+            <tr>
+                <th>In Stock:</th>
+                <td>${resp.inventory}</td>
+            </tr>
+            `;
+
+            //uncomment the below code once you merge everything.
+            
+            // let image = document.getElementById('coverImage');
+            // image.src = `./img/${resp.imglink}`;
+
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+}
 
     
 

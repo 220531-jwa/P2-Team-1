@@ -51,3 +51,8 @@ function toSellerInventory(){
 function toAdminTickets(){
     window.location = `${baseURL}adminAllTickets.html`
 }
+
+
+function toSingleItem(){
+    window.location = `${baseURL}singleItem.html`
+}

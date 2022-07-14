@@ -43,6 +43,7 @@ public class Main {
 			path("/item", () -> {
 				get(ic::getAllItems);
 				path("/{Itemid}", () ->{
+					get(ic::getItemById);
 					patch(ic::deleteItem);
 				});
 			});
