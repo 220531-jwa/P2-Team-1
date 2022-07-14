@@ -181,13 +181,31 @@ public class ItemDAO {
 		return null;
 	}
 
-	public int checkoutRemoveInventory(int itemId, int totalRemove){
+	public int checkoutRemoveInventory(int itemId, int totalRemove) {
 		String sql = "update achieveapp.items set inventory = inventory - ? where id = ? returning *;";
 
-		try(Connection connect = cu.getConnection()){
+		try (Connection connect = cu.getConnection()) {
 			PreparedStatement ps = connect.prepareStatement(sql);
 			ps.setInt(1, totalRemove);
 			ps.setInt(2, itemId);
+
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+				return rs.getInt("inventory");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	public int checkStock(int itemId){
+		String sql = "select inventory from achieveapp.items where id = ?;";
+
+		try(Connection connect = cu.getConnection()){
+			PreparedStatement ps = connect.prepareStatement(sql);
+			ps.setInt(1, itemId);
 
 			ResultSet rs = ps.executeQuery();
 
