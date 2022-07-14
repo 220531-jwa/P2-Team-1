@@ -12,3 +12,4 @@ Scenario: Admin can alter the status of an individual ticket
 	When Admin selects single ticket
 	And Admin changes status
 	Then the new status is displayed
+	
