@@ -22,7 +22,7 @@ public class ItemPage {
 	@FindBy(id = "itemData")
 	public WebElement itemData;
 
-	@FindBy(id = "toCart")
+	@FindBy(id = "cartButton")
 	public WebElement toCartButton;
 
 }

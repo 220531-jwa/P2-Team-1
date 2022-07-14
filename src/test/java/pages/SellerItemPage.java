@@ -15,26 +15,26 @@ public class SellerItemPage {
 		this.js = (JavascriptExecutor) driver;
 		PageFactory.initElements(driver, this);
 	}
-	
+
 	@FindBy(id="//*[@id=\"sellerData\"]/li[1]")
 	public WebElement sellerData;
-	
+
 	@FindBy(id="viewButt0")
 	public WebElement viewItemBtn;
-	
+
 	@FindBy(id="itemTable")
 	public WebElement itemTable;
-	
+
 	@FindBy(id="butt")
 	public WebElement editBtn;
-	
+
 	@FindBy(id="newCost")
 	public WebElement costInput;
-	
+
 	@FindBy(xpath="//*[@id=\"editsTable\"]/tbody/tr[5]/td/button")
 	public WebElement submitbtn;
-	
+
 	@FindBy(xpath="//*[@id=\"itemTable\"]/tbody/tr[3]/td")
 	public WebElement currentCost;
-	
+
 }

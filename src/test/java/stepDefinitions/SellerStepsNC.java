@@ -41,13 +41,13 @@ public class SellerStepsNC {
 		driver.quit();
 	}
 //------------------------------ General Seller Steps -----------------------------------------
-	
+
 	@Given("A test seller account is loaded")
 	public void a_test_seller_account_is_loaded() {
 		driver.get("http://localhost:8081/home.html");
 		js.executeScript("sessionStorage.setItem('activeUser', '{\"username\":\"tinendo\",\"password\":\"tinendo\",\"id\":2,\"name\":\"tinendo\",\"accountType\":2,\"balance\":0}');\r\n");
 	}
-	
+
 //------------------------------ Seller Inventory feature -------------------------------------
 
 	@Given("seller is on the seller inventory page")
@@ -66,35 +66,35 @@ public class SellerStepsNC {
 	public void the_seller_selects_item_to_view() {
 		new WebDriverWait(driver, Duration.ofSeconds(4))
 		.until(ExpectedConditions.visibilityOfElementLocated(By.id("viewButt0")));
-		
+
 		WebElement viewItemBtn = driver.findElement(By.id("viewButt0"));
 		viewItemBtn.click();
-		
+
 	}
 
 	@Then("seller can see item information")
 	public void seller_can_see_item_information() {
 		new WebDriverWait(driver, Duration.ofSeconds(4))
 		.until(ExpectedConditions.visibilityOfElementLocated(By.id("itemTable")));
-		
+
 		WebElement itemTable = driver.findElement(By.id("itemTable"));
 		assertTrue(itemTable.isDisplayed());
 	}
-	
+
 	String randomNum;
-	
+
 	@When("edits the item and submits")
 	public void edits_the_item_and_submits() {
 		Random rand = new Random();
 		int upperbound = 60;
 		int random = rand.nextInt(upperbound);
 		randomNum = String.valueOf(random);
-		
-		
+
+
 		WebElement editBtn = driver.findElement(By.id("butt"));
 		WebElement costInput = driver.findElement(By.id("newCost"));
 		WebElement submitbtn = driver.findElement(By.id("submitbtn"));
-		
+
 	    editBtn.click();
 	    costInput.clear();
 	    costInput.sendKeys(randomNum);
@@ -106,6 +106,6 @@ public class SellerStepsNC {
 		new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.alertIsPresent());
 		String alertMessage = driver.switchTo().alert().getText();
         assertEquals("Update Success!", alertMessage);
-		
+
 	}
 }
