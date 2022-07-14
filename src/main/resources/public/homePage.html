@@ -33,7 +33,12 @@
         </div>
     </container>
 
-    <container>
+    <container id="hiddenRedirects" class="p-2 mb-2">
+        <button class="btn btn-outline-info" hidden id="sellerHomeBtn" type="button" onclick="toSellerHome()">To Seller Home</button>
+        <button class="btn btn-outline-info" hidden id="adminHomeBtn" type="button" onclick="toAdminHome()">To Admin Home</button>
+    </container>
+    <br>
+    <container class="p-2 mt-2 mb-2">
         <button id="browseProducts" type="button" class="btn btn-primary" onclick="toProductsPage()">Browse Products</button>
         <button id="submitTicket" type="button" class="btn btn-primary" onclick="toSubmitNew()">Submit Support Ticket</button>
         <button id="allTickets" type="button" class="btn btn-primary" onclick="toAllTickets()">View All Tickets</button>

@@ -19,17 +19,17 @@ async function newItem(){
     }
 
     let requestJson = JSON.stringify(request);
-    console.log(requestJson); 
+    console.log(requestJson);
 
     let res = await fetch(
         `${baseURL}seller/${activeUser.id}/items`, 
         {
-            method: 'POST', 
+            method: 'post', 
             header: {'Content-Type': 'application/json'},
-            content: requestJson
+            body: requestJson
         }
     ); 
-    
+
     let resJson = await res.json()
         .then((resp) => {
             console.log(resp);

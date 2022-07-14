@@ -77,5 +77,7 @@ public class ItemController {
 		} else {
 			ctx.status(404);
 		}
+		
+		ctx.status(200);
 	}
 }

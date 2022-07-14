@@ -8,6 +8,16 @@ function home(){
         document.getElementById('loginLink').setAttribute('hidden', 'hidden');
         document.getElementById('logoutButton').removeAttribute('hidden');
     }
+
+    let activeUser = JSON.parse(sessionStorage.activeUser);
+    console.log(activeUser.accountType);
+
+    if(activeUser.accountType == 2){
+        document.getElementById("sellerHomeBtn").removeAttribute('hidden');
+    }
+    if(activeUser.accountType == 3){
+        document.getElementById("adminHomeBtn").removeAttribute('hidden');
+    }
 }
 
 function pullAccount(){

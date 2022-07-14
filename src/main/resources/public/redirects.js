@@ -35,3 +35,19 @@ function viewAllAdminTicket(){
 function toAdminSingleTicket(){
     window.location =`${baseURL}adminTicketResponse.html`;
 }
+
+function toSellerHome(){
+    window.location = `${baseURL}sellerHomePage.html`
+}
+
+function toAdminHome(){
+    window.location = `${baseURL}adminHome.html`
+}
+
+function toSellerInventory(){
+    window.location = `${baseURL}sellerInventory.html`
+}
+
+function toAdminTickets(){
+    window.location = `${baseURL}adminAllTickets.html`
+}
