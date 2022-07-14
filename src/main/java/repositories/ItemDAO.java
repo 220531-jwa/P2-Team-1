@@ -125,7 +125,7 @@ public class ItemDAO {
 	}
 
 	public Item createNewItem(String name, double cost, String description, int sellerId, int inventory){
-		String sql = "insert into achieveapp.items values (default, ?, ?, ?, ?, ?) returning *;";
+		String sql = "insert into achieveapp.items values (default, ?, ?, ?, ?, ?, default) returning *;";
 
 		try(Connection connect = cu.getConnection()){
 			PreparedStatement ps = connect.prepareStatement(sql);
