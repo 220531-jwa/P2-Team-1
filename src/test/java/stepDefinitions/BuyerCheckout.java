@@ -56,7 +56,7 @@ public class BuyerCheckout {
         lp.loginButton.click();
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.titleIs("Achieve Home Page"));
         bp.browseProductsBtn.click();
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(By.id("AddButt")));
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(By.id("AddButt0")));
         ip.pageAddButton.click();
         ip.toCartButton.click();
     }
