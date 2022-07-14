@@ -46,6 +46,7 @@ public static void teardown() {
 
 @Given("the test buyer account is loaded")
 public void the_test_buyer_account_is_loaded() {
+	driver.get("http://localhost:8081/homePage.html");
 	 js.executeScript("sessionStorage.setItem('activeUser', '{\"username\":\"josh\",\"password\":\"josh\",\"id\":1,\"name\":\"josh\",\"accountType\":1,\"balance\":3457}');\r\n");
 }
 
