@@ -42,9 +42,8 @@ public class Main {
 			});
 			path("/item", () -> {
 				get(ic::getAllItems);
-				path("/{Itemid}", () ->{
-//					get(ic::getItemById);
-					patch(ic::deleteItem);
+				path("/{itemId}", () ->{
+					get(ic::getItemById);
 				});
 			});
 			path("/user", () ->{
@@ -80,6 +79,7 @@ public class Main {
 					post(ic::createNewItem);
 					path("/{itemId}", ()-> {
 						put(ic::updateItem);
+						delete(ic::deleteItem);
 					});
 				});
 			});

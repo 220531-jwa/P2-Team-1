@@ -22,6 +22,7 @@ if(res.status == 200){
 } else{
     console.log("It got away!");
 }
+updateCartButton();
 }
 
 function appendItemData(resp){
@@ -41,7 +42,7 @@ function appendItemData(resp){
         sibtn.type = "button";
         sibtn.className = "btn btn-success";
         sibtn.id = `viewMore${i}`;
-        sibtn.setAttribute("onclick", "viewMore(" + i  +")");
+        sibtn.setAttribute("onclick", "viewMore(" + resp[i].id  +")");
         sibtn.style = "width:130px";
 
         //btn.onclick = addToCart(i);
@@ -75,7 +76,7 @@ function addToCart(id){
     sessionStorage.setItem('cart', JSON.stringify(Cartarr));
     sessionStorage.setItem('total', JSON.stringify(totalCost));
 
-
+    updateCartButton();
 }
 
 
@@ -101,7 +102,7 @@ function populateCart(){
         var btn = document.createElement("button");
         btn.type = "submit";
         btn.className = "btn btn-primary";
-        btn.setAttribute("onclick", "removeFromCart(" + x + /*", "+ Cartarr + */", "+ TotalCost + ")");
+        btn.setAttribute("onclick", `removeFromCart(${x})`);
         btn.innerHTML = "Remove";
         btn.id = "RemoveButt";
       //  btn.onclick = removeFromCart(x);
@@ -129,19 +130,21 @@ function populateCart(){
         //mainContainer.appendChild("tr");
         mainContainer.appendChild(btn);
     }
-    mainContainer.innerHTML += `<tr> <td> $${TotalCost}</td></tr>`;
+    mainContainer.innerHTML += `<tr> <td> $${JSON.parse(sessionStorage.total)}</td></tr>`;
 }
 
-function removeFromCart(x, TotalCost){
+function removeFromCart(x){
     let cart = sessionStorage.getItem('cart');
     let Cartarr = JSON.parse(cart);
     console.log(Cartarr);
     console.log(x);
+    let TotalCost = (JSON.parse(sessionStorage.total) - Cartarr[x].cost).toFixed(2);
     Cartarr.splice(x, 1);
-    TotalCost = TotalCost.toFixed(2);
+
     sessionStorage.setItem('cart', JSON.stringify(Cartarr));
     sessionStorage.setItem('total', JSON.stringify(TotalCost));
     window.location.assign("./CartListPage.html");
+    updateCartButton();
 }
 
 
@@ -171,7 +174,8 @@ async function checkOut(){
     let resJson = await res.json()
     .then((resp) =>{
         console.log(resp);
-        Cartarr.length = 0; //empty cart 
+        sessionStorage.removeItem('cart');
+        sessionStorage.removeItem('total');
         window.alert("You have successfully checked out!");
     })
     .catch((error) =>{
@@ -201,7 +205,7 @@ async function getItemInformation(){
     let resJson = await res.json()
         .then((resp) => {
             console.log(resp);
-            sessionStorage.addItem('activeItem', JSON.stringify(resp));
+            sessionStorage.setItem('activeItem', JSON.stringify(resp));
             var tbody = document.getElementById('itemInfoTable');
             tbody.innerHTML =
             `
@@ -226,11 +230,9 @@ async function getItemInformation(){
                 <td>${resp.inventory}</td>
             </tr>
             `;
-
-            //uncomment the below code once you merge everything.
             
-            // let image = document.getElementById('coverImage');
-            // image.src = `./img/${resp.imglink}`;
+             let image = document.getElementById('coverImage');
+             image.src = `./img/${resp.imglink}`;
 
         })
         .catch((error) => {
@@ -238,5 +240,8 @@ async function getItemInformation(){
         });
 }
 
-    
+function updateCartButton(){
+    let cartbtn = document.getElementById('cartButton');
+    cartbtn.innerText = `Cart (${JSON.parse(sessionStorage.cart).length} items $${JSON.parse(sessionStorage.total)})`;
+}
 

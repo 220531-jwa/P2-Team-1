@@ -47,8 +47,7 @@ public class ItemDAO {
 	}
 
 	public void deleteItem(int id2) {
-		// TODO Auto-generated method stub
-		String sql = "delete from accounts where id = ?";
+		String sql = "delete from achieveapp.items where id = ?";
 		try (Connection conn = cu.getConnection()) {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, id2);
@@ -93,7 +92,7 @@ public class ItemDAO {
 	}
 
 	public Item updateItem(int sellerId, int itemId, Item update) {
-		String sql = "Update achieveapp.items set name = ?, cost = ?, description = ?, inventory = ? where id = ? and sellerId = ? returning *";
+		String sql = "Update achieveapp.items set name = ?, cost = ?, description = ?, inventory = ?, imglink = ? where id = ? and sellerId = ? returning *";
 
 		try (Connection conn = cu.getConnection()) {
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -102,8 +101,10 @@ public class ItemDAO {
 			ps.setDouble(2, update.getCost());
 			ps.setString(3, update.getDesc());
 			ps.setInt(4, update.getInventory());
-			ps.setInt(5, itemId);
-			ps.setInt(6, sellerId);
+			ps.setString(5, update.getImglink());
+			ps.setInt(6, itemId);
+			ps.setInt(7, sellerId);
+			
 
 			ResultSet rs = ps.executeQuery();
 
@@ -149,6 +150,33 @@ public class ItemDAO {
 				);
 			}
 		} catch(SQLException e){
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public Item getItemById(int itemId) {
+		String sql = "select * from achieveapp.items where id = ?";
+				
+		try(Connection conn = cu.getConnection()){
+			PreparedStatement ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, itemId);
+			
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				return new Item(
+						rs.getString("name"),
+						rs.getDouble("cost"),
+						rs.getString("description"),
+						rs.getInt("id"),
+						rs.getInt("sellerid"),
+						rs.getInt("inventory"),
+						rs.getString("imglink")
+						);
+			}
+		}
+		catch(SQLException e) {
 			e.printStackTrace();
 		}
 		return null;

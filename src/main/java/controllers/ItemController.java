@@ -28,7 +28,7 @@ public class ItemController {
 		}
 	}
 	public void deleteItem(Context ctx) {
-		int id = Integer.parseInt(ctx.pathParam("Itemid"));
+		int id = Integer.parseInt(ctx.pathParam("itemId"));
 		try {
 			is.deleteItem(id);
 		} catch(Exception e) {
@@ -79,5 +79,13 @@ public class ItemController {
 		}
 		
 		ctx.status(200);
+	}
+	
+	public void getItemById(Context ctx) {
+		int itemId = Integer.parseInt(ctx.pathParam("itemId"));
+		
+		Item output = is.getItemById(itemId);
+		ctx.status(200);
+		ctx.json(output);
 	}
 }

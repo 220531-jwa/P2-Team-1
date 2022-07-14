@@ -17,8 +17,7 @@ public class ItemService {
 	}
 
 	public void deleteItem(int id2) {
-		// TODO Auto-generated method stub
-	id.deleteItem(id2);
+		id.deleteItem(id2);
 	}
 	
 	public List<Item> getAllSellerItems(int sellerId) {
@@ -37,5 +36,10 @@ public class ItemService {
 		} else {
 			return i;
 		}
+	}
+	
+	public Item getItemById(int itemId) {
+		
+		return id.getItemById(itemId);
 	}
 }
