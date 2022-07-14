@@ -62,7 +62,7 @@ public void a_buyer_is_on_the_item_page() {
 public void the_buyer_clicks_the_cart_button() {
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 	wait.until(ExpectedConditions.elementToBeClickable(By.id("AddButt0")));
-	
+
 	ip.pageAddButton.click();
 	ip.toCartButton.click();
 
@@ -77,11 +77,11 @@ public void the_element_should_be_added_to_the_cart() {
 @Given("An Item exists in the Cart")
 public void an_item_exists_in_the_cart() {
 	driver.get("http://localhost:8081/ItemPage.html");
-	
+
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 	wait.until(ExpectedConditions.elementToBeClickable(By.id("AddButt0")));
 	ip.pageAddButton.click();
-	
+
 }
 @Given("the buyer is on the CartListPage")
 public void the_buyer_is_on_the_cart_list_page() {
@@ -94,6 +94,8 @@ public void the_buyer_clicks_on_the_remove_cart_button_by_an_item() {
 	wait.until(ExpectedConditions.elementToBeClickable(By.id("RemoveButt0")));
 	WebElement pageDeleteButton = driver.findElement(By.id("RemoveButt0"));
 	pageDeleteButton.click();
+
+	clp.pageDeleteButton.click();
 }
 
 @Then("The Item should be removed from the Buyer Cart")

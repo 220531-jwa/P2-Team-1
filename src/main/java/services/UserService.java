@@ -55,5 +55,14 @@ public class UserService {
 			return newBalance;
 		}
 	}
+
+	public int addRewardPoints(int id, double balance){
+		int rewardPoints = (int) (balance / 10);
+		return ud.addRewardPoints(id, rewardPoints);
+	}
+
+	public int showRewardPoints(int id){
+		return ud.showRewardPoints(id);
+	}
 }
 
