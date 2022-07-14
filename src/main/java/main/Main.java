@@ -23,7 +23,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		ItemController ic = new ItemController(new ItemService(new ItemDAO()));
-		UserController uc = new UserController(new UserService(new UserDAO()));
+		UserController uc = new UserController(new UserService(new UserDAO()), new ItemService(new ItemDAO()));
 		TicketController tc = new TicketController(new TicketService(new TicketDAO()));
 		
 		Javalin app = Javalin.create(config -> {

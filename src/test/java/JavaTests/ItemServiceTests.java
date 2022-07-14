@@ -36,4 +36,15 @@ public class ItemServiceTests {
         //then
         assertEquals(mockItem, mockIs.createNewItem("Initial Reality", 79.99, "Become a Warrior of Darkness and bring about the destruction of the world.", 23, 23));
     }
+
+    @Test
+    public void should_removeInventory(){
+        //given
+        Item mockItem = new Item("Initial Reality", 79.99, "Become a Warrior of Darkness and bring about the destruction of the world.", 1, 23, 4);
+        int inventory = mockItem.getInventory();
+        //when
+        when(mockId.checkoutRemoveInventory(1, 1)).thenReturn(inventory);
+        //then
+        assertEquals(inventory, mockIs.checkoutRemoveInventory(1, 1));
+    }
 }

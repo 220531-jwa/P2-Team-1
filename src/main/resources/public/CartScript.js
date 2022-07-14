@@ -149,11 +149,23 @@ async function checkOut(){
     console.log(activeUser);
     console.log("checkout button pressed");
     let totalCost = sessionStorage.getItem('total');
+    let cart = sessionStorage.getItem('cart');
+    let CartArr = JSON.parse(cart);
     console.log(totalCost);
     let uid = activeUser.id;
     console.log(uid);
+
+    //get individual item ids 
+    let itemIdArr = [];
+    console.log("Getting item IDs...");
+    for(i = 0; i < CartArr.length; i++){
+        itemIdArr.push(CartArr[i].id);
+    }
+    console.log(itemIdArr);
+
     let request = {
-        total: totalCost
+        total: totalCost, 
+        itemIds: itemIdArr
     }
 
     let requestJson = JSON.stringify(request);

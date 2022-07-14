@@ -38,4 +38,12 @@ public class ItemService {
 			return i;
 		}
 	}
+
+	public int checkoutRemoveInventory(int itemId, int totalRemove){
+		int i = id.checkoutRemoveInventory(itemId, totalRemove);
+		if(i <= 2) {
+			System.out.println("Inventory low.");
+		}
+		return i;
+	}
 }

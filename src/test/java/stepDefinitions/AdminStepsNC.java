@@ -40,17 +40,17 @@ public class AdminStepsNC {
 		driver.quit();
 	}
 //-----------------------------Admin General Steps ------------------------------------
-	
+
 	@Given("Admin account is loaded")
 	public void admin_account_is_loaded() {
 	    driver.get("http://localhost:8081/homePage.html");
 	    js.executeScript("sessionStorage.setItem('activeUser', '{\"username\":\"admin\",\"password\":\"admin\",\"id\":3,\"name\":\"admin\",\"accountType\":3,\"balance\":0}');\r\n");
-	    
+
 	}
-	
+
 
 //-----------------------------Admin Ticket Steps -------------------------------------
-	
+
 
 	@Given("Admin is on view tickets page")
 	public void admin_is_on_view_tickets_page() {
@@ -60,40 +60,40 @@ public class AdminStepsNC {
 	public void admin_selects_single_ticket() {
 		new WebDriverWait(driver, Duration.ofSeconds(4))
 		.until(ExpectedConditions.visibilityOfElementLocated(By.id("id0")));
-		
+
 	    WebElement tickID = driver.findElement(By.id("id0"));
 	    tickID.click();
-	    
+
 	}
 	@Then("they are taken to that ticket page")
 	public void they_are_taken_to_that_ticket_page() {
 		new WebDriverWait(driver, Duration.ofSeconds(4))
 		.until(ExpectedConditions.titleContains("Admin Ticket Response"));
-		
-		
+
+
 		assertEquals("Admin Ticket Response", driver.getTitle());
 	}
-	
+
 	@When("Admin changes status")
 	public void admin_changes_status() {
 		new WebDriverWait(driver, Duration.ofSeconds(4))
 		.until(ExpectedConditions.visibilityOfElementLocated(By.id("newStatus")));
-		
+
 		WebElement selector = driver.findElement(By.id("newStatus"));
-		
+
 		Select stat = new Select(selector);
 		stat.selectByVisibleText("Resolved");
-		
+
 		WebElement statusUpdate = driver.findElement(By.id("statusBtn"));
 		statusUpdate.click();
-		
+
 	}
 	@Then("the new status is displayed")
 	public void the_new_status_is_displayed() {
-	    
+
 		new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.alertIsPresent());
 		String alertMessage = driver.switchTo().alert().getText();
         assertEquals("Ticket has been updated successfully!", alertMessage);
-        
+
 	}
 }
