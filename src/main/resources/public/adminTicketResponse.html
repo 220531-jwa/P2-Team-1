@@ -23,11 +23,11 @@
             <option value="declined">Declined</option>
         </select>
 
-        <button class="btn btn-outline-primary" type="button" onclick="statusUpdate()">Status Update</button>
+        <button class="btn btn-outline-primary" id="statusBtn" type="button" onclick="statusUpdate()">Status Update</button>
     </div>
 
-    <button class="btn btn-warning" type="button" onclick="toAdminHome()">To Admin Home</button>
-    <button class="btn btn-warning" type="button" onclick="toAdminTickets()">Back to All Tickets</button>
+    <button class="btn btn-warning" id="adminHomeBtn" type="button" onclick="toAdminHome()">To Admin Home</button>
+    <button class="btn btn-warning" id="adminAllTBtn" type="button" onclick="toAdminTickets()">Back to All Tickets</button>
 
     <script src="./adminTicketResponse.js"></script>
     <script src="./js/bootstrap.js"></script>

@@ -28,7 +28,7 @@ async function loadTicketsAdmin(){
                 `
                     <tr>
                         <td>
-                            <button class="btn btn-outline-info" id="id1" onclick="setReq('${resp[i].id}')"> ${resp[i].id} </button>
+                            <button class="btn btn-outline-info" id="id${i}" onclick="setReq('${resp[i].id}')"> ${resp[i].id} </button>
                         </td>
                         <td>${resp[i].subject}</td>
                         <td>${resp[i].description}</td>

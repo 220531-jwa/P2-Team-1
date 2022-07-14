@@ -34,7 +34,7 @@ async function statusUpdate(){
     var ticketId = sessionStorage.activeAdminTicket;
 
     let res = await fetch(
-        `${baseUrl}admin/ticket/${ticketId}`,
+        `${baseURL}admin/ticket/${ticketId}`,
         {
             method: 'PUT',
             header: {'Content-Type': 'application/json'},
