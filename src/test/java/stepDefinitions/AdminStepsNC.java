@@ -1,10 +1,17 @@
 package stepDefinitions;
 
-import java.io.File;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.io.File;
+import java.time.Duration;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.BeforeAll;
@@ -31,28 +38,39 @@ public class AdminStepsNC {
 	public static void teardown(){
 		driver.quit();
 	}
-	
-//-----------------------------Admin Ticket Steps -------------------------------------
+//-----------------------------Admin General Steps ------------------------------------
 	
 	@Given("Admin account is loaded")
 	public void admin_account_is_loaded() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    driver.get("http://localhost:8081/homePage.html");
+	    js.executeScript("sessionStorage.setItem('activeUser', '{\"username\":\"admin\",\"password\":\"admin\",\"id\":3,\"name\":\"admin\",\"accountType\":3,\"balance\":0}');\r\n");
+	    
 	}
+	
+
+//-----------------------------Admin Ticket Steps -------------------------------------
+	
+
 	@Given("Admin is on view tickets page")
 	public void admin_is_on_view_tickets_page() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    driver.get("http://localhost:8081/adminAllTickets.html");
 	}
 	@When("Admin selects single ticket")
 	public void admin_selects_single_ticket() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		new WebDriverWait(driver, Duration.ofSeconds(4))
+		.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\\\"id1\\\"]")));
+		
+	    WebElement tickID = driver.findElement(By.xpath("//*[@id=\"id1\"]"));
+	    tickID.click();
+	    
 	}
 	@Then("they are taken to that ticket page")
 	public void they_are_taken_to_that_ticket_page() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		new WebDriverWait(driver, Duration.ofSeconds(4))
+		.until(ExpectedConditions.titleContains("Admin Ticket Response"));
+		
+		
+		assertEquals("Admin Ticket Response", driver.getTitle());
 	}
 	
 }

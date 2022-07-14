@@ -33,9 +33,10 @@ public class SellerAddItemSteps {
     public static void setup(){
         File chrome = new File("src/test/resources/chromedriver.exe");
         System.setProperty("webdriver.chrome.driver", chrome.getAbsolutePath());
+        driver = new ChromeDriver();
         cip = new CreateItemPage(driver);
         lp = new LoginPage(driver);
-        driver = new ChromeDriver();
+
 
     }
 
