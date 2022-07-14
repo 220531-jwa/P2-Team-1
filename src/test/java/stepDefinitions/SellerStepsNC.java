@@ -80,7 +80,7 @@ public class SellerStepsNC {
 		WebElement itemTable = driver.findElement(By.id("itemTable"));
 		assertTrue(itemTable.isDisplayed());
 	}
-
+	
 	String randomNum;
 	
 	@When("edits the item and submits")
