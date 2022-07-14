@@ -19,7 +19,7 @@ async function createAccount(){
     console.log(requestJson);
 
     let res = await fetch(
-        `${baseURL}/createAccount`, 
+        `${baseURL}createAccount`, 
         {
             method: 'POST',
             header : {'Content-Type': 'application/json'},

@@ -26,8 +26,10 @@ public class UserService {
 	}
 	public User createUser(String username, String password, String name, int accounttype){
 		if(checkUniqueUsername(username)){
+			System.out.println(checkUniqueUsername(username));
 			return ud.createUser(username, password, name, accounttype);
 		} else {
+			System.out.println("the issues is in the service layer");
 			return null;
 		}
 	}

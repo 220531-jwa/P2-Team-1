@@ -38,7 +38,7 @@ async function editItem(){
                 sessionStorage.setItem('currentItem', JSON.stringify(resp));
                 sessionStorage.setItem('currentItemId', resp.id);
                 pullItem();
-                alert("Update Success!");
+                window.alert("Update Success!");
             })
             .catch((error) =>  {console.log(error)})
 

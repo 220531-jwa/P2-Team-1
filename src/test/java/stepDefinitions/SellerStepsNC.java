@@ -64,6 +64,7 @@ public class SellerStepsNC {
 
 	@When("the seller selects item to view")
 	public void the_seller_selects_item_to_view() {
+		
 		new WebDriverWait(driver, Duration.ofSeconds(4))
 		.until(ExpectedConditions.visibilityOfElementLocated(By.id("viewButt0")));
 
@@ -90,22 +91,24 @@ public class SellerStepsNC {
 		int random = rand.nextInt(upperbound);
 		randomNum = String.valueOf(random);
 
-
 		WebElement editBtn = driver.findElement(By.id("butt"));
 		WebElement costInput = driver.findElement(By.id("newCost"));
 		WebElement submitbtn = driver.findElement(By.id("submitbtn"));
 
 	    editBtn.click();
+	    
 	    costInput.clear();
 	    costInput.sendKeys(randomNum);
 	    submitbtn.click();
+		
 	}
 
 	@Then("the edited value is now visible")
 	public void the_edited_value_is_now_visible() {
-		new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.alertIsPresent());
+		new WebDriverWait(driver, Duration.ofSeconds(4))
+		.until(ExpectedConditions.alertIsPresent());
+		
 		String alertMessage = driver.switchTo().alert().getText();
         assertEquals("Update Success!", alertMessage);
-
 	}
 }

@@ -47,7 +47,7 @@ public class UserDAO {
 		return -1;
 	}
     public User createUser(String username, String password, String name, int accounttype){
-        String sql = "insert into achieveapp.users values (default, ?, ?, ?, ?, default) returning *;";
+        String sql = "insert into achieveapp.users values (default, ?, ?, ?, ?, default, default) returning *;";
 
         try(Connection connect = cu.getConnection()){
             PreparedStatement ps = connect.prepareStatement(sql);
@@ -71,6 +71,7 @@ public class UserDAO {
         } catch(SQLException e){
             e.printStackTrace();
         }
+        System.out.println("the issues is in the DAO Layer");
         return null;
     }
 

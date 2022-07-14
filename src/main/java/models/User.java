@@ -11,6 +11,7 @@ public class User {
 	private int rewardPoints;
 
 	public User() {
+		super();
 	}
 
 	public User(String username, String password, int id, String name, int accountType, double balance, int rewardPoints) {
