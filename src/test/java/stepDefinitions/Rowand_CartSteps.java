@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.io.File;
 import java.time.Duration;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -27,6 +28,7 @@ public class Rowand_CartSteps {
 public static WebDriver driver = AchieveTestSuite.driver;
 public static CartListPage clp = AchieveTestSuite.clp;
 public static ItemPage ip = AchieveTestSuite.ip;
+
 JavascriptExecutor js = (JavascriptExecutor) driver;
 
 @BeforeAll
@@ -57,6 +59,9 @@ public void a_buyer_is_on_the_item_page() {
 
 @When("the Buyer clicks the CartButton")
 public void the_buyer_clicks_the_cart_button() {
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+	wait.until(ExpectedConditions.elementToBeClickable(By.id("AddButt0")));
+	
 	ip.pageAddButton.click();
 	ip.toCartButton.click();
 	
