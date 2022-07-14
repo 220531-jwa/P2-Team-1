@@ -96,7 +96,7 @@ public void the_buyer_clicks_on_the_remove_cart_button_by_an_item() {
 	WebElement pageDeleteButton = driver.findElement(By.id("RemoveButt0"));
 	pageDeleteButton.click();
 
-	clp.pageDeleteButton.click();
+	//clp.pageDeleteButton.click(); this is wrong, delete if it appears and replace with the above
 }
 
 @Then("the Item should be removed from the Buyer Cart")
