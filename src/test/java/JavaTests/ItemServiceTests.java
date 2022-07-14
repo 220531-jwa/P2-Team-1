@@ -40,7 +40,7 @@ public class ItemServiceTests {
     @Test
     public void should_removeInventory(){
         //given
-        Item mockItem = new Item("Initial Reality", 79.99, "Become a Warrior of Darkness and bring about the destruction of the world.", 1, 23, 4);
+        Item mockItem = new Item("Initial Reality", 79.99, "Become a Warrior of Darkness and bring about the destruction of the world.", 1, 23, 4, null);
         int inventory = mockItem.getInventory();
         //when
         when(mockId.checkoutRemoveInventory(1, 1)).thenReturn(inventory);
