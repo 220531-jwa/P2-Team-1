@@ -48,6 +48,7 @@ public class Main {
 			});
 			path("/user", () ->{
 				path("/{id}", () ->{
+					get(UserController::displayRewardPoints);
 					path("/balance", () ->{
 						patch(uc::addBalance);
 					});

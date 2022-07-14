@@ -85,5 +85,13 @@ public class UserController {
 		for(int j = 0; j < itemIds.length; j++) {
 			is.checkoutRemoveInventory(itemIds[j], 1);
 		}
+		//add reward points
+		us.addRewardPoints(id, total);
+	}
+
+	public static void displayRewardPoints(Context ctx){
+		int id = Integer.parseInt(ctx.pathParam("id"));
+		int rewardPoints = us.showRewardPoints(id);
+		ctx.json(rewardPoints);
 	}
 }

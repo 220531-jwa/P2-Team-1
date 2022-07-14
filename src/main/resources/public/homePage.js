@@ -22,7 +22,26 @@ function home(){
 
 function pullAccount(){
         let activeUser = JSON.parse(sessionStorage.activeUser);
-        document.getElementById('userMessage').innerHTML = `Hello, ${activeUser.name} what would you like to do today?`
+        document.getElementById('userMessage').innerHTML = `Hello, ${activeUser.name}. What would you like to do today?`
+}
+
+async function displayRewardPoints(){
+    let activeUser = JSON.parse(sessionStorage.activeUser); 
+    let res = await fetch(
+        `${baseUrl}user/${activeUser.id}`, 
+        {
+            method: 'GET', 
+            header: {'Content-Type': 'application/json'}
+        }
+    ); 
+    let resJson = await res.json()
+    .then((resp) => {
+        document.getElementById('RewardPoints').removeAttribute('hidden');
+        document.getElementById('RewardPoints').innerHTML = `You have ${resp} AchievePoints!`;
+    })
+    .catch((error) => {
+        console.log(error);
+    });
 }
 
 async function addBal(){
