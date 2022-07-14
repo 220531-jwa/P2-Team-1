@@ -38,10 +38,9 @@ async function editItem(){
                 sessionStorage.setItem('currentItem', JSON.stringify(resp));
                 sessionStorage.setItem('currentItemId', resp.id);
                 pullItem();
-                window.alert("Update Success!");
+                window.alert("Update Successful!");
             })
             .catch((error) =>  {console.log(error)})
-
 }
 
 function openTable(){
@@ -60,6 +59,7 @@ function openTable(){
 }
 
 async function pullItem(){
+    itemId = JSON.parse(sessionStorage.currentItemId);
     var tbody = document.getElementById('itemTable');
 
     let res = await fetch(`${baseURL}item/${itemId}`);

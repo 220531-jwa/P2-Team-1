@@ -72,6 +72,8 @@ public class SellerAddItemSteps {
     @Then("the seller will delete the made item for good measure")
     public void the_seller_will_delete_the_made_item_for_good_measure() {
     	
+    	new WebDriverWait(driver, Duration.ofSeconds(4))
+		.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("currentCost")));
     	
     	WebElement editBtn = driver.findElement(By.id("butt"));
     	editBtn.click();
@@ -84,6 +86,7 @@ public class SellerAddItemSteps {
     	
     	new WebDriverWait(driver, Duration.ofSeconds(10))
     	.until(ExpectedConditions.visibilityOfElementLocated(By.id("realDelete")));
+    	
     	new WebDriverWait(driver, Duration.ofSeconds(10))
     	.until(ExpectedConditions.elementToBeClickable(By.id("realDelete")));
     	

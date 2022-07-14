@@ -66,7 +66,7 @@ public class SellerStepsNC {
 	public void the_seller_selects_item_to_view() {
 		
 		new WebDriverWait(driver, Duration.ofSeconds(4))
-		.until(ExpectedConditions.visibilityOfElementLocated(By.id("viewButt0")));
+		.until(ExpectedConditions.visibilityOfElementLocated(By.id("viewButt2")));
 
 		WebElement viewItemBtn = driver.findElement(By.id("viewButt2"));
 		viewItemBtn.click();
@@ -82,23 +82,32 @@ public class SellerStepsNC {
 		assertTrue(itemTable.isDisplayed());
 	}
 
-	String randomNum;
+	int random;
 
 	@When("edits the item and submits")
 	public void edits_the_item_and_submits() {
 		Random rand = new Random();
 		int upperbound = 60;
-		int random = rand.nextInt(upperbound);
-		randomNum = String.valueOf(random);
+		random = rand.nextInt(upperbound);
+
 
 		WebElement editBtn = driver.findElement(By.id("butt"));
 		WebElement costInput = driver.findElement(By.id("newCost"));
 		WebElement submitbtn = driver.findElement(By.id("submitbtn"));
 
+		new WebDriverWait(driver, Duration.ofSeconds(4))
+		.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("currentCost")));
+		
 	    editBtn.click();
 	    
+	    new WebDriverWait(driver, Duration.ofSeconds(4))
+		.until(ExpectedConditions.visibilityOf(submitbtn));
+	    new WebDriverWait(driver, Duration.ofSeconds(4))
+		.until(ExpectedConditions.visibilityOf(costInput));
+	    
+	    
 	    costInput.clear();
-	    costInput.sendKeys(randomNum);
+	    costInput.sendKeys(String.valueOf(random));
 	    submitbtn.click();
 		
 	}
@@ -108,7 +117,7 @@ public class SellerStepsNC {
 		new WebDriverWait(driver, Duration.ofSeconds(4))
 		.until(ExpectedConditions.alertIsPresent());
 		
-		String alertMessage = driver.switchTo().alert().getText();
-        assertEquals("Update Success!", alertMessage);
+		assertEquals("Update Successful!" , driver.switchTo().alert().getText());
+		
 	}
 }
