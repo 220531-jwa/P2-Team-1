@@ -97,8 +97,11 @@ public void the_buyer_clicks_on_the_remove_cart_button_by_an_item() {
 }
 
 @Then("The Item should be removed from the Buyer Cart")
-public void the_item_should_be_removed_from_the_buyer_cart() {
-	assertEquals(clp.cartBody, "undefined");
+public void the_item_should_be_removed_from_the_buyer_cart() throws InterruptedException {
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+	wait.wait(5000);
+	WebElement cartBody = driver.findElement(By.id("CartBody"));
+	assertEquals(cartBody, null);
 }
 
 }
