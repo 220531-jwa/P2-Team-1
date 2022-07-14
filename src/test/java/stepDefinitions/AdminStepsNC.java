@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.cucumber.java.AfterAll;
@@ -58,9 +59,9 @@ public class AdminStepsNC {
 	@When("Admin selects single ticket")
 	public void admin_selects_single_ticket() {
 		new WebDriverWait(driver, Duration.ofSeconds(4))
-		.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\\\"id1\\\"]")));
+		.until(ExpectedConditions.visibilityOfElementLocated(By.id("id0")));
 		
-	    WebElement tickID = driver.findElement(By.xpath("//*[@id=\"id1\"]"));
+	    WebElement tickID = driver.findElement(By.id("id0"));
 	    tickID.click();
 	    
 	}
@@ -73,4 +74,26 @@ public class AdminStepsNC {
 		assertEquals("Admin Ticket Response", driver.getTitle());
 	}
 	
+	@When("Admin changes status")
+	public void admin_changes_status() {
+		new WebDriverWait(driver, Duration.ofSeconds(4))
+		.until(ExpectedConditions.visibilityOfElementLocated(By.id("newStatus")));
+		
+		WebElement selector = driver.findElement(By.id("newStatus"));
+		
+		Select stat = new Select(selector);
+		stat.selectByVisibleText("Resolved");
+		
+		WebElement statusUpdate = driver.findElement(By.id("statusBtn"));
+		statusUpdate.click();
+		
+	}
+	@Then("the new status is displayed")
+	public void the_new_status_is_displayed() {
+	    
+		new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.alertIsPresent());
+		String alertMessage = driver.switchTo().alert().getText();
+        assertEquals("Ticket has been updated successfully!", alertMessage);
+        
+	}
 }
