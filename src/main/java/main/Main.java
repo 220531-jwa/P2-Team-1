@@ -32,7 +32,6 @@ public class Main {
 		});
 		app.start(8081);
 		
-		
 		app.routes(() -> {
 			path("/createAccount", () -> {
 				post(UserController::createUser);
@@ -48,6 +47,7 @@ public class Main {
 			});
 			path("/user", () ->{
 				path("/{id}", () ->{
+					get(UserController::displayRewardPoints);
 					path("/balance", () ->{
 						patch(uc::addBalance);
 					});

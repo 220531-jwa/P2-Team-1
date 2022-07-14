@@ -1,7 +1,8 @@
 let activeUser = JSON.parse(sessionStorage.activeUser);
-let itemData = JSON.parse(sessionStorage.currentItem);
+let itemId = JSON.parse(sessionStorage.currentItemId);
+let itemData;
 
-console.log(itemData);
+console.log(itemId);
 
 async function editItem(){
     
@@ -57,8 +58,15 @@ function openTable(){
     }
 }
 
-function pullItem(){
+async function pullItem(){
     var tbody = document.getElementById('itemTable');
+
+    let res = await fetch(`${baseURL}item/${itemId}`);
+
+        let resp = await res.json()
+        .then((resp) => {
+            itemData = resp;
+        })
 
     tbody.innerHTML =
     `
