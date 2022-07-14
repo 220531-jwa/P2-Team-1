@@ -121,7 +121,9 @@ function populateCart(){
 
         mainContainer.appendChild(btn);
     }
+
     mainContainer.innerHTML += `<tr> <td> $${JSON.parse(sessionStorage.total)}</td></tr>`;
+
 }
 
 function removeFromCart(x){
