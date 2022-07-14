@@ -68,25 +68,33 @@ public class UserController {
 		int id = Integer.parseInt(ctx.pathParam("id"));
 		Cart cart = ctx.bodyAsClass(Cart.class);
 		double total = cart.getTotal();
-		//remove total from balance
-		try{
-			double balance = us.updateBalance(id, total);
-			if(balance <= 0.00){
-				ctx.status(404);
-			} else {
-				ctx.status(200);
-				ctx.json(balance);
-			}
-		} catch(Exception e){
-			e.printStackTrace();
-		}
 		//remove items from inventory
 		int[] itemIds = cart.getItemIds();
-		for(int j = 0; j < itemIds.length; j++) {
-			is.checkoutRemoveInventory(itemIds[j], 1);
+		boolean checkoutOkay = is.checkStock(itemIds);
+		if(checkoutOkay == true){
+			//remove total from balance
+			try{
+				double balance = us.updateBalance(id, total);
+				//add reward points
+				us.addRewardPoints(id, total);
+				//remove items from inventory
+				for(int i = 0; i < itemIds.length; i++){
+					is.checkoutRemoveInventory(itemIds[i], 1);
+				}
+				if(balance <= 0.00){
+					ctx.status(404);
+				} else {
+					ctx.status(200);
+					ctx.json(balance);
+				}
+			} catch(Exception e){
+				e.printStackTrace();
+			}
+		} else {
+			String message = "No inventory";
+			ctx.json(message);
+			ctx.status(404);
 		}
-		//add reward points
-		us.addRewardPoints(id, total);
 	}
 
 	public static void displayRewardPoints(Context ctx){

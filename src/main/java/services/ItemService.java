@@ -45,9 +45,21 @@ public class ItemService {
 
 	public int checkoutRemoveInventory(int itemId, int totalRemove){
 		int i = id.checkoutRemoveInventory(itemId, totalRemove);
-		if(i <= 2) {
-			System.out.println("Inventory low.");
+		if(i <= 0) {
+			return 0;
+		} else {
+			return i;
 		}
-		return i;
+	}
+
+	public boolean checkStock(int[] itemIds){
+		boolean checkoutOkay = true;
+		for(int i = 0; i < itemIds.length; i++){
+			int remaining = id.checkStock(itemIds[i]);
+			if(remaining == 0){
+				checkoutOkay = false;
+			}
+		}
+		return checkoutOkay;
 	}
 }
