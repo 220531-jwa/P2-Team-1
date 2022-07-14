@@ -120,6 +120,7 @@ function populateCart(){
         mainContainer.appendChild(btn);
     }
     mainContainer.innerHTML += `<tr> <td> $${TotalCost}</td></tr>`;
+    console.log(mainContainer.innerHTML);
 }
 
 function removeFromCart(x, TotalCost){

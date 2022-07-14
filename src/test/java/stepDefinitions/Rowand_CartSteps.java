@@ -9,6 +9,7 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -91,13 +92,13 @@ public void the_buyer_is_on_the_cart_list_page() {
 public void the_buyer_clicks_on_the_remove_cart_button_by_an_item() {
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 	wait.until(ExpectedConditions.elementToBeClickable(By.id("RemoveButt0")));
-	
-	clp.pageDeleteButton.click();
+	WebElement pageDeleteButton = driver.findElement(By.id("RemoveButt0"));
+	pageDeleteButton.click();
 }
 
 @Then("The Item should be removed from the Buyer Cart")
 public void the_item_should_be_removed_from_the_buyer_cart() {
-	assertEquals(clp.cartBody, null);
+	assertEquals(clp.cartBody, "undefined");
 }
 
 }
