@@ -1,3 +1,13 @@
 /bin/
 /target/
 pom.xml
+/target/
+
+# Default ignored files
+/shelf/
+/workspace.xml
+
+#ignore credentials
+connection.properties
+
+/.idea/

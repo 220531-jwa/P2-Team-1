@@ -6,5 +6,5 @@
 connection.properties
 
 #ignore children
-target/
-.idea/
+target
+.idea
