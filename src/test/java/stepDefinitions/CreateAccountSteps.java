@@ -53,7 +53,7 @@ public class CreateAccountSteps {
 
 		cap.createUsername.sendKeys(testchars);
 		cap.createPassword.sendKeys(testchars);
-		cap.createName.sendKeys(testchars);
+		cap.createName.sendKeys("deleteme");
 		Select stat = new Select(cap.createAccType);
 		stat.selectByVisibleText("Buyer");
 		cap.createAccountButton.click();
