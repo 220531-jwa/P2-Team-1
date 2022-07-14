@@ -32,7 +32,6 @@ public class Main {
 		});
 		app.start(8081);
 		
-		
 		app.routes(() -> {
 			path("/createAccount", () -> {
 				post(UserController::createUser);
