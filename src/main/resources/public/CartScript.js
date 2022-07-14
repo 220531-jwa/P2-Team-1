@@ -45,7 +45,7 @@ function appendItemData(resp){
         sibtn.setAttribute("onclick", "viewMore(" + resp[i].id  +")");
         sibtn.style = "width:130px";
 
-        //btn.onclick = addToCart(i);
+
         btn.style = "width:130px";
         Items.push(resp[i]);
 
@@ -98,24 +98,14 @@ function populateCart(){
 
     for(x = 0; x < Cartarr.length; x++){
         console.log(Cartarr[x]);
-       // var th = document.createElement("th");
+
         var btn = document.createElement("button");
         btn.type = "submit";
         btn.className = "btn btn-primary";
         btn.setAttribute("onclick", `removeFromCart(${x})`);
         btn.innerHTML = "Remove";
-        btn.id = "RemoveButt";
-      //  btn.onclick = removeFromCart(x);
-     //   th.scope = "row";
-      //  th.innerHTML = x+1;
-    //    tr.appendChild(th);
-    //    var td = document.createElement("td");
- //       td.innerHTML = Cartarr[x].name;
-    //    tr.appendChild("td");
- //       td.innerHTML = Cartarr[x].cost;
-  //      tr.appendChild("td");
-   //     td.innerHTML = Cartarr[x].id;
-  //      tr.appendChild("td");
+        btn.id = `RemoveButt${x}`;
+
 
         mainContainer.innerHTML += 
         `<tr id="cartData">
@@ -127,7 +117,7 @@ function populateCart(){
         <td> ${Cartarr[x].id}</td>
         </tr>`;
 
-        //mainContainer.appendChild("tr");
+
         mainContainer.appendChild(btn);
     }
     mainContainer.innerHTML += `<tr> <td> $${JSON.parse(sessionStorage.total)}</td></tr>`;
