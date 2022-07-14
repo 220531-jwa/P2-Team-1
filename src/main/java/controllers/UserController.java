@@ -3,13 +3,16 @@ package controllers;
 import io.javalin.http.Context;
 import models.Cart;
 import models.User;
+import services.ItemService;
 import services.UserService;
 
 public class UserController {
 	private static UserService us;
+	private static ItemService is;
 	
-	public UserController(UserService us) {
+	public UserController(UserService us, ItemService is) {
 		this.us = us;
+		this.is = is;
 	}
 	
 	public void addBalance(Context ctx) {
@@ -65,6 +68,7 @@ public class UserController {
 		int id = Integer.parseInt(ctx.pathParam("id"));
 		Cart cart = ctx.bodyAsClass(Cart.class);
 		double total = cart.getTotal();
+		//remove total from balance
 		try{
 			double balance = us.updateBalance(id, total);
 			if(balance <= 0.00){
@@ -75,6 +79,11 @@ public class UserController {
 			}
 		} catch(Exception e){
 			e.printStackTrace();
+		}
+		//remove items from inventory
+		int[] itemIds = cart.getItemIds();
+		for(int j = 0; j < itemIds.length; j++) {
+			is.checkoutRemoveInventory(itemIds[j], 1);
 		}
 	}
 }

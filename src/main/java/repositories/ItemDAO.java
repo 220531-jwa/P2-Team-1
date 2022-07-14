@@ -157,14 +157,14 @@ public class ItemDAO {
 	
 	public Item getItemById(int itemId) {
 		String sql = "select * from achieveapp.items where id = ?";
-				
-		try(Connection conn = cu.getConnection()){
+
+		try (Connection conn = cu.getConnection()) {
 			PreparedStatement ps = conn.prepareStatement(sql);
-			
+
 			ps.setInt(1, itemId);
-			
+
 			ResultSet rs = ps.executeQuery();
-			if(rs.next()) {
+			if (rs.next()) {
 				return new Item(
 						rs.getString("name"),
 						rs.getDouble("cost"),
@@ -173,12 +173,30 @@ public class ItemDAO {
 						rs.getInt("sellerid"),
 						rs.getInt("inventory"),
 						rs.getString("imglink")
-						);
+				);
 			}
-		}
-		catch(SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public int checkoutRemoveInventory(int itemId, int totalRemove){
+		String sql = "update achieveapp.items set inventory = inventory - ? where id = ? returning *;";
+
+		try(Connection connect = cu.getConnection()){
+			PreparedStatement ps = connect.prepareStatement(sql);
+			ps.setInt(1, totalRemove);
+			ps.setInt(2, itemId);
+
+			ResultSet rs = ps.executeQuery();
+
+			if(rs.next()){
+				return rs.getInt("inventory");
+			}
+		} catch(SQLException e){
+			e.printStackTrace();
+		}
+		return 0;
 	}
 }

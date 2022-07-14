@@ -64,7 +64,7 @@ public void the_buyer_clicks_the_cart_button() {
 	
 	ip.pageAddButton.click();
 	ip.toCartButton.click();
-	
+
 }
 
 @Then("The Element should be added to the Cart")

@@ -4,7 +4,7 @@ Scenario: Seller Inventory Displays their items
 	Given A test seller account is loaded
 	And seller is on the seller inventory page
 	Then seller inventory is displayed
-	
+
 Scenario: Seller can view single inventory item
 	Given A test seller account is loaded
 	And seller is on the seller inventory page
