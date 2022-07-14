@@ -25,7 +25,8 @@ Scenario: Buyer can add an item to their cart
      Then The Element should be added to the Cart
 
 Scenario: A Buyer can remove an Item from their Cart
-     Given the test buyer account is loeaded
+     Given the test buyer account is loaded
+     And An Item exists in the Cart
      And the buyer is on the CartListPage
      When the Buyer clicks on the RemoveCartButton by an Item
      Then the Item should be removed from the Buyer Cart

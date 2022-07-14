@@ -30,7 +30,7 @@ public class ItemServiceTests {
     @Test
     public void should_createNewItem(){
         //given
-        Item mockItem = new Item("Initial Reality", 79.99, "Become a Warrior of Darkness and bring about the destruction of the world.", 1, 23, 1);
+        Item mockItem = new Item("Initial Reality", 79.99, "Become a Warrior of Darkness and bring about the destruction of the world.", 1, 23, 1, null);
         //when
         when(mockId.createNewItem("Initial Reality", 79.99, "Become a Warrior of Darkness and bring about the destruction of the world.", 23, 23)).thenReturn(mockItem);
         //then
