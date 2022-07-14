@@ -59,11 +59,40 @@ public class SellerAddItemSteps {
         cip.createItemCost.sendKeys(cost);
         cip.createItemInventory.sendKeys(inventory);
         cip.createItemSubmitBtn.click();
+        
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+    	.until(ExpectedConditions.titleContains("Item View"));
     }
     @Then("the Seller will see the Item Created message")
     public void the_seller_will_see_the_item_created_message() {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.textToBePresentInElement(cip.createItemMessage, "Item successfully created!"));
-        WebElement msgDisp = driver.findElement(By.id("message"));
-        assertEquals(true, msgDisp.isDisplayed());
+    	
+        assertEquals("Item View", driver.getTitle());
+    }
+    
+    @Then("the seller will delete the made item for good measure")
+    public void the_seller_will_delete_the_made_item_for_good_measure() {
+    	
+    	
+    	WebElement editBtn = driver.findElement(By.id("butt"));
+    	editBtn.click();
+    	
+    	new WebDriverWait(driver, Duration.ofSeconds(10))
+    	.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("deletebtn")));
+    	
+    	WebElement deletebtn = driver.findElement(By.id("deletebtn"));
+    	deletebtn.click();
+    	
+    	new WebDriverWait(driver, Duration.ofSeconds(10))
+    	.until(ExpectedConditions.elementToBeClickable(By.id("realDelete")));
+    	
+    	WebElement realdeletebtn = driver.findElement(By.id("realDelete"));
+    	realdeletebtn.click();
+    	
+    	new WebDriverWait(driver, Duration.ofSeconds(10))
+    	.until(ExpectedConditions.titleContains("Item Page"));
+    	
+    	assertEquals("Item Page", driver.getTitle());
+    	
+    	
     }
 }

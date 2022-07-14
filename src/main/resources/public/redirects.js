@@ -60,3 +60,7 @@ function toSingleItem(){
 function toAddItemPage(){
     window.location = `${baseURL}sellerAddItem.html`;
 }
+
+function toSellerItemView(){
+    window.location = `${baseURL}sellerItemView.html`;
+}

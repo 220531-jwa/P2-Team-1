@@ -3,7 +3,7 @@ let activeUser = JSON.parse(sessionStorage.activeUser);
 async function newItem(){
     let gname = document.getElementById("gameName").value;
     let price = document.getElementById("cost").value;
-    let description = document.getElementById("desc").value
+    let description = document.getElementById("desc").value;
     let number = document.getElementById("inventory").value;
 
     if(gname === "" || description === "" || price === "" || number === ""){
@@ -13,7 +13,7 @@ async function newItem(){
 
     let request = {
         name: gname,
-        cost: price, 
+        cost: price,
         desc: description,
         inventory: number
     }
@@ -34,6 +34,9 @@ async function newItem(){
         .then((resp) => {
             console.log(resp);
             document.getElementById('message').innerHTML = "Item successfully created!";
+            sessionStorage.setItem('currentItemId', resp.id);
+            toSellerItemView();
+
         })
         .catch((error) => {
             console.log(error);

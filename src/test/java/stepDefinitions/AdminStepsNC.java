@@ -59,9 +59,9 @@ public class AdminStepsNC {
 	@When("Admin selects single ticket")
 	public void admin_selects_single_ticket() {
 		new WebDriverWait(driver, Duration.ofSeconds(4))
-		.until(ExpectedConditions.visibilityOfElementLocated(By.id("id0")));
+		.until(ExpectedConditions.visibilityOfElementLocated(By.id("id1")));
 
-	    WebElement tickID = driver.findElement(By.id("id0"));
+	    WebElement tickID = driver.findElement(By.id("id1"));
 	    tickID.click();
 
 	}

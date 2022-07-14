@@ -54,16 +54,18 @@ function appendItemData(resp){
         <tr><th>Description:</th><td>${resp[i].desc}</td></tr>
         <tr><th>Cost:</th><td id="currentCost">${resp[i].cost}</td></tr>
         <tr><th>In Stock:</th><td>${resp[i].inventory}</td></tr>
-        <tr><td><button class="btn btn-info" onclick="addToCart(${resp[i].id})">Add to Cart</button></td>
+        <tr><td><button class="btn btn-info" id="AddButt${i}" onclick="addToCart(${i})">Add to Cart</button></td>
         <td><button class="btn btn-primary" onclick="viewMore(${resp[i].id})">View More Info</button></td></tr>
         `;
+        
+        Items.push(resp[i]);
     }
     
 }
 
 function addToCart(id){
     totalCost = totalCost + Items[id].cost;
-
+    totalCost = Math.round(totalCost * 100)/100;
 
     console.log(Items[id]);
     var mainContainer = document.getElementById('itemData');
@@ -247,6 +249,6 @@ async function getItemInformation(){
 
 function updateCartButton(){
     let cartbtn = document.getElementById('cartButton');
-    cartbtn.innerText = `Cart (${JSON.parse(sessionStorage.cart).length} items $${JSON.parse(sessionStorage.total)})`;
+    cartbtn.innerText = `Cart (${JSON.parse(sessionStorage.cart).length} items $${sessionStorage.total})`;
 }
 

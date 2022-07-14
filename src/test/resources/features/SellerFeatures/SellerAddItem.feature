@@ -7,4 +7,4 @@ Feature: Add an item
 
     Examples:
     |name        |description               |cost |inventory|
-    |Nario Tennis|Play tennis as Nario. Yay.|45.99|4        |
+    |Test Game Creation|This is a test      |72.82|15        |

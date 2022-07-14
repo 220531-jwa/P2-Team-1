@@ -27,6 +27,8 @@ function appendItemData(resp){
     console.log(itemResp);
     var mainContainer = document.getElementById('sellerData');
 
+    mainContainer.innerHTML = "";
+
     for(var i = 0; i < resp.length; i++){
         mainContainer.innerHTML += 
         `
@@ -53,7 +55,7 @@ function appendItemData(resp){
         <tr><th>Description:</th><td>${resp[i].desc}</td></tr>
         <tr><th>Cost:</th><td id="currentCost">${resp[i].cost}</td></tr>
         <tr><th>In Stock:</th><td>${resp[i].inventory}</td></tr>
-        <tr><td><button class="btn btn-primary" onclick="ViewItem(${resp[i].id})">View More Info</button></td></tr>
+        <tr><td><button id=viewButt${i} class="btn btn-primary" onclick="ViewItem(${resp[i].id})">View More Info</button></td></tr>
         `;
     }
     
