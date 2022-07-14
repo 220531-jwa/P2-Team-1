@@ -89,9 +89,9 @@ public class SellerAddItemSteps {
     	realdeletebtn.click();
     	
     	new WebDriverWait(driver, Duration.ofSeconds(10))
-    	.until(ExpectedConditions.titleContains("Item Page"));
+    	.until(ExpectedConditions.titleContains("Item View"));
     	
-    	assertEquals("Item Page", driver.getTitle());
+    	assertEquals("Item View", driver.getTitle());
     	
     	
     }
