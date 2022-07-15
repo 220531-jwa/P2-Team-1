@@ -1,5 +1,5 @@
 async function getAdminData(){
-    let res = await fetch(`${baseUrl}/item`);//the url where we're sending this request.
+    let res = await fetch(`${baseURL}item`);//the url where we're sending this request.
 
 if(res.status == 200){
     let data = await res.json()
@@ -45,7 +45,7 @@ function appendAdminData(resp){
 function deleteItem(id){
     //will be a PATCH request
     let res = await fetch(
-        `${baseUrl}/item/${id}`, //the url where we're sending this request.
+        `${baseURL}item/${id}`, //the url where we're sending this request.
         {
             method: 'DELETE',
             header: {'Content-Type': 'application/json'},

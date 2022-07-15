@@ -5,7 +5,7 @@ let activeUser = JSON.parse(sessionStorage.activeUser);
 
 
 async function getItemData(){
-    let res = await fetch(`${baseURL}/item`);//the url where we're sending this request.
+    let res = await fetch(`${baseURL}item`);//the url where we're sending this request.
 
 if(res.status == 200){
     let data = await res.json()
@@ -169,7 +169,7 @@ async function checkOut(){
     console.log(requestJson);
 
     let res = await fetch(
-        `${baseURL}/user/${uid}/checkout`,
+        `${baseURL}user/${uid}/checkout`,
         {
             method : 'PATCH',
             header : {'Content-Type': 'application/json'},
