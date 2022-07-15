@@ -1,5 +1,4 @@
 bin/
-target/
 pom.xml
 .settings/
 .idea/
@@ -14,3 +13,4 @@ pom.xml
 connection.properties
 
 .idea/
+/target/

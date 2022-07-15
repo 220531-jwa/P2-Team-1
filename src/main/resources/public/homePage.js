@@ -1,5 +1,3 @@
-let baseUrl = 'http://localhost:8081/'
-
 function home(){
 
     if(sessionStorage.activeUser != null){
@@ -28,7 +26,7 @@ function pullAccount(){
 async function displayRewardPoints(){
     let activeUser = JSON.parse(sessionStorage.activeUser); 
     let res = await fetch(
-        `${baseUrl}user/${activeUser.id}`, 
+        `${baseURL}user/${activeUser.id}`, 
         {
             method: 'GET', 
             header: {'Content-Type': 'application/json'}
@@ -49,7 +47,7 @@ async function addBal(){
     let activeUser = JSON.parse(sessionStorage.activeUser);
 
     let res = await fetch(
-        `${baseUrl}user/${activeUser.id}/balance`,
+        `${baseURL}user/${activeUser.id}/balance`,
         {
             method: 'PATCH',
             header: {'Content-Type': 'application/json'},

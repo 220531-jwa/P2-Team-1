@@ -1,4 +1,4 @@
-let baseURL = 'http://localhost:8081/';
+let baseURL = 'http://ec2-18-144-174-63.us-west-1.compute.amazonaws.com:8081';
 
 function toHome(){
     window.location =`${baseURL}homePage.html`;
