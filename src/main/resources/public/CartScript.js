@@ -91,7 +91,7 @@ function populateCart(){
     let total = sessionStorage.getItem('total');
     let TotalCost = JSON.parse(total);
     console.log(TotalCost);
-
+    mainContainer.innerHTML = "";
 
     var tr = document.createElement("tr");
     if(Cartarr == null){
@@ -137,7 +137,7 @@ function removeFromCart(x){
 
     sessionStorage.setItem('cart', JSON.stringify(Cartarr));
     sessionStorage.setItem('total', JSON.stringify(TotalCost));
-    window.location.assign("./CartListPage.html");
+    populateCart();
     updateCartButton();
 }
 
