@@ -1,7 +1,10 @@
-/bin/
-/target/
+bin/
+target/
 pom.xml
-/target/
+.settings/
+.idea/
+
+
 
 # Default ignored files
 /shelf/
@@ -10,4 +13,4 @@ pom.xml
 #ignore credentials
 connection.properties
 
-/.idea/
+.idea/

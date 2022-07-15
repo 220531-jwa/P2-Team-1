@@ -118,5 +118,9 @@
 	</dependency>
 
 
-</dependencies>
+	</dependencies>
+
+	<build>
+	
+	</build>
 </project>

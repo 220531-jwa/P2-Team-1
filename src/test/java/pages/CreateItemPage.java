@@ -24,8 +24,9 @@ public class CreateItemPage {
     @FindBy(id = "inventory")
     public WebElement createItemInventory;
 
-    @FindBy(id = "submit")
+    @FindBy(xpath = "/html/body/button")
     public WebElement createItemSubmitBtn;
+    
     @FindBy(id = "message")
     public WebElement createItemMessage;
 }
