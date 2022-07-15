@@ -45,5 +45,5 @@ async function loadUser(){
 
 function viewSingleTicket(val){
     sessionStorage.setItem('ticketId', val);
-    window.location = `${baseURL}viewTicket.html`
+    window.location = `viewTicket.html`
 }

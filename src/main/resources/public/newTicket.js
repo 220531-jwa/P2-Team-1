@@ -33,7 +33,7 @@ async function newTicket(){
         console.log(resp);
         sessionStorage.setItem('ticket' ,JSON.stringify(resp));
         sessionStorage.setItem('ticketId', resp.id);
-        window.location = `${baseURL}viewTicket.html`;  
+        window.location = `./viewTicket.html`;  
          })  
                                 
          .catch()   //will catch if there is an error

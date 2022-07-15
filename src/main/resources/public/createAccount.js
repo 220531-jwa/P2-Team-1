@@ -30,7 +30,7 @@ async function createAccount(){
     let resJson = await res.json()
     .then((resp) => {
         console.log(resp);
-        window.location = `${baseURL}login.html`;
+        window.location = `./login.html`;
     })
     .catch((error) => {
         console.log(error);

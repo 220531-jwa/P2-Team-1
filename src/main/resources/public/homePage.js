@@ -79,8 +79,6 @@ function  toggleError(id){
 }
 
 function logout(){
-    sessionStorage.removeItem('cart');
-    sessionStorage.removeItem('total');
     sessionStorage.clear;
     
     toLogin();

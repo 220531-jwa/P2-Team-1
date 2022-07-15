@@ -54,7 +54,7 @@ async function trueDelete(){
             method: 'DELETE'
         }
     )
-    window.location = `${baseURL}allTickets.html`
+    window.location = `./allTickets.html`
 }
 
 function hideBox(){
