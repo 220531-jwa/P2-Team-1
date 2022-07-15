@@ -28,7 +28,7 @@ public class Main {
 		
 		Javalin app = Javalin.create(config -> {
 			config.enableCorsForAllOrigins(); //config.enableCors origin mapping needed
-			config.addStaticFiles("/public", Location.CLASSPATH);
+//			config.addStaticFiles("/public", Location.CLASSPATH);
 		});
 		app.start(8081);
 		

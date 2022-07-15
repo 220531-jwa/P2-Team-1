@@ -63,7 +63,7 @@ function appendItemData(resp){
 
 function ViewItem(i){
     sessionStorage.setItem('currentItemId', JSON.stringify(i));
-    window.location = `${baseURL}sellerItemView.html`;
+    window.location = `sellerItemView.html`;
 }
 
 //function ChangeStock(){

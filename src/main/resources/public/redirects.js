@@ -1,66 +1,66 @@
 let baseURL = 'http://ec2-54-183-241-19.us-west-1.compute.amazonaws.com:8081/';
 
 function toHome(){
-    window.location =`${baseURL}homePage.html`;
+    window.location =`homePage.html`;
 }
 
 function toLogin(){
-    window.location =`${baseURL}login.html`;
+    window.location =`login.html`;
 }
 
 function toCreateAccount(){
-    window.location = `${baseURL}createAccount.html`;
+    window.location = `createAccount.html`;
 }
 
 function toSubmitNew(){
-    window.location = `${baseURL}newTicket.html`;
+    window.location = `newTicket.html`;
 }
 
 function toProductsPage(){
-    window.location =`${baseURL}ItemPage.html`;
+    window.location =`ItemPage.html`;
 }
 
 function toAllTickets(){
-    window.location =`${baseURL}allTickets.html`;
+    window.location =`allTickets.html`;
 }
 
 function toCart(){
-    window.location =`${baseURL}CartListPage.html`;
+    window.location =`CartListPage.html`;
 }
 
 function viewAllAdminTicket(){
-    window.location =`${baseURL}adminAllTickets.html`;
+    window.location =`adminAllTickets.html`;
 }
 
 function toAdminSingleTicket(){
-    window.location =`${baseURL}adminTicketResponse.html`;
+    window.location =`adminTicketResponse.html`;
 }
 
 function toSellerHome(){
-    window.location = `${baseURL}sellerHomePage.html`;
+    window.location = `sellerHomePage.html`;
 }
 
 function toAdminHome(){
-    window.location = `${baseURL}adminHome.html`;
+    window.location = `adminHome.html`;
 }
 
 function toSellerInventory(){
-    window.location = `${baseURL}sellerInventory.html`;
+    window.location = `sellerInventory.html`;
 }
 
 function toAdminTickets(){
-    window.location = `${baseURL}adminAllTickets.html`;
+    window.location = `adminAllTickets.html`;
 }
 
 
 function toSingleItem(){
-    window.location = `${baseURL}singleItem.html`;
+    window.location = `singleItem.html`;
 }
 
 function toAddItemPage(){
-    window.location = `${baseURL}sellerAddItem.html`;
+    window.location = `sellerAddItem.html`;
 }
 
 function toSellerItemView(){
-    window.location = `${baseURL}sellerItemView.html`;
+    window.location = `sellerItemView.html`;
 }
