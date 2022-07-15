@@ -121,6 +121,15 @@
 	</dependencies>
 
 	<build>
+		<resources>
+        <resource>
+            <directory>src/main/java</directory>
+            <includes>
+                <include>**/*.properties</include>
+            </includes>
+        </resource>
+		</resources>
+	
 		<plugins>
 
 			<plugin>
@@ -133,6 +142,7 @@
 						</goals>
 					</execution>
 				</executions>
+				<version>3.4.1</version>
 				<configuration>
 					<descriptorRefs>
 						<!-- This tells Maven to include all dependencies -->
